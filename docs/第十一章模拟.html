@@ -361,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>单一求解在参数(<code>$params</code>)和实际数据集中缺少id列。</li>
 <li>单一求解允许更轻松地探索参数，因为每个参数都可以修改。对于多个个体求解，您必须确保更新每个单独的参数。</li>
 </ul>
-<p>第一个明显的区别是速度；对于多个个体，你可以并行运行每个个体ID。有关多个体求解速度提高的更多信息和示例，参阅rxdoe添加包的<a href="https://nlmixr2.github.io/rxode2-manual/rxode2-speed.html">加速rxode2</a>插图。</p>
+<p>第一个明显的区别是速度;对于多个个体，你可以并行运行每个个体ID。有关多个体求解速度提高的更多信息和示例，参阅rxdoe添加包的<a href="https://nlmixr2.github.io/rxode2-manual/rxode2-speed.html">加速rxode2</a>插图。</p>
 <p>下一个区别是最终数据中输出的信息量。</p>
 <p>以教程中最初的2房室间接效应模型为例：</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="第十一章模拟.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
@@ -661,7 +661,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="模拟临床试验" class="section level2 hasAnchor">
 <h2>11.3模拟临床试验<a href="第十一章模拟.html#模拟临床试验" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>通过使用简单的单一事件表或来自上述临床试验的数据，可以执行完整的临床试验模拟。</p>
-<p>通常在临床试验模拟中，您希望考虑固定效应参数估计中的不确定性【译者注：这里的不确定性是指参数估计的精度，以及精度的方差协方差矩阵；参数估计的精度不仅固定效应参数有，个体间变异和个体内变异等参数也存在其对应的精度的方差协方差矩阵；初学者容易将不确定性的方差协方差矩阵与描述个体间变异OMEGA(OMEGA矩阵也是一种方差协方差矩阵)混淆，读者应区分并知悉这是两种不同的东西】，甚至包括受试者之间的变异以及无法解释的变异的不确定性。</p>
+<p>通常在临床试验模拟中，您希望考虑固定效应参数估计中的不确定性【译者注：这里的不确定性是指参数估计的精度，以及精度的方差协方差矩阵;参数估计的精度不仅固定效应参数有，个体间变异和个体内变异等参数也存在其对应的精度的方差协方差矩阵;初学者容易将不确定性的方差协方差矩阵与描述个体间变异OMEGA(OMEGA矩阵也是一种方差协方差矩阵)混淆，读者应区分并知悉这是两种不同的东西】，甚至包括受试者之间的变异以及无法解释的变异的不确定性。</p>
 <p><code>rxode2</code>允许您在模拟时通过参数<code>nStud</code>指定多个虚拟“研究”进行模拟，来解释这些不确定性 。这些研究中的每一项都对个体间变异<code>omega</code>)和未解释变异(sigma)之间的固定效应效应参数和协方差矩阵的实现进行了采样。根据你从模型中得到的信息，有几种策略可用于模拟<code>omega</code>和<code>sigma</code>矩阵的实现。</p>
 <p>第一种策略，在标准差(或相关参数)没有任何标准误时，或者在您所模拟的模型中存在参数间相关性时，采用此策略。在这种情况下，建议的策略是使用逆Wishart（参数化以缩放到共轭先验）/<a href="https://en.wikipedia.org/wiki/Scaled_inverse_chi-squared_distribution">缩放逆chi分布</a>。 这种方法使用单个参数来告知 采样的协方差矩阵的变异性（自由度）。</p>
 <p>第二种策略，如果您在方差/标准差上有标准误，而协方差矩阵中没有参数间相关性，采用此策略。在这种方法中，您可以分别对标准差和相关矩阵进行模拟。首先，在thetaMat多元正态模拟中模拟方差/标准差分量。在模拟并转换为标准差后，将使用协方差矩阵的自由度来模拟相关矩阵。将模拟的标准差与模拟的相关矩阵相结合后将得到一个模拟的协方差矩阵。对于较小维度的协方差矩阵 （尺寸&lt;10x10）建议您使用<code>lkj</code>分布来模拟相关矩阵。对于更高维度的协方差矩阵，建议您使用逆wishart分布(转换为相关矩阵)进行模拟。</p>
@@ -754,7 +754,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb198-2"><a href="第十一章模拟.html#cb198-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">prop.sd=</span><span class="fl">2.05E-01</span>, <span class="at">add.sd=</span><span class="fl">1.06E-02</span>, <span class="at">crcl.cl=</span><span class="fl">7.17E-03</span>,</span>
 <span id="cb198-3"><a href="第十一章模拟.html#cb198-3" aria-hidden="true" tabindex="-1"></a>           <span class="do">## Note that since we are using the separation strategy the ETA variances are here too</span></span>
 <span id="cb198-4"><a href="第十一章模拟.html#cb198-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">eta.cl=</span><span class="fl">7.30E-02</span>,  <span class="at">eta.v=</span><span class="fl">3.80E-02</span>, <span class="at">eta.ka=</span><span class="fl">1.91E+00</span>)</span></code></pre></div>
-<p>以及它们的协方差；对我来说，创建命名协方差矩阵的最简单方法是使用<code>lotri()</code>：</p>
+<p>以及它们的协方差;对我来说，创建命名协方差矩阵的最简单方法是使用<code>lotri()</code>：</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="第十一章模拟.html#cb199-1" aria-hidden="true" tabindex="-1"></a>thetaMat <span class="ot">&lt;-</span> <span class="fu">lotri</span>(</span>
 <span id="cb199-2"><a href="第十一章模拟.html#cb199-2" aria-hidden="true" tabindex="-1"></a>    tcl <span class="sc">+</span> tv <span class="sc">+</span> tka <span class="sc">+</span> tlag <span class="sc">+</span> prop.sd <span class="sc">+</span> add.sd <span class="sc">+</span> crcl.cl <span class="sc">+</span> eta.cl <span class="sc">+</span> eta.v <span class="sc">+</span> eta.ka <span class="sc">~</span></span>
 <span id="cb199-3"><a href="第十一章模拟.html#cb199-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="fl">7.95E-01</span>,</span>

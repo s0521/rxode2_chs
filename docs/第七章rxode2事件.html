@@ -465,18 +465,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="第七章rxode2事件.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
 <span id="cb41-2"><a href="第七章rxode2事件.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="do">### Model from rxode2 tutorial</span></span>
 <span id="cb41-3"><a href="第七章rxode2事件.html#cb41-3" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">&lt;</span> <span class="sc">-</span> <span class="fu">rxode</span>({</span>
-<span id="cb41-4"><a href="第七章rxode2事件.html#cb41-4" aria-hidden="true" tabindex="-1"></a>KA <span class="ot">=</span><span class="fl">2.94</span> e<span class="sc">-</span>01；</span>
-<span id="cb41-5"><a href="第七章rxode2事件.html#cb41-5" aria-hidden="true" tabindex="-1"></a>CL <span class="ot">=</span><span class="fl">1.86</span> e <span class="sc">+</span> 01；</span>
-<span id="cb41-6"><a href="第七章rxode2事件.html#cb41-6" aria-hidden="true" tabindex="-1"></a>V2 <span class="ot">=</span><span class="fl">4.02</span> e <span class="sc">+</span> 01；</span>
-<span id="cb41-7"><a href="第七章rxode2事件.html#cb41-7" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span><span class="fl">1.05</span> e <span class="sc">+</span> 01；</span>
-<span id="cb41-8"><a href="第七章rxode2事件.html#cb41-8" aria-hidden="true" tabindex="-1"></a>V3 <span class="ot">=</span><span class="fl">2.97</span> e <span class="sc">+</span> 02；</span>
-<span id="cb41-9"><a href="第七章rxode2事件.html#cb41-9" aria-hidden="true" tabindex="-1"></a>kin<span class="ot">=</span>1；</span>
-<span id="cb41-10"><a href="第七章rxode2事件.html#cb41-10" aria-hidden="true" tabindex="-1"></a>Kout <span class="ot">=</span>1；</span>
-<span id="cb41-11"><a href="第七章rxode2事件.html#cb41-11" aria-hidden="true" tabindex="-1"></a>EC50 <span class="ot">=</span>200；</span>
+<span id="cb41-4"><a href="第七章rxode2事件.html#cb41-4" aria-hidden="true" tabindex="-1"></a>KA <span class="ot">=</span><span class="fl">2.94</span> e<span class="dv">-01</span>;</span>
+<span id="cb41-5"><a href="第七章rxode2事件.html#cb41-5" aria-hidden="true" tabindex="-1"></a>CL <span class="ot">=</span><span class="fl">1.86</span> e <span class="sc">+</span> <span class="dv">01</span>;</span>
+<span id="cb41-6"><a href="第七章rxode2事件.html#cb41-6" aria-hidden="true" tabindex="-1"></a>V2 <span class="ot">=</span><span class="fl">4.02</span> e <span class="sc">+</span> <span class="dv">01</span>;</span>
+<span id="cb41-7"><a href="第七章rxode2事件.html#cb41-7" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span><span class="fl">1.05</span> e <span class="sc">+</span> <span class="dv">01</span>;</span>
+<span id="cb41-8"><a href="第七章rxode2事件.html#cb41-8" aria-hidden="true" tabindex="-1"></a>V3 <span class="ot">=</span><span class="fl">2.97</span> e <span class="sc">+</span> <span class="dv">02</span>;</span>
+<span id="cb41-9"><a href="第七章rxode2事件.html#cb41-9" aria-hidden="true" tabindex="-1"></a>kin<span class="ot">=</span><span class="dv">1</span>;</span>
+<span id="cb41-10"><a href="第七章rxode2事件.html#cb41-10" aria-hidden="true" tabindex="-1"></a>Kout <span class="ot">=</span><span class="dv">1</span>;</span>
+<span id="cb41-11"><a href="第七章rxode2事件.html#cb41-11" aria-hidden="true" tabindex="-1"></a>EC50 <span class="ot">=</span><span class="dv">200</span>;</span>
 <span id="cb41-12"><a href="第七章rxode2事件.html#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="do">### Added modeled bioavaiblity, duration and rate</span></span>
-<span id="cb41-13"><a href="第七章rxode2事件.html#cb41-13" aria-hidden="true" tabindex="-1"></a>    fdepot <span class="ot">=</span> 1；</span>
-<span id="cb41-14"><a href="第七章rxode2事件.html#cb41-14" aria-hidden="true" tabindex="-1"></a>    durDepot <span class="ot">=</span> 8；</span>
-<span id="cb41-15"><a href="第七章rxode2事件.html#cb41-15" aria-hidden="true" tabindex="-1"></a>    rateDepot <span class="ot">=</span> 1250；</span>
+<span id="cb41-13"><a href="第七章rxode2事件.html#cb41-13" aria-hidden="true" tabindex="-1"></a>    fdepot <span class="ot">=</span> <span class="dv">1</span>;</span>
+<span id="cb41-14"><a href="第七章rxode2事件.html#cb41-14" aria-hidden="true" tabindex="-1"></a>    durDepot <span class="ot">=</span> <span class="dv">8</span>;</span>
+<span id="cb41-15"><a href="第七章rxode2事件.html#cb41-15" aria-hidden="true" tabindex="-1"></a>    rateDepot <span class="ot">=</span> <span class="dv">1250</span>;</span>
 <span id="cb41-16"><a href="第七章rxode2事件.html#cb41-16" aria-hidden="true" tabindex="-1"></a>    C2 <span class="ot">=</span> centr<span class="sc">/</span>V2;</span>
 <span id="cb41-17"><a href="第七章rxode2事件.html#cb41-17" aria-hidden="true" tabindex="-1"></a>    C3 <span class="ot">=</span> peri<span class="sc">/</span>V3;</span>
 <span id="cb41-18"><a href="第七章rxode2事件.html#cb41-18" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span><span class="sc">-</span>KA<span class="sc">*</span>depot;</span>
@@ -521,11 +521,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb43-22"><a href="第七章rxode2事件.html#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
 <p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="第七章rxode2事件.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
-<span id="cb44-2"><a href="第七章rxode2事件.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb44-2"><a href="第七章rxode2事件.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb44-3"><a href="第七章rxode2事件.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb44-4"><a href="第七章rxode2事件.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb44-4"><a href="第七章rxode2事件.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb44-5"><a href="第七章rxode2事件.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb44-6"><a href="第七章rxode2事件.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb44-6"><a href="第七章rxode2事件.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb44-7"><a href="第七章rxode2事件.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb44-8"><a href="第七章rxode2事件.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb44-9"><a href="第七章rxode2事件.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -552,12 +552,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>7.3输注给药<a href="第七章rxode2事件.html#输注给药" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>rxode2支持几种不同类型的输注实现形式:</p>
 <ul>
-<li><p>已知输注速率的输注(<code>rate</code>）【译者注：常见于已知道输注速率的静脉输液；此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应大于0】</p></li>
-<li><p>已知输注时长的输注(<code>dur</code>）【译者注：常见于已知道输注持续时长的静脉输液；此时应在事件表中给出<code>dur</code>，并且<code>dur</code>的值应大于0】</p></li>
-<li><p>需要估计输注速率的输注(零级速率吸收)【译者注：常见于将吸收处理为零级速率吸收，并需要估计吸收的零级速率常数；此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应为<code>-1</code>】</p></li>
-<li><p>需要估计输注时长的输注(零级速率吸收)【译者注：常见于将吸收处理为零级速率吸收，并需要估计吸收的持续的时长；此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应为<code>-2</code>】</p></li>
+<li><p>已知输注速率的输注(<code>rate</code>）【译者注：常见于已知道输注速率的静脉输液;此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应大于0】</p></li>
+<li><p>已知输注时长的输注(<code>dur</code>）【译者注：常见于已知道输注持续时长的静脉输液;此时应在事件表中给出<code>dur</code>，并且<code>dur</code>的值应大于0】</p></li>
+<li><p>需要估计输注速率的输注(零级速率吸收)【译者注：常见于将吸收处理为零级速率吸收，并需要估计吸收的零级速率常数;此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应为<code>-1</code>】</p></li>
+<li><p>需要估计输注时长的输注(零级速率吸收)【译者注：常见于将吸收处理为零级速率吸收，并需要估计吸收的持续的时长;此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应为<code>-2</code>】</p></li>
 </ul>
-<p>【译者注：对于0级速率吸收，模型参数化时存在4种形式，对应上述的4中实现形式：1人为可以控制的0级吸收（比如静脉输液），并且在数据中给出吸收速率；2人为可以控制的0级吸收（比如静脉输液），并且在数据中给出吸收持续的时长；3被近似认为是0级速率吸收，但仅知道药量，并需要估计吸收的0级速率常数；4被近似认为是0级速率吸收，但仅知道药量，并需要估计吸收持续的时长；】</p>
+<p>【译者注：对于0级速率吸收，模型参数化时存在4种形式，对应上述的4中实现形式：1人为可以控制的0级吸收（比如静脉输液），并且在数据中给出吸收速率;2人为可以控制的0级吸收（比如静脉输液），并且在数据中给出吸收持续的时长;3被近似认为是0级速率吸收，但仅知道药量，并需要估计吸收的0级速率常数;4被近似认为是0级速率吸收，但仅知道药量，并需要估计吸收持续的时长;】</p>
 <div id="已知输注速率或输注时长的输注" class="section level3 hasAnchor">
 <h3>7.3.1已知输注速率或输注时长的输注<a href="第七章rxode2事件.html#已知输注速率或输注时长的输注" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>下一种类型的事件是输注入;有两种方法可以指定输注;第一种是<code>dur</code>关键字。</p>
@@ -591,11 +591,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb47-22"><a href="第七章rxode2事件.html#cb47-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
 <p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="第七章rxode2事件.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
-<span id="cb48-2"><a href="第七章rxode2事件.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb48-2"><a href="第七章rxode2事件.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb48-3"><a href="第七章rxode2事件.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb48-4"><a href="第七章rxode2事件.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb48-4"><a href="第七章rxode2事件.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb48-5"><a href="第七章rxode2事件.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb48-6"><a href="第七章rxode2事件.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb48-6"><a href="第七章rxode2事件.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb48-7"><a href="第七章rxode2事件.html#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb48-8"><a href="第七章rxode2事件.html#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb48-9"><a href="第七章rxode2事件.html#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -646,11 +646,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb51-22"><a href="第七章rxode2事件.html#cb51-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
 <p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="第七章rxode2事件.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
-<span id="cb52-2"><a href="第七章rxode2事件.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb52-2"><a href="第七章rxode2事件.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb52-3"><a href="第七章rxode2事件.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb52-4"><a href="第七章rxode2事件.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb52-4"><a href="第七章rxode2事件.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb52-5"><a href="第七章rxode2事件.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb52-6"><a href="第七章rxode2事件.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb52-6"><a href="第七章rxode2事件.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb52-7"><a href="第七章rxode2事件.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb52-8"><a href="第七章rxode2事件.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb52-9"><a href="第七章rxode2事件.html#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -731,11 +731,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb59-22"><a href="第七章rxode2事件.html#cb59-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
 <p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="第七章rxode2事件.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
-<span id="cb60-2"><a href="第七章rxode2事件.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb60-2"><a href="第七章rxode2事件.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb60-3"><a href="第七章rxode2事件.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb60-4"><a href="第七章rxode2事件.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb60-4"><a href="第七章rxode2事件.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb60-5"><a href="第七章rxode2事件.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb60-6"><a href="第七章rxode2事件.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb60-6"><a href="第七章rxode2事件.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb60-7"><a href="第七章rxode2事件.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb60-8"><a href="第七章rxode2事件.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb60-9"><a href="第七章rxode2事件.html#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -786,11 +786,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb63-22"><a href="第七章rxode2事件.html#cb63-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
 <p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="第七章rxode2事件.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
-<span id="cb64-2"><a href="第七章rxode2事件.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb64-2"><a href="第七章rxode2事件.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb64-3"><a href="第七章rxode2事件.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb64-4"><a href="第七章rxode2事件.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb64-4"><a href="第七章rxode2事件.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb64-5"><a href="第七章rxode2事件.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb64-6"><a href="第七章rxode2事件.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb64-6"><a href="第七章rxode2事件.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb64-7"><a href="第七章rxode2事件.html#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb64-8"><a href="第七章rxode2事件.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb64-9"><a href="第七章rxode2事件.html#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -844,11 +844,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb67-20"><a href="第七章rxode2事件.html#cb67-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
 <p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="第七章rxode2事件.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
-<span id="cb68-2"><a href="第七章rxode2事件.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb68-2"><a href="第七章rxode2事件.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb68-3"><a href="第七章rxode2事件.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb68-4"><a href="第七章rxode2事件.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb68-4"><a href="第七章rxode2事件.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb68-5"><a href="第七章rxode2事件.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb68-6"><a href="第七章rxode2事件.html#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb68-6"><a href="第七章rxode2事件.html#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb68-7"><a href="第七章rxode2事件.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb68-8"><a href="第七章rxode2事件.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb68-9"><a href="第七章rxode2事件.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -870,7 +870,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="assets/unnamed-chunk-60-1.png" /></p>
 <div id="复杂加药的稳定状态" class="section level3 hasAnchor">
 <h3>7.4.1复杂加药的稳定状态<a href="第七章rxode2事件.html#复杂加药的稳定状态" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>通过使用<code>ss=2</code>标志，您可以使用类似”早上100 mg vs晚上150 mg“这样的不太规整的给药方案【译者注：吐槽，原文使用nonstandard dosing(非标准给药)容此给药方案，但这种给药方案在临床挺”标准”的，仅仅是有些嵌套而已，这种嵌套给基于NCA的PK参数带来了些麻烦，估计作者是因此将此种方案定义为不标准；所以我基于我的上述理由将此翻译为不太规整，以此来表达原文作者想表达含义】基于线性动力学中的超定位原理(super-positioning)【译者注：没见过其他人在药动学中提到此词，我猜作者可能是想说线性药动学的线性叠加原理】到达稳态。这是通过:</p>
+<p>通过使用<code>ss=2</code>标志，您可以使用类似”早上100 mg vs晚上150 mg“这样的不太规整的给药方案【译者注：吐槽，原文使用nonstandard dosing(非标准给药)容此给药方案，但这种给药方案在临床挺”标准”的，仅仅是有些嵌套而已，这种嵌套给基于NCA的PK参数带来了些麻烦，估计作者是因此将此种方案定义为不标准;所以我基于我的上述理由将此翻译为不太规整，以此来表达原文作者想表达含义】基于线性动力学中的超定位原理(super-positioning)【译者注：没见过其他人在药动学中提到此词，我猜作者可能是想说线性药动学的线性叠加原理】到达稳态。这是通过:</p>
 <ul>
 <li>保存所有状态值</li>
 <li>重置所有状态，求解系统至稳态</li>
@@ -960,11 +960,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb73-22"><a href="第七章rxode2事件.html#cb73-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 92 more rows</span></span></code></pre></div>
 <p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="第七章rxode2事件.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有102条记录 ──</span></span>
-<span id="cb74-2"><a href="第七章rxode2事件.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb74-2"><a href="第七章rxode2事件.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb74-3"><a href="第七章rxode2事件.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb74-4"><a href="第七章rxode2事件.html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb74-4"><a href="第七章rxode2事件.html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb74-5"><a href="第七章rxode2事件.html#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb74-6"><a href="第七章rxode2事件.html#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb74-6"><a href="第七章rxode2事件.html#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb74-7"><a href="第七章rxode2事件.html#cb74-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb74-8"><a href="第七章rxode2事件.html#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb74-9"><a href="第七章rxode2事件.html#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -1016,11 +1016,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb77-22"><a href="第七章rxode2事件.html#cb77-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 92 more rows</span></span></code></pre></div>
 <p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="第七章rxode2事件.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有102条记录 ──</span></span>
-<span id="cb78-2"><a href="第七章rxode2事件.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb78-2"><a href="第七章rxode2事件.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb78-3"><a href="第七章rxode2事件.html#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb78-4"><a href="第七章rxode2事件.html#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb78-4"><a href="第七章rxode2事件.html#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb78-5"><a href="第七章rxode2事件.html#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb78-6"><a href="第七章rxode2事件.html#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb78-6"><a href="第七章rxode2事件.html#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb78-7"><a href="第七章rxode2事件.html#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb78-8"><a href="第七章rxode2事件.html#cb78-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb78-9"><a href="第七章rxode2事件.html#cb78-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -1074,11 +1074,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb81-21"><a href="第七章rxode2事件.html#cb81-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94  (obs)        NA  NA    NA 0:Observation</span></span>
 <span id="cb81-22"><a href="第七章rxode2事件.html#cb81-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 92 more rows</span></span></code></pre></div>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="第七章rxode2事件.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有102条记录 ──</span></span>
-<span id="cb82-2"><a href="第七章rxode2事件.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb82-2"><a href="第七章rxode2事件.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing();可使用add.dosing</span></span>
 <span id="cb82-3"><a href="第七章rxode2事件.html#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb82-4"><a href="第七章rxode2事件.html#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb82-4"><a href="第七章rxode2事件.html#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping();可使用add.Samples</span></span>
 <span id="cb82-5"><a href="第七章rxode2事件.html#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
-<span id="cb82-6"><a href="第七章rxode2事件.html#cb82-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb82-6"><a href="第七章rxode2事件.html#cb82-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开;</span></span>
 <span id="cb82-7"><a href="第七章rxode2事件.html#cb82-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
 <span id="cb82-8"><a href="第七章rxode2事件.html#cb82-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
 <span id="cb82-9"><a href="第七章rxode2事件.html#cb82-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
@@ -1120,7 +1120,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="经典的rxode2事件" class="section level2 hasAnchor">
 <h2>7.7经典的rxode2事件<a href="第七章rxode2事件.html#经典的rxode2事件" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>【译者注：由于rxode2还有前一代版本rxode，所以为了兼容性也支持前一代版本中的evid的编码方式，对于不了解前代前一代版本rxode读者，无需学习与了解此章节，跳过整个7.2章节即可。】</p>
+<p>【译者注：由于rxode2还有前一代版本rxode，所以为了兼容性也支持前一代版本中的evid的编码方式，对于不了解前代前一代版本rxode读者，无需学习与了解此章节，跳过整个7.7章节即可。】</p>
 <p>最初RxODE支持复合事件IDs;rxode2仍然支持这些参数，但使用常规的NONMEM数据集标准通常更有用，部分建模工具也使用该标准，如在rxode2类型文章中有描述到的NONMEM、Monolix和nlmixr。</p>
 <p>通常，RxODE支持在下表中描述的单个事件id<code>evid</code>中进行事件编码。</p>
 <table>
@@ -1573,8 +1573,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>7.10.2 <code>CENS</code>/<code>LIMIT</code>列<a href="第七章rxode2事件.html#censlimit列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>CENS</code>列是指示是否发生删失的指示列。对于药代动力学建模，通常在样品低于定量下限时进行删失。在<code>rxode2</code>内部保存这些值，以便<code>nlmixr</code>可以在似然计算中使用它们。</p>
 <p>CENS = 0表示测量DV值时未删失。</p>
-<p>CENS = 1表示一个值是左删失(或低于定量下线)，DV中的值是删失/定量极限。</p>
-<p>CENS = -1表示一个值是右删失(或超过定量上)，DV中的值为删失/定量极限。</p>
+<p>CENS = 1表示一个值是左删失(或低于定量下限)，DV中的值是删失/定量极限。</p>
+<p>CENS = -1表示一个值是右删失(或超过定量上限)，DV中的值为删失/定量极限。</p>
 <p><code>LIMIT</code>是关于<code>nlmixr</code>如何处理删失的附加信息，也存储在<code>rxode2</code>的数据结构中。当一个值处于删失状态时，比如低于定量下限1，您可能还会认为该值高于某个阈值，比如零。在这种情况下，0表示截尾值在0到1之间。</p>
 <p>简而言之:</p>
 <p>CENS = 0，LIMIT被忽略，因为观测值未删失</p>

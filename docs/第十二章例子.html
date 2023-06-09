@@ -603,7 +603,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb225-2"><a href="第十二章例子.html#cb225-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x$stateExtra: central</span></span>
 <span id="cb225-3"><a href="第十二章例子.html#cb225-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x$params: ke, V</span></span>
 <span id="cb225-4"><a href="第十二章例子.html#cb225-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x$lhs: ipre</span></span></code></pre></div>
-<p>然后它将充当ODE模型；您可以在指定一次给药至depot房室事件后，求解这个系统：</p>
+<p>然后它将充当ODE模型;您可以在指定一次给药至depot房室事件后，求解这个系统：</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="第十二章例子.html#cb226-1" aria-hidden="true" tabindex="-1"></a>et  <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10</span>,<span class="at">time=</span><span class="dv">0</span>,<span class="at">cmt=</span>depot) <span class="sc">%&gt;%</span></span>
 <span id="cb226-2"><a href="第十二章例子.html#cb226-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">24</span>,<span class="at">length.out=</span><span class="dv">50</span>))</span>
 <span id="cb226-3"><a href="第十二章例子.html#cb226-3" aria-hidden="true" tabindex="-1"></a>cmt1 <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod,et,<span class="at">params=</span><span class="fu">c</span>(<span class="at">ke=</span><span class="fl">0.5</span>))</span>
@@ -917,7 +917,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="场景间和其他嵌套示例" class="section level2 hasAnchor">
 <h2>12.5场景间和其他嵌套示例<a href="第十二章例子.html#场景间和其他嵌套示例" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>在rxode2中可以进行多个级别的嵌套；在此示例中，我们将使用以下不确定性和可变性来源：</p>
+<p>在rxode2中可以进行多个级别的嵌套;在此示例中，我们将使用以下不确定性和可变性来源：</p>
 <table>
 <thead>
 <tr class="header">
@@ -1000,7 +1000,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="rxode2模型" class="section level3 hasAnchor">
 <h3>12.5.2rxode2模型<a href="第十二章例子.html#rxode2模型" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>这将创建具有多级嵌套的<code>rxode2</code>模型。注意变量<code>inv.Cl</code>，<code>inv.Ka</code>，<code>eta.Cl</code>等；每一个嵌套层级只需要一个变量。</p>
+<p>这将创建具有多级嵌套的<code>rxode2</code>模型。注意变量<code>inv.Cl</code>，<code>inv.Ka</code>，<code>eta.Cl</code>等;每一个嵌套层级只需要一个变量。</p>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="第十二章例子.html#cb249-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
 <span id="cb249-2"><a href="第十二章例子.html#cb249-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Clearance with individuals</span></span>
 <span id="cb249-3"><a href="第十二章例子.html#cb249-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">eff</span>(<span class="dv">0</span>) <span class="ot">=</span> <span class="dv">1</span></span>
@@ -1047,7 +1047,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="嵌套变异性" class="section level3 hasAnchor">
 <h3>12.5.4嵌套变异性<a href="第十二章例子.html#嵌套变异性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>要指定多级嵌套，您可以将其指定为嵌套的 <code>lotri</code>矩阵；使用这种方法时，您使用条件运算符<code>|</code>指定在哪个变量上发生嵌套；对于贝叶斯模拟，我们需要指定每个参数有多少信息；对于<code>rxode2</code>，这是<code>nu</code>参数。</p>
+<p>要指定多级嵌套，您可以将其指定为嵌套的 <code>lotri</code>矩阵;使用这种方法时，您使用条件运算符<code>|</code>指定在哪个变量上发生嵌套;对于贝叶斯模拟，我们需要指定每个参数有多少信息;对于<code>rxode2</code>，这是<code>nu</code>参数。</p>
 <p>在这种情况下： -id，<code>nu=100</code>或模型来自100个受试者， -eye，<code>nu=200</code>或模型来自200只眼睛 ，-occ，<code>nu=200</code>或模型来自200种场景，-inv，<code>nu=10</code>或模型来自10名研究者</p>
 <p>要在<code>lotri</code>指定，可以使用<code>| var(nu=X)</code>，或者：</p>
 <div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="第十二章例子.html#cb252-1" aria-hidden="true" tabindex="-1"></a>omega <span class="ot">&lt;-</span> <span class="fu">lotri</span>(<span class="fu">lotri</span>(eta.Cl <span class="sc">~</span> <span class="fl">0.1</span>,</span>
@@ -1141,10 +1141,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb259-41"><a href="第十二章例子.html#cb259-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 975,994 more rows, and 10 more variables: CL &lt;dbl&gt;, KA &lt;dbl&gt;,</span></span>
 <span id="cb259-42"><a href="第十二章例子.html#cb259-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   ef0 &lt;dbl&gt;, depot &lt;dbl&gt;, centr &lt;dbl&gt;, peri &lt;dbl&gt;, eff &lt;dbl&gt;, occ &lt;fct&gt;,</span></span>
 <span id="cb259-43"><a href="第十二章例子.html#cb259-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   eye &lt;fct&gt;, inv &lt;fct&gt;</span></span></code></pre></div>
-<p>一项研究中有多名研究者；每个研究者都有一些受试者在他的研究中心入组.<code>rxode2</code>自动确定研究者的数量，然后在研究者水平为每个研究者模拟随机效应。对于输出，<code>inv.Cl(inv==1)</code>将输出研究者1的<code>inv.Cl</code>，<code>inv.Cl(inv==2)</code>将输出研究者2的<code>inv.Cl</code>等。</p>
+<p>一项研究中有多名研究者;每个研究者都有一些受试者在他的研究中心入组.<code>rxode2</code>自动确定研究者的数量，然后在研究者水平为每个研究者模拟随机效应。对于输出，<code>inv.Cl(inv==1)</code>将输出研究者1的<code>inv.Cl</code>，<code>inv.Cl(inv==2)</code>将输出研究者2的<code>inv.Cl</code>等。</p>
 <p><code>inv.Cl(inv==1)</code>、<code>inv.Cl(inv==2)</code>等将在每个研究中被模拟，然后合并以形成研究者之间的变异。在方程形式中，它们表示如下：</p>
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="第十二章例子.html#cb260-1" aria-hidden="true" tabindex="-1"></a>inv.Cl <span class="ot">=</span> (inv <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="st">`</span><span class="at">inv.Cl(inv==1)</span><span class="st">`</span> <span class="sc">+</span> (inv <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="st">`</span><span class="at">inv.Cl(inv==2)</span><span class="st">`</span></span></code></pre></div>
-<p>如果您查看模拟的参数，您可以看到<code>inv.Cl(inv==1)</code> 和<code>inv.Cl(inv==2)</code>都在<code>s$params</code>中；它在每个研究中是相同的：</p>
+<p>如果您查看模拟的参数，您可以看到<code>inv.Cl(inv==1)</code> 和<code>inv.Cl(inv==2)</code>都在<code>s$params</code>中;它在每个研究中是相同的：</p>
 <div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="第十二章例子.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(s<span class="sc">$</span>params))</span></code></pre></div>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="第十二章例子.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   sim.id id inv.Cl(inv==1) inv.Cl(inv==2) inv.Ka(inv==1) inv.Ka(inv==2)</span></span>
 <span id="cb262-2"><a href="第十二章例子.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      1  1     -0.2022386      0.3144136     -0.2599115      0.1699445</span></span>
@@ -1203,7 +1203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb264-26"><a href="第十二章例子.html#cb264-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 -0.18554527 0.1568122 -0.62093051 10.97538 1.775872 0.8755069 200.0143</span></span>
 <span id="cb264-27"><a href="第十二章例子.html#cb264-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 -0.04484490 0.1568122 -0.06739060 10.97538 1.775872 0.8755069 200.0143</span></span>
 <span id="cb264-28"><a href="第十二章例子.html#cb264-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6  0.48614515 0.1568122 -0.35082813 10.97538 1.775872 0.8755069 200.0143</span></span></code></pre></div>
-<p>对于眼睛之间和场合之间的变异性，每个人都模拟了许多变量，这些变量成为眼睛之间和场合之间的变异性；在眼睛的情况下：</p>
+<p>对于眼睛之间和场合之间的变异性，每个人都模拟了许多变量，这些变量成为眼睛之间和场合之间的变异性;在眼睛的情况下：</p>
 <div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="第十二章例子.html#cb265-1" aria-hidden="true" tabindex="-1"></a>eye.Cl <span class="ot">=</span> (eye <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="st">`</span><span class="at">eye.Cl(eye==1)</span><span class="st">`</span> <span class="sc">+</span> (eye <span class="sc">==</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="st">`</span><span class="at">eye.Cl(eye==2)</span><span class="st">`</span></span></code></pre></div>
 <p>因此，当您查看模拟时，这些变量中的每一个（即 <code>eye.Cl(eye==1)</code>、<code>eye.Cl(eye==2)</code>等）会随每个个体的不同而变化，当组合在一起时，会产生在某些定量药理学模型参数中可以看到的眼睛之间的变异或场景之间的变异。</p>
 </div>

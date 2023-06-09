@@ -1050,7 +1050,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb302-35"><a href="第十三章高级和其他主题.html#cb302-35" aria-hidden="true" tabindex="-1"></a>endParallel <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb302-36"><a href="第十三章高级和其他主题.html#cb302-36" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(endParallel <span class="sc">-</span> startParallel)</span>
 <span id="cb302-37"><a href="第十三章高级和其他主题.html#cb302-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Time difference of 0.1851892 secs</span></span></code></pre></div>
-<p>您可以看到这两种方法之间的惊人时间差；要记住的几件事：</p>
+<p>您可以看到这两种方法之间的惊人时间差;要记住的几件事：</p>
 <ul>
 <li><code>rxode2</code>使用线程安全的sitmo<code>threefry</code>例程来模拟<code>eta</code> 值。因此，预计结果会有所不同（此外，随机抽样的顺序也不同，因此会有所不同）</li>
 <li>之前的模拟是在R 3.5中运行的，它具有不同的随机数生成器，因此当使用较慢的模拟时，此模拟中的结果将与实际的nlmixr比较不同。</li>
@@ -1058,7 +1058,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="想要通过更多的方法来运行多个体模拟" class="section level4 hasAnchor">
 <h4>13.4.2.1想要通过更多的方法来运行多个体模拟<a href="第十三章高级和其他主题.html#想要通过更多的方法来运行多个体模拟" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>自教程发布以来的后续新版本有更多的方法来运行多个个体的模拟，包括使用<code>et()</code>（参见<a href="https://nlmixr2.github.io/rxode2/articles/rxode2-events.html#add-doses-and-samples-within-a-sampling-window">rxode2事件</a> 如需更多信息）增加采样和给药时间的变异，能够同时提供<code>omega</code>和<code>sigma</code> 矩阵，以及通过添加<code>thetaMat</code>到R以模拟在<code>omega</code>，<code>sigma</code>和<code>theta</code>矩阵上的不确定性；见<a href="https://nlmixr2.github.io/rxode2/articles/rxode2-sim-var.html">rxode2模拟插图</a>。</p>
+<p>自教程发布以来的后续新版本有更多的方法来运行多个个体的模拟，包括使用<code>et()</code>（参见<a href="https://nlmixr2.github.io/rxode2/articles/rxode2-events.html#add-doses-and-samples-within-a-sampling-window">rxode2事件</a> 如需更多信息）增加采样和给药时间的变异，能够同时提供<code>omega</code>和<code>sigma</code> 矩阵，以及通过添加<code>thetaMat</code>到R以模拟在<code>omega</code>，<code>sigma</code>和<code>theta</code>矩阵上的不确定性;见<a href="https://nlmixr2.github.io/rxode2/articles/rxode2-sim-var.html">rxode2模拟插图</a>。</p>
 </div>
 </div>
 </div>
@@ -1083,7 +1083,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb303-14"><a href="第十三章高级和其他主题.html#cb303-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rxPkg</span>(idr, <span class="at">package=</span><span class="st">&quot;myPackage&quot;</span>); <span class="do">## Add the idr model to your package</span></span></code></pre></div>
 <p>上述操作将会：</p>
 <ul>
-<li>将模型添加到您的R添加包中；一旦R添加包加载完成，您可以通过<code>idr</code>命令使用R添加包的数据</li>
+<li>将模型添加到您的R添加包中;一旦R添加包加载完成，您可以通过<code>idr</code>命令使用R添加包的数据</li>
 <li>将正确的R添加包的需求添加到DESCRIPTION文件中。您需要更新此DESCRIPTION文件以描述包并修改作者、许可证等。</li>
 <li>创建可以添加到R添加包文档中的骨架模型文档文件。在本例中，它将是<code>R</code>目录中的 <code>idr-doc.R</code>文件</li>
 <li>创建一个<code>configure</code>和<code>configure.win</code>脚本，该脚本根据编译该脚本所依据的<code>rxode2</code>版本删除并重新生成<code>src</code>目录。如果您计划拥有自己编译的代码，应该对其进行修改，尽管我们并不建议这样做。</li>

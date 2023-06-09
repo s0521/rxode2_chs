@@ -602,7 +602,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="将事件表展开为多个个体的事件表" class="section level2 hasAnchor">
 <h2>8.3将事件表展开为多个个体的事件表。<a href="第八章轻松创建rxode2事件.html#将事件表展开为多个个体的事件表" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>展开事件表唯一需要的是要展开的ID列表；</p>
+<p>展开事件表唯一需要的是要展开的ID列表;</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="第八章轻松创建rxode2事件.html#cb105-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb105-2"><a href="第八章轻松创建rxode2事件.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">until =</span> <span class="fu">set_units</span>(<span class="dv">3</span>, days),</span>
 <span id="cb105-3"><a href="第八章轻松创建rxode2事件.html#cb105-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ii=</span><span class="dv">12</span>) <span class="sc">%&gt;%</span> <span class="co"># loading doses</span></span>
@@ -710,7 +710,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb112-7"><a href="第八章轻松创建rxode2事件.html#cb112-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb112-8"><a href="第八章轻松创建rxode2事件.html#cb112-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Create 20 samples in the first 24 hours and 20 samples in the</span></span>
 <span id="cb112-9"><a href="第八章轻松创建rxode2事件.html#cb112-9" aria-hidden="true" tabindex="-1"></a><span class="do">## second 24 hours</span></span>
-<span id="cb112-10"><a href="第八章轻松创建rxode2事件.html#cb112-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 在第一个24小时内，创建20个采样；在第二个24小时内，创建20个采</span></span>
+<span id="cb112-10"><a href="第八章轻松创建rxode2事件.html#cb112-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 在第一个24小时内，创建20个采样;在第二个24小时内，创建20个采</span></span>
 <span id="cb112-11"><a href="第八章轻松创建rxode2事件.html#cb112-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 【译者注：即在第一个24小时内，随机20次采样，因为前个采样的时间窗都是[0,24]】</span></span>
 <span id="cb112-12"><a href="第八章轻松创建rxode2事件.html#cb112-12" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="cf">function</span>(...){<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">24</span>)}),</span>
 <span id="cb112-13"><a href="第八章轻松创建rxode2事件.html#cb112-13" aria-hidden="true" tabindex="-1"></a>             <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="cf">function</span>(...){<span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">48</span>)}))</span>
@@ -753,7 +753,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb114-4"><a href="第八章轻松创建rxode2事件.html#cb114-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-5"><a href="第八章轻松创建rxode2事件.html#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, et) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(C2)</span></code></pre></div>
 <p><img src="assets/unnamed-chunk-89-1.png" /></p>
-<p>请注意，在本例中，bid和qd事件表之间的时间正好是一周，而不是一周加24小时，因为存在给药间隔时间。如果你想要这种行为，你可以在按序列组合时使用<code>wait="+ii"</code>。【译者注：不要怀疑你没有看懂，因为我在本地测试，发现添加wait=“+ii”后毫无变化，无论在两个事件表格间插入1还是插入13，都无变化，怀疑是一个bug；因为是否使用wait=“+ii”，其行为都与默认的samrt方式一样】</p>
+<p>请注意，在本例中，bid和qd事件表之间的时间正好是一周，而不是一周加24小时，因为存在给药间隔时间。如果你想要这种行为，你可以在按序列组合时使用<code>wait="+ii"</code>。【译者注：不要怀疑你没有看懂，因为我在本地测试，发现添加wait=“+ii”后毫无变化，无论在两个事件表格间插入1还是插入13，都无变化，怀疑是一个bug;因为是否使用wait=“+ii”，其行为都与默认的samrt方式一样】</p>
 <pre><code>## bid for 5 days followed by qd for 5 days
 et &lt;- seq(bid,set_units(1, &quot;week&quot;), qd,wait=&quot;+ii&quot;) %&gt;%
     et(seq(0,18*24,length.out=100));
@@ -773,7 +773,7 @@ rxSolve(m1, et) %&gt;% plot(C2)</code></pre>
 <span id="cb116-6"><a href="第八章轻松创建rxode2事件.html#cb116-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb116-7"><a href="第八章轻松创建rxode2事件.html#cb116-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, et)  <span class="sc">%&gt;%</span> <span class="fu">plot</span>(C2)</span></code></pre></div>
 <p><img src="assets/unnamed-chunk-91-1.png" /></p>
-<p>这是使用事件表按序列组合的一种简化方法。 因此，许多相同的选项仍然适用；也就是说，除非使用<code>samples="use"</code>，否则<code>samples</code>将被清除，事件表之间的时间至少是给药间隔。你可以通过<code>wait</code>选项来调整时间 。</p>
+<p>这是使用事件表按序列组合的一种简化方法。 因此，许多相同的选项仍然适用;也就是说，除非使用<code>samples="use"</code>，否则<code>samples</code>将被清除，事件表之间的时间至少是给药间隔。你可以通过<code>wait</code>选项来调整时间 。</p>
 </div>
 <div id="使用rbind组合事件表" class="section level2 hasAnchor">
 <h2>8.8 使用rbind组合事件表<a href="第八章轻松创建rxode2事件.html#使用rbind组合事件表" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -805,7 +805,7 @@ rxSolve(m1, et) %&gt;% plot(C2)</code></pre>
 <span id="cb119-3"><a href="第八章轻松创建rxode2事件.html#cb119-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb119-4"><a href="第八章轻松创建rxode2事件.html#cb119-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, et) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(C2)</span></code></pre></div>
 <p><img src="assets/unnamed-chunk-94-1.png" /></p>
-<p>您还可以将这些表绑定在一起，并使事件表中的每个ID唯一；这可以很好地将具有不同预期剂量和采样时间的队列组合起来。这需要<code>id="unique"</code>选项;使用第一个例子可以显示出在这种情况下这是如何不同的:</p>
+<p>您还可以将这些表绑定在一起，并使事件表中的每个ID唯一;这可以很好地将具有不同预期剂量和采样时间的队列组合起来。这需要<code>id="unique"</code>选项;使用第一个例子可以显示出在这种情况下这是如何不同的:</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="第八章轻松创建rxode2事件.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="do">## bid for 5 days</span></span>
 <span id="cb120-2"><a href="第八章轻松创建rxode2事件.html#cb120-2" aria-hidden="true" tabindex="-1"></a>et <span class="ot">&lt;-</span> <span class="fu">etRbind</span>(bid,qd, <span class="at">id=</span><span class="st">&quot;unique&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb120-3"><a href="第八章轻松创建rxode2事件.html#cb120-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">150</span>,<span class="at">length.out=</span><span class="dv">500</span>));</span>
@@ -888,7 +888,7 @@ rxSolve(m1, et) %&gt;% plot(C2)</code></pre>
 </div>
 <div id="rstudio笔记本中的事件表" class="section level2 hasAnchor">
 <h2>8.10RStudio笔记本中的事件表<a href="第八章轻松创建rxode2事件.html#rstudio笔记本中的事件表" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>除了上述示例中显示的控制台中的输出之外，RStudio笔记本的输出也有所不同，可以在以下屏幕截图中看到；</p>
+<p>除了上述示例中显示的控制台中的输出之外，RStudio笔记本的输出也有所不同，可以在以下屏幕截图中看到;</p>
 <p>第一个屏幕截图显示了在Rstduio笔记本中评估事件表后的外观</p>
 <p><img src="assets/eventTable-output-notebook-02.png" /></p>
 <p>这是一个简单的数据框，允许您翻阅内容。如果您单击Rstduio笔记本输出中的第一个框，它将包含有关事件表的注释：</p>

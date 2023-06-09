@@ -413,7 +413,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>隐含输入变量<code>t</code>(时间)、<code>tlast</code>(最后时间点)和 <code>podo</code>(口服剂量，在未记录的吸收过转移室型中)。</li>
 <li>特殊常数如<code>pi</code>或 <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Mathematical-constants">R的预定义常量</a>。</li>
 <li>模型参数(例如<code>ka</code>吸收率、<code>CL</code>清除率等)</li>
-<li>其他，作为模型描述的一部分由赋值符创建的；这些被称为LHS(左手边)变量。</li>
+<li>其他，作为模型描述的一部分由赋值符创建的;这些被称为LHS(左手边)变量。</li>
 </ul>
 <p>目前<code>rxode2</code>建模语言只识别系统状态变量和“参数”，因此，需要从R传递到ODE模型的任何值(例如，<code>age</code>)都应该在<code>rxSolve()</code>的<code>params</code>参数中传递，或者在提供的事件数据集中传递。</p>
 <p>在<code>rxode2</code>事件表中有某些变量名。 为避免混淆，以下事件表相关项目不能 被赋值或用作状态，但可以在rxode2代码中访问：</p>
@@ -747,7 +747,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-3"><a href="第六章rxode2语法.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $stateExtra: eff</span></span>
 <span id="cb38-4"><a href="第六章rxode2语法.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $params: V, KA, CL</span></span>
 <span id="cb38-5"><a href="第六章rxode2语法.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $lhs: C2</span></span></code></pre></div>
-<p>但是在所有微分方程之前定义的房室是不支持的；所以下面的模型：</p>
+<p>但是在所有微分方程之前定义的房室是不支持的;所以下面的模型：</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="第六章rxode2语法.html#cb39-1" aria-hidden="true" tabindex="-1"></a>ode<span class="fl">.1</span>c.ka <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
 <span id="cb39-2"><a href="第六章rxode2语法.html#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cmt</span>(eff);</span>
 <span id="cb39-3"><a href="第六章rxode2语法.html#cb39-3" aria-hidden="true" tabindex="-1"></a>    C2 <span class="ot">=</span> center<span class="sc">/</span>V;</span>
