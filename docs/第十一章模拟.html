@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第十一章模拟 | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第十一章模拟 | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第十一章模拟 | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="第十章rxode2的输出.html"/>
+<link rel="next" href="第十二章例子.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>rxode2用户手册中文版</a></li>
+<li class="chapter" data-level="" data-path="第一章导言.html"><a href="第一章导言.html"><i class="fa fa-check"></i>第一章导言</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html"><i class="fa fa-check"></i>第二章作者和致谢</a>
+<ul>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#作者"><i class="fa fa-check"></i>2.1作者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#贡献者"><i class="fa fa-check"></i>2.2贡献者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#rxode致谢"><i class="fa fa-check"></i>2.3RxODE致谢：</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html"><i class="fa fa-check"></i>第三章相关 R 包</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#常微分方程求解"><i class="fa fa-check"></i>3.1 常微分方程求解</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#已求解的pk系统"><i class="fa fa-check"></i>3.2已求解的PK系统</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#以下在cran上的软件包含有已求解的pk系统"><i class="fa fa-check"></i>3.2.1以下在CRAN上的软件包含有已求解的PK系统</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#非cran库中的程序包"><i class="fa fa-check"></i>3.2.2非CRAN库中的程序包：</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html"><i class="fa fa-check"></i>第四章安装</a>
+<ul>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#windows"><i class="fa fa-check"></i>4.0.1Windows</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#mac-osx"><i class="fa fa-check"></i>4.0.2 Mac OSX</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#linux"><i class="fa fa-check"></i>4.0.3Linux</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#开发版本"><i class="fa fa-check"></i>4.1开发版本</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html"><i class="fa fa-check"></i>第五章入门</a>
+<ul>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#指定ode参数和初始条件"><i class="fa fa-check"></i>5.1指定ODE参数和初始条件</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#在rxode2中指定给药和采样"><i class="fa fa-check"></i>5.2在rxode2中指定给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#求解ode"><i class="fa fa-check"></i>5.3求解ODE</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html"><i class="fa fa-check"></i>第六章rxode2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#示例"><i class="fa fa-check"></i>6.1示例</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#语法"><i class="fa fa-check"></i>6.2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#标识符"><i class="fa fa-check"></i>6.2.1 标识符</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#逻辑运算符"><i class="fa fa-check"></i>6.3逻辑运算符</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#cmt改变状态的房室编号"><i class="fa fa-check"></i>6.4cmt()改变状态的房室编号</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#rxode2如何编号房室"><i class="fa fa-check"></i>6.4.1rxode2如何编号房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#使用cmt预声明更改房室"><i class="fa fa-check"></i>6.4.2 使用<code>cmt()</code>预声明更改房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#用cmt将房室附加到模型"><i class="fa fa-check"></i>6.4.3用<code>cmt()</code>将房室附加到模型</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html"><i class="fa fa-check"></i>第七章rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2事件表"><i class="fa fa-check"></i>7.1rxode2事件表</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#单次给药额外附加的给药"><i class="fa fa-check"></i>7.2单次给药/额外附加的给药</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注给药"><i class="fa fa-check"></i>7.3输注给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#已知输注速率或输注时长的输注"><i class="fa fa-check"></i>7.3.1已知输注速率或输注时长的输注</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#需要估计输注时长或输注速率的输注零级速率吸收"><i class="fa fa-check"></i>7.3.2需要估计输注时长或输注速率的输注(零级速率吸收)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#稳态"><i class="fa fa-check"></i>7.4稳态</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#复杂加药的稳定状态"><i class="fa fa-check"></i>7.4.1复杂加药的稳定状态</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注或零阶吸收过程的稳态"><i class="fa fa-check"></i>7.4.2输注或零阶吸收过程的稳态</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#重置事件"><i class="fa fa-check"></i>7.5重置事件</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#关闭房室"><i class="fa fa-check"></i>7.6关闭房室</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#经典的rxode2事件"><i class="fa fa-check"></i>7.7经典的rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置注入给药示例"><i class="fa fa-check"></i>7.7.1使用经典RxODE的EVID设置注入给药示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置输注事件示例"><i class="fa fa-check"></i>7.7.2使用经典RxODE的EVID设置输注事件示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置稳态的例子"><i class="fa fa-check"></i>7.7.3使用经典RxODE的EVID设置稳态的例子</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid关闭房室"><i class="fa fa-check"></i>7.7.4使用经典RxODE的EVID关闭房室</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2-nlmixr的数据集"><i class="fa fa-check"></i>7.8rxode2 &amp; nlmixr的数据集</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#按使用类型描述的列"><i class="fa fa-check"></i>7.9按使用类型描述的列</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#个体标识符列"><i class="fa fa-check"></i>7.9.1个体标识符列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#观测列"><i class="fa fa-check"></i>7.9.2观测列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#给药列"><i class="fa fa-check"></i>7.9.3给药列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#协变量列"><i class="fa fa-check"></i>7.9.4协变量列</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#特定数据集列的详细信息"><i class="fa fa-check"></i>7.10特定数据集列的详细信息</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#amt列"><i class="fa fa-check"></i>7.10.1 <code>AMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#censlimit列"><i class="fa fa-check"></i>7.10.2 <code>CENS</code>/<code>LIMIT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#cmt列"><i class="fa fa-check"></i>7.10.3 <code>CMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dur列"><i class="fa fa-check"></i>7.10.4 <code>DUR</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dv列"><i class="fa fa-check"></i>7.10.5 <code>DV</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dvid列"><i class="fa fa-check"></i>7.10.6 <code>DVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#evid列"><i class="fa fa-check"></i>7.10.7 <code>EVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#id列"><i class="fa fa-check"></i>7.10.8 <code>ID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rate列"><i class="fa fa-check"></i>7.10.9 <code>RaTE</code>列</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html"><i class="fa fa-check"></i>第八章轻松创建rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#向事件表添加给药"><i class="fa fa-check"></i>8.1向事件表添加给药</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将采样添加到事件表"><i class="fa fa-check"></i>8.2 将采样添加到事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将事件表展开为多个个体的事件表"><i class="fa fa-check"></i>8.3将事件表展开为多个个体的事件表。</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#在采样窗口内添加给药和采样"><i class="fa fa-check"></i>8.4在采样窗口内添加给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#组合事件表"><i class="fa fa-check"></i>8.5组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#按序列组合事件表"><i class="fa fa-check"></i>8.6按序列组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#通过对事件表重复组合事件表"><i class="fa fa-check"></i>8.7通过对事件表重复组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#使用rbind组合事件表"><i class="fa fa-check"></i>8.8 使用rbind组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#展开事件"><i class="fa fa-check"></i>8.9展开事件</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#rstudio笔记本中的事件表"><i class="fa fa-check"></i>8.10RStudio笔记本中的事件表</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html"><i class="fa fa-check"></i>第九章求解和求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#一般的求解选项"><i class="fa fa-check"></i>9.1 一般的求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#rxcontrol"><i class="fa fa-check"></i>9.1.1 rxControl</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html"><i class="fa fa-check"></i>第十章rxode2的输出</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用rxode2数据框"><i class="fa fa-check"></i>10.1使用rxode2数据框</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#创建交互式数据框"><i class="fa fa-check"></i>10.1.1创建交互式数据框</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#rxode2已求解对象的属性"><i class="fa fa-check"></i>10.1.2rxode2已求解对象的属性</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用已求解的对象作为简单的数据帧"><i class="fa fa-check"></i>10.1.3使用已求解的对象作为简单的数据帧</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#交互式更新数据集"><i class="fa fa-check"></i>10.2交互式更新数据集</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改初始条件"><i class="fa fa-check"></i>10.2.1修改初始条件</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改rxode2的观测时间"><i class="fa fa-check"></i>10.2.2修改rxode2的观测时间</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改仿真参数"><i class="fa fa-check"></i>10.2.3修改仿真参数</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html"><i class="fa fa-check"></i>第十一章模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体的求解"><i class="fa fa-check"></i>11.1单一个体的求解</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体求解与多个个体求解的总结"><i class="fa fa-check"></i>11.1.1单一个体求解与多个个体求解的总结</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2进行群体模拟"><i class="fa fa-check"></i>11.2使用rxode2进行群体模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2模拟变异性"><i class="fa fa-check"></i>11.2.1使用rxode2模拟变异性</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#模拟临床试验"><i class="fa fa-check"></i>11.3模拟临床试验</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#基于逆wishart相关性的模拟"><i class="fa fa-check"></i>11.3.1基于逆Wishart相关性的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用方差标准差标准误差进行模拟"><i class="fa fa-check"></i>11.3.2使用方差/标准差标准误差进行模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#omega或sigma参数没有不确定性的进行模拟"><i class="fa fa-check"></i>11.3.3<code>omega</code>或<code>sigma</code>参数没有不确定性的进行模拟</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用先验数据进行求解"><i class="fa fa-check"></i>11.4使用先验数据进行求解</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html"><i class="fa fa-check"></i>第十二章例子</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#仅预测的模型"><i class="fa fa-check"></i>12.1仅预测的模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#已求解的房室模型"><i class="fa fa-check"></i>12.2已求解的房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#混合已求解的系统和odes"><i class="fa fa-check"></i>12.3混合已求解的系统和ODEs</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#基于体重的给药"><i class="fa fa-check"></i>12.4基于体重的给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#在rxode2中创建2房室模型"><i class="fa fa-check"></i>12.4.1在rxode2中创建2房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模拟协变量"><i class="fa fa-check"></i>12.4.2模拟协变量</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#创建基于体重的事件表"><i class="fa fa-check"></i>12.4.3创建基于体重的事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解达托霉素的模拟"><i class="fa fa-check"></i>12.4.4求解达托霉素的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#达托霉素的参考文献"><i class="fa fa-check"></i>12.4.5达托霉素的参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#场景间和其他嵌套示例"><i class="fa fa-check"></i>12.5场景间和其他嵌套示例</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#事件表"><i class="fa fa-check"></i>12.5.1事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#rxode2模型"><i class="fa fa-check"></i>12.5.2rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模型参数的不确定性"><i class="fa fa-check"></i>12.5.3模型参数的不确定性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#嵌套变异性"><i class="fa fa-check"></i>12.5.4嵌套变异性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#无法解释的变异"><i class="fa fa-check"></i>12.5.5无法解释的变异</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解问题"><i class="fa fa-check"></i>12.5.6求解问题</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#转移室模型"><i class="fa fa-check"></i>12.6转移室模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html"><i class="fa fa-check"></i>第十三章高级和其他主题</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#rxode2中的协变量"><i class="fa fa-check"></i>13.1rxode2中的协变量</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#个体的协变量"><i class="fa fa-check"></i>13.1.1个体的协变量</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#随时间变化的协变量"><i class="fa fa-check"></i>13.1.2随时间变化的协变量</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#shiny与rxode2"><i class="fa fa-check"></i>13.2Shiny与rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#制作r-shiny应用的工具"><i class="fa fa-check"></i>13.2.1制作R Shiny应用的工具</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#使用shiny以图形方式探索参数拟合"><i class="fa fa-check"></i>13.2.2使用shiny以图形方式探索参数拟合</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#将rxode2与管道一起使用"><i class="fa fa-check"></i>13.3将rxode2与管道一起使用</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#为管道设置rxode2模型"><i class="fa fa-check"></i>13.3.1为管道设置rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#模拟一个事件表"><i class="fa fa-check"></i>13.3.2模拟一个事件表</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#从单个事件表模拟多个个体"><i class="fa fa-check"></i>13.3.3从单个事件表模拟多个个体</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#总结模拟的输出"><i class="fa fa-check"></i>13.3.4总结模拟的输出</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#加速rxode2"><i class="fa fa-check"></i>13.4加速rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#通过多个个体并行求解提高rxode2速度"><i class="fa fa-check"></i>13.4.1通过多个个体并行求解提高rxode2速度</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#一个现实生活中的例子"><i class="fa fa-check"></i>13.4.2一个现实生活中的例子</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在您的包中集成rxode2模型"><i class="fa fa-check"></i>13.5在您的包中集成rxode2模型</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在包中使用预编译模型"><i class="fa fa-check"></i>13.5.1在包中使用预编译模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在现有r添加包中使用模型"><i class="fa fa-check"></i>13.5.2在现有R添加包中使用模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#具有雅可比规范的刚性ode"><i class="fa fa-check"></i>13.6具有雅可比规范的刚性ODE</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="第十一章模拟" class="section level1 hasAnchor">
+<h1>第十一章模拟<a href="第十一章模拟.html#第十一章模拟" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="单一个体的求解" class="section level2 hasAnchor">
+<h2>11.1单一个体的求解<a href="第十一章模拟.html#单一个体的求解" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>最初，创建rxode2只是为了求解一个个体的ODE。这是一个单独的系统，不会对各个参数进行任何更改。</p>
+<p>当然这在目前仍然是支持的，经典的例子可以在 <a href="https://nlmixr2.github.io/rxode2/articles/rxode2-intro.html">rxode2介绍</a>中找到。</p>
+<p>本文讨论了多个个体和单一个体求解的区别，有三个区别：</p>
+<ul>
+<li>单一求解不会并行求解每个ID</li>
+<li>单一求解在参数(<code>$params</code>)和实际数据集中缺少id列。</li>
+<li>单一求解允许更轻松地探索参数，因为每个参数都可以修改。对于多个个体求解，您必须确保更新每个单独的参数。</li>
+</ul>
+<p>第一个明显的区别是速度；对于多个个体，你可以并行运行每个个体ID。有关多个体求解速度提高的更多信息和示例，参阅rxdoe添加包的<a href="https://nlmixr2.github.io/rxode2-manual/rxode2-speed.html">加速rxode2</a>插图。</p>
+<p>下一个区别是最终数据中输出的信息量。</p>
+<p>以教程中最初的2房室间接效应模型为例：</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="第十一章模拟.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
+<span id="cb158-2"><a href="第十一章模拟.html#cb158-2" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span><span class="fu">rxode2</span>({</span>
+<span id="cb158-3"><a href="第十一章模拟.html#cb158-3" aria-hidden="true" tabindex="-1"></a>    KA<span class="ot">=</span><span class="fl">2.94E-01</span></span>
+<span id="cb158-4"><a href="第十一章模拟.html#cb158-4" aria-hidden="true" tabindex="-1"></a>    CL<span class="ot">=</span><span class="fl">1.86E+01</span></span>
+<span id="cb158-5"><a href="第十一章模拟.html#cb158-5" aria-hidden="true" tabindex="-1"></a>    V2<span class="ot">=</span><span class="fl">4.02E+01</span></span>
+<span id="cb158-6"><a href="第十一章模拟.html#cb158-6" aria-hidden="true" tabindex="-1"></a>    Q<span class="ot">=</span><span class="fl">1.05E+01</span></span>
+<span id="cb158-7"><a href="第十一章模拟.html#cb158-7" aria-hidden="true" tabindex="-1"></a>    V3<span class="ot">=</span><span class="fl">2.97E+02</span></span>
+<span id="cb158-8"><a href="第十一章模拟.html#cb158-8" aria-hidden="true" tabindex="-1"></a>    Kin<span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb158-9"><a href="第十一章模拟.html#cb158-9" aria-hidden="true" tabindex="-1"></a>    Kout<span class="ot">=</span><span class="dv">1</span></span>
+<span id="cb158-10"><a href="第十一章模拟.html#cb158-10" aria-hidden="true" tabindex="-1"></a>    EC50<span class="ot">=</span><span class="dv">200</span></span>
+<span id="cb158-11"><a href="第十一章模拟.html#cb158-11" aria-hidden="true" tabindex="-1"></a>    C2 <span class="ot">=</span> centr<span class="sc">/</span>V2</span>
+<span id="cb158-12"><a href="第十一章模拟.html#cb158-12" aria-hidden="true" tabindex="-1"></a>    C3 <span class="ot">=</span> peri<span class="sc">/</span>V3</span>
+<span id="cb158-13"><a href="第十一章模拟.html#cb158-13" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span><span class="sc">-</span>KA<span class="sc">*</span>depot</span>
+<span id="cb158-14"><a href="第十一章模拟.html#cb158-14" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(centr) <span class="ot">=</span> KA<span class="sc">*</span>depot <span class="sc">-</span> CL<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C2 <span class="sc">+</span> Q<span class="sc">*</span>C3</span>
+<span id="cb158-15"><a href="第十一章模拟.html#cb158-15" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(peri)  <span class="ot">=</span>                    Q<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C3</span>
+<span id="cb158-16"><a href="第十一章模拟.html#cb158-16" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(eff)  <span class="ot">=</span> Kin <span class="sc">-</span> Kout<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>C2<span class="sc">/</span>(EC50<span class="sc">+</span>C2))<span class="sc">*</span>eff</span>
+<span id="cb158-17"><a href="第十一章模拟.html#cb158-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">eff</span>(<span class="dv">0</span>) <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb158-18"><a href="第十一章模拟.html#cb158-18" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb158-19"><a href="第十一章模拟.html#cb158-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-20"><a href="第十一章模拟.html#cb158-20" aria-hidden="true" tabindex="-1"></a>et <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">amount.units=</span><span class="st">&#39;mg&#39;</span>, <span class="at">time.units=</span><span class="st">&#39;hours&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb158-21"><a href="第十一章模拟.html#cb158-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">dose=</span><span class="dv">10000</span>, <span class="at">addl=</span><span class="dv">9</span>, <span class="at">ii=</span><span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb158-22"><a href="第十一章模拟.html#cb158-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">20000</span>, <span class="at">nbr.doses=</span><span class="dv">5</span>, <span class="at">start.time=</span><span class="dv">120</span>, <span class="at">dosing.interval=</span><span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb158-23"><a href="第十一章模拟.html#cb158-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">240</span>) <span class="co"># sampling</span></span></code></pre></div>
+<p>现在进行一个简单的求解</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="第十一章模拟.html#cb159-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod1, et)</span>
+<span id="cb159-2"><a href="第十一章模拟.html#cb159-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="第十一章模拟.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb160-2"><a href="第十一章模拟.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters (x$params): ──</span></span>
+<span id="cb160-3"><a href="第十一章模拟.html#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      KA      CL      V2       Q      V3     Kin    Kout    EC50 </span></span>
+<span id="cb160-4"><a href="第十一章模拟.html#cb160-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   0.294  18.600  40.200  10.500 297.000   1.000   1.000 200.000 </span></span>
+<span id="cb160-5"><a href="第十一章模拟.html#cb160-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions (x$inits): ──</span></span>
+<span id="cb160-6"><a href="第十一章模拟.html#cb160-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb160-7"><a href="第十一章模拟.html#cb160-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     1 </span></span>
+<span id="cb160-8"><a href="第十一章模拟.html#cb160-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb160-9"><a href="第十一章模拟.html#cb160-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 241 × 7</span></span>
+<span id="cb160-10"><a href="第十一章模拟.html#cb160-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb160-11"><a href="第十一章模拟.html#cb160-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb160-12"><a href="第十一章模拟.html#cb160-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0   0   0     10000     0     0   1   </span></span>
+<span id="cb160-13"><a href="第十一章模拟.html#cb160-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08</span></span>
+<span id="cb160-14"><a href="第十一章模拟.html#cb160-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18</span></span>
+<span id="cb160-15"><a href="第十一章模拟.html#cb160-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23</span></span>
+<span id="cb160-16"><a href="第十一章模拟.html#cb160-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23</span></span>
+<span id="cb160-17"><a href="第十一章模拟.html#cb160-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21</span></span>
+<span id="cb160-18"><a href="第十一章模拟.html#cb160-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 235 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="第十一章模拟.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="第十一章模拟.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb162-2"><a href="第十一章模拟.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb162-3"><a href="第十一章模拟.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      KA      CL      V2       Q      V3     Kin    Kout    EC50 </span></span>
+<span id="cb162-4"><a href="第十一章模拟.html#cb162-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   0.294  18.600  40.200  10.500 297.000   1.000   1.000 200.000 </span></span>
+<span id="cb162-5"><a href="第十一章模拟.html#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb162-6"><a href="第十一章模拟.html#cb162-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb162-7"><a href="第十一章模拟.html#cb162-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     1 </span></span>
+<span id="cb162-8"><a href="第十一章模拟.html#cb162-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb162-9"><a href="第十一章模拟.html#cb162-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 241 × 7</span></span>
+<span id="cb162-10"><a href="第十一章模拟.html#cb162-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb162-11"><a href="第十一章模拟.html#cb162-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb162-12"><a href="第十一章模拟.html#cb162-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0   0   0     10000     0     0   1   </span></span>
+<span id="cb162-13"><a href="第十一章模拟.html#cb162-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08</span></span>
+<span id="cb162-14"><a href="第十一章模拟.html#cb162-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18</span></span>
+<span id="cb162-15"><a href="第十一章模拟.html#cb162-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23</span></span>
+<span id="cb162-16"><a href="第十一章模拟.html#cb162-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23</span></span>
+<span id="cb162-17"><a href="第十一章模拟.html#cb162-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21</span></span>
+<span id="cb162-18"><a href="第十一章模拟.html#cb162-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 235 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="第十一章模拟.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, C2, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-111-1.png" /></p>
+<p>为了更好地看到单一个体求解之间的差异，您可以解决2个个体</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="第十一章模拟.html#cb164-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod1, et <span class="sc">%&gt;%</span> <span class="fu">et</span>(<span class="at">id=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), <span class="at">params=</span><span class="fu">data.frame</span>(<span class="at">CL=</span><span class="fu">c</span>(<span class="fl">18.6</span>, <span class="fl">7.6</span>)))</span>
+<span id="cb164-2"><a href="第十一章模拟.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x2)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="第十一章模拟.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb165-2"><a href="第十一章模拟.html#cb165-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb165-3"><a href="第十一章模拟.html#cb165-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 9</span></span>
+<span id="cb165-4"><a href="第十一章模拟.html#cb165-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id       KA    CL    V2     Q    V3   Kin  Kout  EC50</span></span>
+<span id="cb165-5"><a href="第十一章模拟.html#cb165-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb165-6"><a href="第十一章模拟.html#cb165-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 1     0.294  18.6  40.2  10.5   297     1     1   200</span></span>
+<span id="cb165-7"><a href="第十一章模拟.html#cb165-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 2     0.294   7.6  40.2  10.5   297     1     1   200</span></span>
+<span id="cb165-8"><a href="第十一章模拟.html#cb165-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb165-9"><a href="第十一章模拟.html#cb165-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb165-10"><a href="第十一章模拟.html#cb165-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     1 </span></span>
+<span id="cb165-11"><a href="第十一章模拟.html#cb165-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb165-12"><a href="第十一章模拟.html#cb165-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 482 × 8</span></span>
+<span id="cb165-13"><a href="第十一章模拟.html#cb165-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      id time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb165-14"><a href="第十一章模拟.html#cb165-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt;  [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb165-15"><a href="第十一章模拟.html#cb165-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1    0   0   0     10000     0     0   1   </span></span>
+<span id="cb165-16"><a href="第十一章模拟.html#cb165-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     1    1  44.4 0.920  7453. 1784.  273.  1.08</span></span>
+<span id="cb165-17"><a href="第十一章模拟.html#cb165-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     1    2  54.9 2.67   5554. 2206.  794.  1.18</span></span>
+<span id="cb165-18"><a href="第十一章模拟.html#cb165-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     1    3  51.9 4.46   4140. 2087. 1324.  1.23</span></span>
+<span id="cb165-19"><a href="第十一章模拟.html#cb165-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5     1    4  44.5 5.98   3085. 1789. 1776.  1.23</span></span>
+<span id="cb165-20"><a href="第十一章模拟.html#cb165-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6     1    5  36.5 7.18   2299. 1467. 2132.  1.21</span></span>
+<span id="cb165-21"><a href="第十一章模拟.html#cb165-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 476 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="第十一章模拟.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x2, C2, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-112-1.png" /></p>
+<p>通过观察这两个求解结果，您可以看到：</p>
+<ul>
+<li>多个个体的求解结果包含数据框中的<code>id</code>列，然后是每个个体的参数的数据框。</li>
+</ul>
+<p>最后一个不那么明显的特征，修改个体参数。对于单一个体的数据，可以通过修改rxode2数据框改变初始条件和参数值，就好像它们是数据帧的一部分，如<a href="https://nlmixr2.github.io/rxode2/articles/rxode2-data-frame.html">rxode2数据框</a>中所述。</p>
+<p>对于多个个体求解，此功能仍然有效，但在提供每个个体的参数值时需要小心，否则您可能会不小心修改了关键个体的求解和删除参数。</p>
+<div id="单一个体求解与多个个体求解的总结" class="section level3 hasAnchor">
+<h3>11.1.1单一个体求解与多个个体求解的总结<a href="第十一章模拟.html#单一个体求解与多个个体求解的总结" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="17%" />
+<col width="30%" />
+<col width="52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>特征</th>
+<th>单一个体求解</th>
+<th>多个个体求解</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>并行</td>
+<td>无</td>
+<td>每个个体</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(params | data.frame带有一组参数值 | data.frame带有每个个体的一组参数（w/ID列） | | 已求解后的数据 | 可以用\)</span>语法修改单个参数</td>
+<td>必须修改所有参数来更新已求解的对象</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="使用rxode2进行群体模拟" class="section level2 hasAnchor">
+<h2>11.2使用rxode2进行群体模拟<a href="第十一章模拟.html#使用rxode2进行群体模拟" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="使用rxode2模拟变异性" class="section level3 hasAnchor">
+<h3>11.2.1使用rxode2模拟变异性<a href="第十一章模拟.html#使用rxode2模拟变异性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>在定量药理学中，非线性混合效应建模软件（如nlmixr）表征受试者之间的变异。有了这个受试者之间的变异，您可以模拟新的受试者。</p>
+<p>假设您有一个2房室的间接效应模型，您可以在下面设置创建一个描述该系统的rxode2模型：</p>
+<div id="设置rxode2模型" class="section level4 hasAnchor">
+<h4>11.2.1.1设置rxode2模型<a href="第十一章模拟.html#设置rxode2模型" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="第十一章模拟.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
+<span id="cb167-2"><a href="第十一章模拟.html#cb167-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-3"><a href="第十一章模拟.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">32</span>)</span>
+<span id="cb167-4"><a href="第十一章模拟.html#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSetSeed</span>(<span class="dv">32</span>)</span>
+<span id="cb167-5"><a href="第十一章模拟.html#cb167-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-6"><a href="第十一章模拟.html#cb167-6" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb167-7"><a href="第十一章模拟.html#cb167-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">eff</span>(<span class="dv">0</span>) <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb167-8"><a href="第十一章模拟.html#cb167-8" aria-hidden="true" tabindex="-1"></a>  C2 <span class="ot">=</span> centr<span class="sc">/</span>V2<span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span>prop.err);</span>
+<span id="cb167-9"><a href="第十一章模拟.html#cb167-9" aria-hidden="true" tabindex="-1"></a>  C3 <span class="ot">=</span> peri<span class="sc">/</span>V3;</span>
+<span id="cb167-10"><a href="第十一章模拟.html#cb167-10" aria-hidden="true" tabindex="-1"></a>  CL <span class="ot">=</span>  TCl<span class="sc">*</span><span class="fu">exp</span>(eta.Cl) <span class="do">## This is coded as a variable in the model</span></span>
+<span id="cb167-11"><a href="第十一章模拟.html#cb167-11" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span><span class="sc">-</span>KA<span class="sc">*</span>depot;</span>
+<span id="cb167-12"><a href="第十一章模拟.html#cb167-12" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(centr) <span class="ot">=</span> KA<span class="sc">*</span>depot <span class="sc">-</span> CL<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C2 <span class="sc">+</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb167-13"><a href="第十一章模拟.html#cb167-13" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(peri)  <span class="ot">=</span>                    Q<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb167-14"><a href="第十一章模拟.html#cb167-14" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(eff)  <span class="ot">=</span> Kin <span class="sc">-</span> Kout<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>C2<span class="sc">/</span>(EC50<span class="sc">+</span>C2))<span class="sc">*</span>eff;</span>
+<span id="cb167-15"><a href="第十一章模拟.html#cb167-15" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+</div>
+<div id="添加参数估计值" class="section level4 hasAnchor">
+<h4>11.2.1.2添加参数估计值<a href="第十一章模拟.html#添加参数估计值" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>下一步是将参数输入R，以便您可以开始模拟：</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="第十一章模拟.html#cb168-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">KA=</span><span class="fl">2.94E-01</span>, <span class="at">TCl=</span><span class="fl">1.86E+01</span>, <span class="at">V2=</span><span class="fl">4.02E+01</span>,  <span class="co"># central </span></span>
+<span id="cb168-2"><a href="第十一章模拟.html#cb168-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">Q=</span><span class="fl">1.05E+01</span>, <span class="at">V3=</span><span class="fl">2.97E+02</span>,                <span class="co"># peripheral</span></span>
+<span id="cb168-3"><a href="第十一章模拟.html#cb168-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">Kin=</span><span class="dv">1</span>, <span class="at">Kout=</span><span class="dv">1</span>, <span class="at">EC50=</span><span class="dv">200</span>, <span class="at">prop.err=</span><span class="dv">0</span>)      <span class="co"># effects</span></span></code></pre></div>
+<p>在这种情况下，我使用<code>lotri</code>来指定omega，因为它使用与nlmixr类似（也类似于 NONMEM）的下三角矩阵规范：</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="第十一章模拟.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="do">### the column names of the omega matrix need to match the parameters specified by rxode2</span></span>
+<span id="cb169-2"><a href="第十一章模拟.html#cb169-2" aria-hidden="true" tabindex="-1"></a>omega <span class="ot">&lt;-</span> <span class="fu">lotri</span>(eta.Cl <span class="sc">~</span> <span class="fl">0.4</span><span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb169-3"><a href="第十一章模拟.html#cb169-3" aria-hidden="true" tabindex="-1"></a>omega</span>
+<span id="cb169-4"><a href="第十一章模拟.html#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;        eta.Cl</span></span>
+<span id="cb169-5"><a href="第十一章模拟.html#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eta.Cl   0.16</span></span></code></pre></div>
+</div>
+<div id="模拟" class="section level4 hasAnchor">
+<h4>11.2.1.3模拟<a href="第十一章模拟.html#模拟" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>模拟的下一步是为整体模拟创建给药方案：</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="第十一章模拟.html#cb170-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="at">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb170-2"><a href="第十一章模拟.html#cb170-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">cmt=</span><span class="st">&quot;centr&quot;</span>)</span></code></pre></div>
+<p>如果您愿意，您还可以添加采样时间（尽管现在rxode2可以为您填写这些时间）：</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="第十一章模拟.html#cb171-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> ev <span class="sc">%&gt;%</span> <span class="fu">et</span>(<span class="dv">0</span>,<span class="dv">48</span>, <span class="at">length.out=</span><span class="dv">100</span>)</span></code></pre></div>
+<p>注意当添加采样时间时，<code>et</code>使用与<code>seq</code>类似的参数。有很多种的方法可以用来增加采样时间和事件，以实现使复杂的给药方案(见<a href="https://nlmixr2.github.io/rxode2-manual/rxode2-events.html">事件插图</a>)。这包括在<a href="https://nlmixr2.github.io/rxode2-manual/rxode2-events.html#add-doses-and-samples-within-a-sampling-window">采样和给药时间两者</a>上增加变异的方法。</p>
+<p>一旦上述操作都完成后，您可以使用<code>rxSolve</code>进行模拟：</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="第十一章模拟.html#cb172-1" aria-hidden="true" tabindex="-1"></a>sim  <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod,theta,ev,<span class="at">omega=</span>omega,<span class="at">nSub=</span><span class="dv">100</span>)</span></code></pre></div>
+<p>要快速查看和自定义模拟，您可以使用默认 <code>plot</code>程序。因为这是一个rxode2对象，所以它将创建一个 <code>ggplot2</code>对象，您可以根据需要随意修改此ggplot2对象。<code>plot</code>的额外参数告诉rxode2/R您对绘图感兴趣的信息。在本例中，我们感兴趣的是查看衍生出的参数<code>C2</code>：</p>
+</div>
+<div id="通过plot检查模拟" class="section level4 hasAnchor">
+<h4>11.2.1.4通过<code>plot</code>检查模拟<a href="第十一章模拟.html#通过plot检查模拟" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="第十一章模拟.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb173-2"><a href="第十一章模拟.html#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="do">### The plots from rxode2 are ggplots so they can be modified with</span></span>
+<span id="cb173-3"><a href="第十一章模拟.html#cb173-3" aria-hidden="true" tabindex="-1"></a><span class="do">### standard ggplot commands.</span></span>
+<span id="cb173-4"><a href="第十一章模拟.html#cb173-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sim, C2, <span class="at">log=</span><span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb173-5"><a href="第十一章模拟.html#cb173-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Central Compartment&quot;</span>) </span></code></pre></div>
+<p><img src="assets/unnamed-chunk-119-1.png" /></p>
+<p>当然，这个额外附加参数也可以是一个状态值，比如<code>eff</code>：</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="第十一章模拟.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="do">### They also takes many of the standard plot arguments; See ?plot</span></span>
+<span id="cb174-2"><a href="第十一章模拟.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sim, eff, <span class="at">ylab=</span><span class="st">&quot;Effect&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-120-1.png" /></p>
+<p>或者，你甚至可以并排同时查看这两个：</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="第十一章模拟.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sim, C2, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-121-1.png" /></p>
+<p>或者，可以通过patchwork把他们堆积起来：</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="第十一章模拟.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb176-2"><a href="第十一章模拟.html#cb176-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sim, C2, <span class="at">log=</span><span class="st">&quot;y&quot;</span>) <span class="sc">/</span> <span class="fu">plot</span>(sim, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-122-1.png" /></p>
+</div>
+<div id="处理数据以创建摘要图" class="section level4 hasAnchor">
+<h4>11.2.1.5处理数据以创建摘要图<a href="第十一章模拟.html#处理数据以创建摘要图" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>通常在定量药理学模拟中，仅仅模拟系统是不够的。我们必须做一些更容易理解的事情，比如观察模拟的中心和极端趋势。</p>
+<p>由于<code>rxode2</code>对象是一种<a href="https://nlmixr2.github.io/rxode2-manual/rxode2-data-frame.html">数据框</a></p>
+<p>因此现在可以直接使用模拟数据执行计算和生成绘图。您可以</p>
+<p>以下代码，绘制了模拟数据的第5、50和95个百分位数。</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="第十一章模拟.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(sim, <span class="st">&quot;C2&quot;</span>, <span class="at">level=</span><span class="fl">0.95</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb177-2"><a href="第十一章模拟.html#cb177-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="at">ylab=</span><span class="st">&quot;Central Concentration&quot;</span>, <span class="at">log=</span><span class="st">&quot;y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="第十一章模拟.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! in order to put confidence bands around the intervals, you need at least 2500 simulations</span></span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="第十一章模拟.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; summarizing data...done</span></span></code></pre></div>
+<p><img src="assets/unnamed-chunk-123-1.png" /></p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="第十一章模拟.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(sim, <span class="st">&quot;eff&quot;</span>, <span class="at">level=</span><span class="fl">0.95</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb180-2"><a href="第十一章模拟.html#cb180-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="at">ylab=</span><span class="st">&quot;Effect&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="第十一章模拟.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! in order to put confidence bands around the intervals, you need at least 2500 simulations</span></span>
+<span id="cb181-2"><a href="第十一章模拟.html#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; summarizing data...done</span></span></code></pre></div>
+<p><img src="assets/unnamed-chunk-124-1.png" /></p>
+<p>请注意，您可以看到为该示例模拟的参数</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="第十一章模拟.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sim<span class="sc">$</span>param)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="第十一章模拟.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   sim.id   V2 prop.err  V3  TCl     eta.Cl    KA    Q Kin Kout EC50</span></span>
+<span id="cb183-2"><a href="第十一章模拟.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      1 40.2        0 297 18.6 -0.2332273 0.294 10.5   1    1  200</span></span>
+<span id="cb183-3"><a href="第十一章模拟.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      2 40.2        0 297 18.6 -0.3097188 0.294 10.5   1    1  200</span></span>
+<span id="cb183-4"><a href="第十一章模拟.html#cb183-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3      3 40.2        0 297 18.6 -0.1103929 0.294 10.5   1    1  200</span></span>
+<span id="cb183-5"><a href="第十一章模拟.html#cb183-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4      4 40.2        0 297 18.6  0.3790298 0.294 10.5   1    1  200</span></span>
+<span id="cb183-6"><a href="第十一章模拟.html#cb183-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5      5 40.2        0 297 18.6 -0.2001559 0.294 10.5   1    1  200</span></span>
+<span id="cb183-7"><a href="第十一章模拟.html#cb183-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6      6 40.2        0 297 18.6  0.1855595 0.294 10.5   1    1  200</span></span></code></pre></div>
+</div>
+<div id="无法解释的变异sigma的模拟" class="section level4 hasAnchor">
+<h4>11.2.1.6无法解释的变异（sigma）的模拟<a href="第十一章模拟.html#无法解释的变异sigma的模拟" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>除了方便地模拟个体之间的变异，您还可以轻松模拟无法解释的变异【译者注：这里是指残差变异，残差变异又被称之为剩余的无法解释的变异】。</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="第十一章模拟.html#cb184-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb184-2"><a href="第十一章模拟.html#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">eff</span>(<span class="dv">0</span>) <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb184-3"><a href="第十一章模拟.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  C2 <span class="ot">=</span> centr<span class="sc">/</span>V2;</span>
+<span id="cb184-4"><a href="第十一章模拟.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  C3 <span class="ot">=</span> peri<span class="sc">/</span>V3;</span>
+<span id="cb184-5"><a href="第十一章模拟.html#cb184-5" aria-hidden="true" tabindex="-1"></a>  CL <span class="ot">=</span>  TCl<span class="sc">*</span><span class="fu">exp</span>(eta.Cl) <span class="do">## This is coded as a variable in the model</span></span>
+<span id="cb184-6"><a href="第十一章模拟.html#cb184-6" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span><span class="sc">-</span>KA<span class="sc">*</span>depot;</span>
+<span id="cb184-7"><a href="第十一章模拟.html#cb184-7" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(centr) <span class="ot">=</span> KA<span class="sc">*</span>depot <span class="sc">-</span> CL<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C2 <span class="sc">+</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb184-8"><a href="第十一章模拟.html#cb184-8" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(peri)  <span class="ot">=</span>                    Q<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb184-9"><a href="第十一章模拟.html#cb184-9" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(eff)  <span class="ot">=</span> Kin <span class="sc">-</span> Kout<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>C2<span class="sc">/</span>(EC50<span class="sc">+</span>C2))<span class="sc">*</span>eff;</span>
+<span id="cb184-10"><a href="第十一章模拟.html#cb184-10" aria-hidden="true" tabindex="-1"></a>  e <span class="ot">=</span> eff<span class="sc">+</span>eff.err</span>
+<span id="cb184-11"><a href="第十一章模拟.html#cb184-11" aria-hidden="true" tabindex="-1"></a>  cp <span class="ot">=</span> centr<span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span>cp.err)</span>
+<span id="cb184-12"><a href="第十一章模拟.html#cb184-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb184-13"><a href="第十一章模拟.html#cb184-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-14"><a href="第十一章模拟.html#cb184-14" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">KA=</span><span class="fl">2.94E-01</span>, <span class="at">TCl=</span><span class="fl">1.86E+01</span>, <span class="at">V2=</span><span class="fl">4.02E+01</span>,  <span class="co"># central </span></span>
+<span id="cb184-15"><a href="第十一章模拟.html#cb184-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">Q=</span><span class="fl">1.05E+01</span>, <span class="at">V3=</span><span class="fl">2.97E+02</span>,                <span class="co"># peripheral</span></span>
+<span id="cb184-16"><a href="第十一章模拟.html#cb184-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">Kin=</span><span class="dv">1</span>, <span class="at">Kout=</span><span class="dv">1</span>, <span class="at">EC50=</span><span class="dv">200</span>)                <span class="co"># effects  </span></span>
+<span id="cb184-17"><a href="第十一章模拟.html#cb184-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-18"><a href="第十一章模拟.html#cb184-18" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">lotri</span>(eff.err <span class="sc">~</span> <span class="fl">0.1</span>, cp.err <span class="sc">~</span> <span class="fl">0.1</span>)</span>
+<span id="cb184-19"><a href="第十一章模拟.html#cb184-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-20"><a href="第十一章模拟.html#cb184-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-21"><a href="第十一章模拟.html#cb184-21" aria-hidden="true" tabindex="-1"></a>sim  <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod, theta, ev, <span class="at">omega=</span>omega, <span class="at">nSub=</span><span class="dv">100</span>, <span class="at">sigma=</span>sigma)</span>
+<span id="cb184-22"><a href="第十一章模拟.html#cb184-22" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">confint</span>(sim, <span class="fu">c</span>(<span class="st">&quot;eff&quot;</span>, <span class="st">&quot;centr&quot;</span>));</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="第十一章模拟.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ! in order to put confidence bands around the intervals, you need at least 2500 simulations</span></span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="第十一章模拟.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; summarizing data...done</span></span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="第十一章模拟.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-126-1.png" /></p>
+</div>
+<div id="模拟个体" class="section level4 hasAnchor">
+<h4>11.2.1.7模拟个体<a href="第十一章模拟.html#模拟个体" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>有时您可能想要在临床试验中匹配个体的剂量和观察结果。要做到这一点，您必须使用<code>rxode2</code>事件规范 创建一个data.Frame，以及创建一个<code>ID</code>列来指示个体。rxode2的事件插图详细介绍了应该如何创建这些数据集。</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="第十一章模拟.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb188-2"><a href="第十一章模拟.html#cb188-2" aria-hidden="true" tabindex="-1"></a>ev1 <span class="ot">&lt;-</span> <span class="fu">eventTable</span>(<span class="at">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="at">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb188-3"><a href="第十一章模拟.html#cb188-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add.dosing</span>(<span class="at">dose=</span><span class="dv">10000</span>, <span class="at">nbr.doses=</span><span class="dv">1</span>, <span class="at">dosing.to=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb188-4"><a href="第十一章模拟.html#cb188-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add.sampling</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">48</span>,<span class="at">length.out=</span><span class="dv">10</span>));</span>
+<span id="cb188-5"><a href="第十一章模拟.html#cb188-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-6"><a href="第十一章模拟.html#cb188-6" aria-hidden="true" tabindex="-1"></a>ev2 <span class="ot">&lt;-</span> <span class="fu">eventTable</span>(<span class="at">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="at">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb188-7"><a href="第十一章模拟.html#cb188-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add.dosing</span>(<span class="at">dose=</span><span class="dv">5000</span>, <span class="at">nbr.doses=</span><span class="dv">1</span>, <span class="at">dosing.to=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb188-8"><a href="第十一章模拟.html#cb188-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">add.sampling</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">48</span>,<span class="at">length.out=</span><span class="dv">8</span>));</span>
+<span id="cb188-9"><a href="第十一章模拟.html#cb188-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-10"><a href="第十一章模拟.html#cb188-10" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">data.frame</span>(<span class="at">ID=</span><span class="dv">1</span>, ev1<span class="sc">$</span><span class="fu">get.EventTable</span>()),</span>
+<span id="cb188-11"><a href="第十一章模拟.html#cb188-11" aria-hidden="true" tabindex="-1"></a>             <span class="fu">data.frame</span>(<span class="at">ID=</span><span class="dv">2</span>, ev2<span class="sc">$</span><span class="fu">get.EventTable</span>()))</span>
+<span id="cb188-12"><a href="第十一章模拟.html#cb188-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-13"><a href="第十一章模拟.html#cb188-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-14"><a href="第十一章模拟.html#cb188-14" aria-hidden="true" tabindex="-1"></a><span class="do">### Note the number of subject is not needed since it is determined by the data</span></span>
+<span id="cb188-15"><a href="第十一章模拟.html#cb188-15" aria-hidden="true" tabindex="-1"></a>sim  <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod, theta, dat, <span class="at">omega=</span>omega, <span class="at">sigma=</span>sigma)</span>
+<span id="cb188-16"><a href="第十一章模拟.html#cb188-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb188-17"><a href="第十一章模拟.html#cb188-17" aria-hidden="true" tabindex="-1"></a>sim <span class="sc">%&gt;%</span> <span class="fu">select</span>(id, time, e, cp)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="第十一章模拟.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id          time         e         cp</span></span>
+<span id="cb189-2"><a href="第十一章模拟.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   1  0.000000 [h] 1.0444940 5227.28602</span></span>
+<span id="cb189-3"><a href="第十一章模拟.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   1  5.333333 [h] 0.7186017  513.87177</span></span>
+<span id="cb189-4"><a href="第十一章模拟.html#cb189-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   1 10.666667 [h] 1.2883307  101.02653</span></span>
+<span id="cb189-5"><a href="第十一章模拟.html#cb189-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4   1 16.000000 [h] 0.8259603  106.42998</span></span>
+<span id="cb189-6"><a href="第十一章模拟.html#cb189-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5   1 21.333333 [h] 0.8209345  197.54042</span></span>
+<span id="cb189-7"><a href="第十一章模拟.html#cb189-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6   1 26.666667 [h] 1.1566976  103.53138</span></span>
+<span id="cb189-8"><a href="第十一章模拟.html#cb189-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7   1 32.000000 [h] 1.1361974  151.14445</span></span>
+<span id="cb189-9"><a href="第十一章模拟.html#cb189-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8   1 37.333333 [h] 0.8207058  150.22830</span></span>
+<span id="cb189-10"><a href="第十一章模拟.html#cb189-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9   1 42.666667 [h] 0.7685176   81.82299</span></span>
+<span id="cb189-11"><a href="第十一章模拟.html#cb189-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10  1 48.000000 [h] 1.0482719   76.25287</span></span>
+<span id="cb189-12"><a href="第十一章模拟.html#cb189-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11  2  0.000000 [h] 0.6760207 4393.70285</span></span>
+<span id="cb189-13"><a href="第十一章模拟.html#cb189-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12  2  6.857143 [h] 0.9278252   64.17252</span></span>
+<span id="cb189-14"><a href="第十一章模拟.html#cb189-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 13  2 13.714286 [h] 1.7870333   49.54396</span></span>
+<span id="cb189-15"><a href="第十一章模拟.html#cb189-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 14  2 20.571429 [h] 0.8339921   38.91878</span></span>
+<span id="cb189-16"><a href="第十一章模拟.html#cb189-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 15  2 27.428571 [h] 0.8989828   32.64892</span></span>
+<span id="cb189-17"><a href="第十一章模拟.html#cb189-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 16  2 34.285714 [h] 0.9293400   25.13497</span></span>
+<span id="cb189-18"><a href="第十一章模拟.html#cb189-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 17  2 41.142857 [h] 1.3691292   21.36848</span></span>
+<span id="cb189-19"><a href="第十一章模拟.html#cb189-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 18  2 48.000000 [h] 0.5910913    5.68595</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="模拟临床试验" class="section level2 hasAnchor">
+<h2>11.3模拟临床试验<a href="第十一章模拟.html#模拟临床试验" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>通过使用简单的单一事件表或来自上述临床试验的数据，可以执行完整的临床试验模拟。</p>
+<p>通常在临床试验模拟中，您希望考虑固定效应参数估计中的不确定性【译者注：这里的不确定性是指参数估计的精度，以及精度的方差协方差矩阵；参数估计的精度不仅固定效应参数有，个体间变异和个体内变异等参数也存在其对应的精度的方差协方差矩阵；初学者容易将不确定性的方差协方差矩阵与描述个体间变异OMEGA(OMEGA矩阵也是一种方差协方差矩阵)混淆，读者应区分并知悉这是两种不同的东西】，甚至包括受试者之间的变异以及无法解释的变异的不确定性。</p>
+<p><code>rxode2</code>允许您在模拟时通过参数<code>nStud</code>指定多个虚拟“研究”进行模拟，来解释这些不确定性 。这些研究中的每一项都对个体间变异<code>omega</code>)和未解释变异(sigma)之间的固定效应效应参数和协方差矩阵的实现进行了采样。根据你从模型中得到的信息，有几种策略可用于模拟<code>omega</code>和<code>sigma</code>矩阵的实现。</p>
+<p>第一种策略，在标准差(或相关参数)没有任何标准误时，或者在您所模拟的模型中存在参数间相关性时，采用此策略。在这种情况下，建议的策略是使用逆Wishart（参数化以缩放到共轭先验）/<a href="https://en.wikipedia.org/wiki/Scaled_inverse_chi-squared_distribution">缩放逆chi分布</a>。 这种方法使用单个参数来告知 采样的协方差矩阵的变异性（自由度）。</p>
+<p>第二种策略，如果您在方差/标准差上有标准误，而协方差矩阵中没有参数间相关性，采用此策略。在这种方法中，您可以分别对标准差和相关矩阵进行模拟。首先，在thetaMat多元正态模拟中模拟方差/标准差分量。在模拟并转换为标准差后，将使用协方差矩阵的自由度来模拟相关矩阵。将模拟的标准差与模拟的相关矩阵相结合后将得到一个模拟的协方差矩阵。对于较小维度的协方差矩阵 （尺寸&lt;10x10）建议您使用<code>lkj</code>分布来模拟相关矩阵。对于更高维度的协方差矩阵，建议您使用逆wishart分布(转换为相关矩阵)进行模拟。</p>
+<p>协方差/方差先验是由<code>rxode2</code>的<code>cvPost()</code> 函数模拟的。</p>
+<div id="基于逆wishart相关性的模拟" class="section level3 hasAnchor">
+<h3>11.3.1基于逆Wishart相关性的模拟<a href="第十一章模拟.html#基于逆wishart相关性的模拟" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>此模拟的示例如下：</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="第十一章模拟.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Creating covariance matrix</span></span>
+<span id="cb190-2"><a href="第十一章模拟.html#cb190-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">8</span><span class="sc">^</span><span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb190-3"><a href="第十一章模拟.html#cb190-3" aria-hidden="true" tabindex="-1"></a>tMat <span class="ot">&lt;-</span> <span class="fu">tcrossprod</span>(tmp, tmp) <span class="sc">/</span> (<span class="dv">8</span> <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb190-4"><a href="第十一章模拟.html#cb190-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(tMat) <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="cn">NULL</span>, <span class="fu">names</span>(theta))</span>
+<span id="cb190-5"><a href="第十一章模拟.html#cb190-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-6"><a href="第十一章模拟.html#cb190-6" aria-hidden="true" tabindex="-1"></a>sim  <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod, theta, ev, <span class="at">omega=</span>omega, <span class="at">nSub=</span><span class="dv">100</span>, <span class="at">sigma=</span>sigma, <span class="at">thetaMat=</span>tMat, <span class="at">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb190-7"><a href="第十一章模拟.html#cb190-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">dfSub=</span><span class="dv">10</span>, <span class="at">dfObs=</span><span class="dv">100</span>)</span>
+<span id="cb190-8"><a href="第十一章模拟.html#cb190-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-9"><a href="第十一章模拟.html#cb190-9" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span>sim <span class="sc">%&gt;%</span> <span class="fu">confint</span>(<span class="fu">c</span>(<span class="st">&quot;centr&quot;</span>, <span class="st">&quot;eff&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="第十一章模拟.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; summarizing data...done</span></span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="第十一章模拟.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-128-1.png" /></p>
+<p>如果你想查看每个虚拟研究中使用的<code>omega</code>和<code>sigma</code>，请通过使用<code>$omega.list</code>和<code>$sigma.list</code>在已求解的数据对象中访问它们 ：</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="第十一章模拟.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sim<span class="sc">$</span>omega.list)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="第十一章模拟.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb194-2"><a href="第十一章模拟.html#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           eta.Cl</span></span>
+<span id="cb194-3"><a href="第十一章模拟.html#cb194-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eta.Cl 0.1676778</span></span>
+<span id="cb194-4"><a href="第十一章模拟.html#cb194-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb194-5"><a href="第十一章模拟.html#cb194-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb194-6"><a href="第十一章模拟.html#cb194-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           eta.Cl</span></span>
+<span id="cb194-7"><a href="第十一章模拟.html#cb194-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eta.Cl 0.2917085</span></span>
+<span id="cb194-8"><a href="第十一章模拟.html#cb194-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb194-9"><a href="第十一章模拟.html#cb194-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb194-10"><a href="第十一章模拟.html#cb194-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           eta.Cl</span></span>
+<span id="cb194-11"><a href="第十一章模拟.html#cb194-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eta.Cl 0.1776813</span></span>
+<span id="cb194-12"><a href="第十一章模拟.html#cb194-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb194-13"><a href="第十一章模拟.html#cb194-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb194-14"><a href="第十一章模拟.html#cb194-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           eta.Cl</span></span>
+<span id="cb194-15"><a href="第十一章模拟.html#cb194-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eta.Cl 0.1578682</span></span>
+<span id="cb194-16"><a href="第十一章模拟.html#cb194-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb194-17"><a href="第十一章模拟.html#cb194-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
+<span id="cb194-18"><a href="第十一章模拟.html#cb194-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           eta.Cl</span></span>
+<span id="cb194-19"><a href="第十一章模拟.html#cb194-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eta.Cl 0.1845614</span></span>
+<span id="cb194-20"><a href="第十一章模拟.html#cb194-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb194-21"><a href="第十一章模拟.html#cb194-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
+<span id="cb194-22"><a href="第十一章模拟.html#cb194-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           eta.Cl</span></span>
+<span id="cb194-23"><a href="第十一章模拟.html#cb194-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eta.Cl 0.3282268</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="第十一章模拟.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sim<span class="sc">$</span>sigma.list)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="第十一章模拟.html#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb196-2"><a href="第十一章模拟.html#cb196-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             eff.err      cp.err</span></span>
+<span id="cb196-3"><a href="第十一章模拟.html#cb196-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eff.err 0.112416983 0.004197039</span></span>
+<span id="cb196-4"><a href="第十一章模拟.html#cb196-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cp.err  0.004197039 0.097293971</span></span>
+<span id="cb196-5"><a href="第十一章模拟.html#cb196-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb196-6"><a href="第十一章模拟.html#cb196-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb196-7"><a href="第十一章模拟.html#cb196-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;              eff.err       cp.err</span></span>
+<span id="cb196-8"><a href="第十一章模拟.html#cb196-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eff.err  0.084311199 -0.006277998</span></span>
+<span id="cb196-9"><a href="第十一章模拟.html#cb196-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cp.err  -0.006277998  0.122140938</span></span>
+<span id="cb196-10"><a href="第十一章模拟.html#cb196-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb196-11"><a href="第十一章模拟.html#cb196-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb196-12"><a href="第十一章模拟.html#cb196-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            eff.err     cp.err</span></span>
+<span id="cb196-13"><a href="第十一章模拟.html#cb196-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eff.err 0.09834771 0.01060251</span></span>
+<span id="cb196-14"><a href="第十一章模拟.html#cb196-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cp.err  0.01060251 0.10024751</span></span>
+<span id="cb196-15"><a href="第十一章模拟.html#cb196-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb196-16"><a href="第十一章模拟.html#cb196-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb196-17"><a href="第十一章模拟.html#cb196-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             eff.err      cp.err</span></span>
+<span id="cb196-18"><a href="第十一章模拟.html#cb196-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eff.err 0.125556975 0.007690868</span></span>
+<span id="cb196-19"><a href="第十一章模拟.html#cb196-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cp.err  0.007690868 0.090991261</span></span>
+<span id="cb196-20"><a href="第十一章模拟.html#cb196-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb196-21"><a href="第十一章模拟.html#cb196-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[5]]</span></span>
+<span id="cb196-22"><a href="第十一章模拟.html#cb196-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;            eff.err     cp.err</span></span>
+<span id="cb196-23"><a href="第十一章模拟.html#cb196-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eff.err  0.1116261 -0.0184748</span></span>
+<span id="cb196-24"><a href="第十一章模拟.html#cb196-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cp.err  -0.0184748  0.1320288</span></span>
+<span id="cb196-25"><a href="第十一章模拟.html#cb196-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb196-26"><a href="第十一章模拟.html#cb196-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[6]]</span></span>
+<span id="cb196-27"><a href="第十一章模拟.html#cb196-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             eff.err      cp.err</span></span>
+<span id="cb196-28"><a href="第十一章模拟.html#cb196-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; eff.err 0.093539238 0.007270049</span></span>
+<span id="cb196-29"><a href="第十一章模拟.html#cb196-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; cp.err  0.007270049 0.098648424</span></span></code></pre></div>
+<p>您还可以从<code>$params</code>数据框中看到参数实现。</p>
+</div>
+<div id="使用方差标准差标准误差进行模拟" class="section level3 hasAnchor">
+<h3>11.3.2使用方差/标准差标准误差进行模拟<a href="第十一章模拟.html#使用方差标准差标准误差进行模拟" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>假设我们希望模拟<a href="https://github.com/UUPharmacometrics/xpose/blob/master/inst/extdata/run001.lst">xpose中包含的nonmem运行</a></p>
+<p>首先我们设置模型:</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="第十一章模拟.html#cb197-1" aria-hidden="true" tabindex="-1"></a>rx1 <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb197-2"><a href="第十一章模拟.html#cb197-2" aria-hidden="true" tabindex="-1"></a>  cl <span class="ot">&lt;-</span> tcl<span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span>crcl.cl<span class="sc">*</span>(CLCR<span class="dv">-65</span>)) <span class="sc">*</span> <span class="fu">exp</span>(eta.cl)</span>
+<span id="cb197-3"><a href="第十一章模拟.html#cb197-3" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> tv <span class="sc">*</span> WT <span class="sc">*</span> <span class="fu">exp</span>(eta.v)</span>
+<span id="cb197-4"><a href="第十一章模拟.html#cb197-4" aria-hidden="true" tabindex="-1"></a>  ka <span class="ot">&lt;-</span> tka <span class="sc">*</span> <span class="fu">exp</span>(eta.ka)</span>
+<span id="cb197-5"><a href="第十一章模拟.html#cb197-5" aria-hidden="true" tabindex="-1"></a>  ipred <span class="ot">&lt;-</span> <span class="fu">linCmt</span>()</span>
+<span id="cb197-6"><a href="第十一章模拟.html#cb197-6" aria-hidden="true" tabindex="-1"></a>  obs <span class="ot">&lt;-</span> ipred <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> prop.sd) <span class="sc">+</span> add.sd </span>
+<span id="cb197-7"><a href="第十一章模拟.html#cb197-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>接下来我们输入参数的估计值：</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="第十一章模拟.html#cb198-1" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">tcl=</span><span class="fl">2.63E+01</span>, <span class="at">tv=</span><span class="fl">1.35E+00</span>, <span class="at">tka=</span><span class="fl">4.20E+00</span>, <span class="at">tlag=</span><span class="fl">2.08E-01</span>,</span>
+<span id="cb198-2"><a href="第十一章模拟.html#cb198-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">prop.sd=</span><span class="fl">2.05E-01</span>, <span class="at">add.sd=</span><span class="fl">1.06E-02</span>, <span class="at">crcl.cl=</span><span class="fl">7.17E-03</span>,</span>
+<span id="cb198-3"><a href="第十一章模拟.html#cb198-3" aria-hidden="true" tabindex="-1"></a>           <span class="do">## Note that since we are using the separation strategy the ETA variances are here too</span></span>
+<span id="cb198-4"><a href="第十一章模拟.html#cb198-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">eta.cl=</span><span class="fl">7.30E-02</span>,  <span class="at">eta.v=</span><span class="fl">3.80E-02</span>, <span class="at">eta.ka=</span><span class="fl">1.91E+00</span>)</span></code></pre></div>
+<p>以及它们的协方差；对我来说，创建命名协方差矩阵的最简单方法是使用<code>lotri()</code>：</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="第十一章模拟.html#cb199-1" aria-hidden="true" tabindex="-1"></a>thetaMat <span class="ot">&lt;-</span> <span class="fu">lotri</span>(</span>
+<span id="cb199-2"><a href="第十一章模拟.html#cb199-2" aria-hidden="true" tabindex="-1"></a>    tcl <span class="sc">+</span> tv <span class="sc">+</span> tka <span class="sc">+</span> tlag <span class="sc">+</span> prop.sd <span class="sc">+</span> add.sd <span class="sc">+</span> crcl.cl <span class="sc">+</span> eta.cl <span class="sc">+</span> eta.v <span class="sc">+</span> eta.ka <span class="sc">~</span></span>
+<span id="cb199-3"><a href="第十一章模拟.html#cb199-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(<span class="fl">7.95E-01</span>,</span>
+<span id="cb199-4"><a href="第十一章模拟.html#cb199-4" aria-hidden="true" tabindex="-1"></a>          <span class="fl">2.05E-02</span>, <span class="fl">1.92E-03</span>,</span>
+<span id="cb199-5"><a href="第十一章模拟.html#cb199-5" aria-hidden="true" tabindex="-1"></a>          <span class="fl">7.22E-02</span>, <span class="sc">-</span><span class="fl">8.30E-03</span>, <span class="fl">6.55E-01</span>,</span>
+<span id="cb199-6"><a href="第十一章模拟.html#cb199-6" aria-hidden="true" tabindex="-1"></a>          <span class="sc">-</span><span class="fl">3.45E-03</span>, <span class="sc">-</span><span class="fl">6.42E-05</span>, <span class="fl">3.22E-03</span>, <span class="fl">2.47E-04</span>,</span>
+<span id="cb199-7"><a href="第十一章模拟.html#cb199-7" aria-hidden="true" tabindex="-1"></a>          <span class="fl">8.71E-04</span>, <span class="fl">2.53E-04</span>, <span class="sc">-</span><span class="fl">4.71E-03</span>, <span class="sc">-</span><span class="fl">5.79E-05</span>, <span class="fl">5.04E-04</span>,</span>
+<span id="cb199-8"><a href="第十一章模拟.html#cb199-8" aria-hidden="true" tabindex="-1"></a>          <span class="fl">6.30E-04</span>, <span class="sc">-</span><span class="fl">3.17E-06</span>, <span class="sc">-</span><span class="fl">6.52E-04</span>, <span class="sc">-</span><span class="fl">1.53E-05</span>, <span class="sc">-</span><span class="fl">3.14E-05</span>, <span class="fl">1.34E-05</span>,</span>
+<span id="cb199-9"><a href="第十一章模拟.html#cb199-9" aria-hidden="true" tabindex="-1"></a>          <span class="sc">-</span><span class="fl">3.30E-04</span>, <span class="fl">5.46E-06</span>, <span class="sc">-</span><span class="fl">3.15E-04</span>, <span class="fl">2.46E-06</span>, <span class="fl">3.15E-06</span>, <span class="sc">-</span><span class="fl">1.58E-06</span>, <span class="fl">2.88E-06</span>,</span>
+<span id="cb199-10"><a href="第十一章模拟.html#cb199-10" aria-hidden="true" tabindex="-1"></a>          <span class="sc">-</span><span class="fl">1.29E-03</span>, <span class="sc">-</span><span class="fl">7.97E-05</span>, <span class="fl">1.68E-03</span>, <span class="sc">-</span><span class="fl">2.75E-05</span>, <span class="sc">-</span><span class="fl">8.26E-05</span>, <span class="fl">1.13E-05</span>, <span class="sc">-</span><span class="fl">1.66E-06</span>, <span class="fl">1.58E-04</span>,</span>
+<span id="cb199-11"><a href="第十一章模拟.html#cb199-11" aria-hidden="true" tabindex="-1"></a>          <span class="sc">-</span><span class="fl">1.23E-03</span>, <span class="sc">-</span><span class="fl">1.27E-05</span>, <span class="sc">-</span><span class="fl">1.33E-03</span>, <span class="sc">-</span><span class="fl">1.47E-05</span>, <span class="sc">-</span><span class="fl">1.03E-04</span>, <span class="fl">1.02E-05</span>, <span class="fl">1.67E-06</span>, <span class="fl">6.68E-05</span>, <span class="fl">1.56E-04</span>,</span>
+<span id="cb199-12"><a href="第十一章模拟.html#cb199-12" aria-hidden="true" tabindex="-1"></a>          <span class="fl">7.69E-02</span>, <span class="sc">-</span><span class="fl">7.23E-03</span>, <span class="fl">3.74E-01</span>, <span class="fl">1.79E-03</span>, <span class="sc">-</span><span class="fl">2.85E-03</span>, <span class="fl">1.18E-05</span>, <span class="sc">-</span><span class="fl">2.54E-04</span>, <span class="fl">1.61E-03</span>, <span class="sc">-</span><span class="fl">9.03E-04</span>, <span class="fl">3.12E-01</span>))</span>
+<span id="cb199-13"><a href="第十一章模拟.html#cb199-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-14"><a href="第十一章模拟.html#cb199-14" aria-hidden="true" tabindex="-1"></a>evw <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="at">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb199-15"><a href="第十一章模拟.html#cb199-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb199-16"><a href="第十一章模拟.html#cb199-16" aria-hidden="true" tabindex="-1"></a>    <span class="do">## For this problem we will simulate with sampling windows</span></span>
+<span id="cb199-17"><a href="第十一章模拟.html#cb199-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>),</span>
+<span id="cb199-18"><a href="第十一章模拟.html#cb199-18" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>),</span>
+<span id="cb199-19"><a href="第十一章模拟.html#cb199-19" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>),</span>
+<span id="cb199-20"><a href="第十一章模拟.html#cb199-20" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span>),</span>
+<span id="cb199-21"><a href="第十一章模拟.html#cb199-21" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">12</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb199-22"><a href="第十一章模拟.html#cb199-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">id=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)</span>
+<span id="cb199-23"><a href="第十一章模拟.html#cb199-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb199-24"><a href="第十一章模拟.html#cb199-24" aria-hidden="true" tabindex="-1"></a><span class="do">### From the run we know that:</span></span>
+<span id="cb199-25"><a href="第十一章模拟.html#cb199-25" aria-hidden="true" tabindex="-1"></a><span class="do">###   total number of observations is: 476</span></span>
+<span id="cb199-26"><a href="第十一章模拟.html#cb199-26" aria-hidden="true" tabindex="-1"></a><span class="do">###    Total number of individuals:     74</span></span>
+<span id="cb199-27"><a href="第十一章模拟.html#cb199-27" aria-hidden="true" tabindex="-1"></a>sim  <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(rx1, theta, evw,  <span class="at">nSub=</span><span class="dv">100</span>, <span class="at">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb199-28"><a href="第十一章模拟.html#cb199-28" aria-hidden="true" tabindex="-1"></a>                <span class="at">thetaMat=</span>thetaMat,</span>
+<span id="cb199-29"><a href="第十一章模拟.html#cb199-29" aria-hidden="true" tabindex="-1"></a>                <span class="do">## Match boundaries of problem</span></span>
+<span id="cb199-30"><a href="第十一章模拟.html#cb199-30" aria-hidden="true" tabindex="-1"></a>                <span class="at">thetaLower=</span><span class="dv">0</span>, </span>
+<span id="cb199-31"><a href="第十一章模拟.html#cb199-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">sigma=</span><span class="fu">c</span>(<span class="st">&quot;prop.sd&quot;</span>, <span class="st">&quot;add.sd&quot;</span>), <span class="do">## Sigmas are standard deviations</span></span>
+<span id="cb199-32"><a href="第十一章模拟.html#cb199-32" aria-hidden="true" tabindex="-1"></a>                <span class="at">sigmaXform=</span><span class="st">&quot;identity&quot;</span>, <span class="co"># default sigma xform=&quot;identity&quot;</span></span>
+<span id="cb199-33"><a href="第十一章模拟.html#cb199-33" aria-hidden="true" tabindex="-1"></a>                <span class="at">omega=</span><span class="fu">c</span>(<span class="st">&quot;eta.cl&quot;</span>, <span class="st">&quot;eta.v&quot;</span>, <span class="st">&quot;eta.ka&quot;</span>), <span class="do">## etas are variances</span></span>
+<span id="cb199-34"><a href="第十一章模拟.html#cb199-34" aria-hidden="true" tabindex="-1"></a>                <span class="at">omegaXform=</span><span class="st">&quot;variance&quot;</span>, <span class="co"># default omega xform=&quot;variance&quot;</span></span>
+<span id="cb199-35"><a href="第十一章模拟.html#cb199-35" aria-hidden="true" tabindex="-1"></a>                <span class="at">iCov=</span><span class="fu">data.frame</span>(<span class="at">WT=</span><span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">70</span>, <span class="dv">15</span>), <span class="at">CLCR=</span><span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">65</span>, <span class="dv">25</span>)),</span>
+<span id="cb199-36"><a href="第十一章模拟.html#cb199-36" aria-hidden="true" tabindex="-1"></a>                <span class="at">dfSub=</span><span class="dv">74</span>, <span class="at">dfObs=</span><span class="dv">476</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="第十一章模拟.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ thetaMat has too many items, ignored: &#39;tlag&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="第十一章模拟.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sim)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="第十一章模拟.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb202-2"><a href="第十一章模拟.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb202-3"><a href="第十一章模拟.html#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10,000 × 9</span></span>
+<span id="cb202-4"><a href="第十一章模拟.html#cb202-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    sim.id id      tcl crcl.cl  eta.cl    tv   eta.v   tka  eta.ka</span></span>
+<span id="cb202-5"><a href="第十一章模拟.html#cb202-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     &lt;int&gt; &lt;fct&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span id="cb202-6"><a href="第十一章模拟.html#cb202-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1      1 1      26.7    2.27  0.0525  2.52  0.692   4.83 -2.16  </span></span>
+<span id="cb202-7"><a href="第十一章模拟.html#cb202-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2      1 2      26.7    2.27  0.0383  2.52 -0.226   4.83 -1.49  </span></span>
+<span id="cb202-8"><a href="第十一章模拟.html#cb202-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3      1 3      26.7    2.27  0.207   2.52  0.346   4.83  0.939 </span></span>
+<span id="cb202-9"><a href="第十一章模拟.html#cb202-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4      1 4      26.7    2.27 -0.0993  2.52 -0.0124  4.83 -0.299 </span></span>
+<span id="cb202-10"><a href="第十一章模拟.html#cb202-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5      1 5      26.7    2.27 -0.308   2.52 -0.277   4.83  0.703 </span></span>
+<span id="cb202-11"><a href="第十一章模拟.html#cb202-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6      1 6      26.7    2.27  0.0300  2.52  0.278   4.83  1.36  </span></span>
+<span id="cb202-12"><a href="第十一章模拟.html#cb202-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7      1 7      26.7    2.27  0.0196  2.52  0.0696  4.83 -0.0215</span></span>
+<span id="cb202-13"><a href="第十一章模拟.html#cb202-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8      1 8      26.7    2.27 -0.233   2.52  0.0493  4.83 -0.573 </span></span>
+<span id="cb202-14"><a href="第十一章模拟.html#cb202-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9      1 9      26.7    2.27  0.693   2.52  0.277   4.83 -0.161 </span></span>
+<span id="cb202-15"><a href="第十一章模拟.html#cb202-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10      1 10     26.7    2.27 -0.0748  2.52  0.206   4.83 -0.296 </span></span>
+<span id="cb202-16"><a href="第十一章模拟.html#cb202-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 9,990 more rows</span></span>
+<span id="cb202-17"><a href="第十一章模拟.html#cb202-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb202-18"><a href="第十一章模拟.html#cb202-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; named numeric(0)</span></span>
+<span id="cb202-19"><a href="第十一章模拟.html#cb202-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb202-20"><a href="第十一章模拟.html#cb202-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Simulation with uncertainty in:</span></span>
+<span id="cb202-21"><a href="第十一章模拟.html#cb202-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • parameters ($thetaMat for changes)</span></span>
+<span id="cb202-22"><a href="第十一章模拟.html#cb202-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • omega matrix ($omegaList)</span></span>
+<span id="cb202-23"><a href="第十一章模拟.html#cb202-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • sigma matrix ($sigmaList)</span></span>
+<span id="cb202-24"><a href="第十一章模拟.html#cb202-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb202-25"><a href="第十一章模拟.html#cb202-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb202-26"><a href="第十一章模拟.html#cb202-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 50,000 × 10</span></span>
+<span id="cb202-27"><a href="第十一章模拟.html#cb202-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   sim.id    id   time    cl     v    ka   ipred     obs    WT  CLCR</span></span>
+<span id="cb202-28"><a href="第十一章模拟.html#cb202-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;int&gt; &lt;int&gt;    [h] &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb202-29"><a href="第十一章模拟.html#cb202-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1      1     1 0.0155  301. 313.  0.559 0.00274 -3.08    62.2  69.3</span></span>
+<span id="cb202-30"><a href="第十一章模拟.html#cb202-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2      1     1 0.749   301. 313.  0.559 0.0760   0.736   62.2  69.3</span></span>
+<span id="cb202-31"><a href="第十一章模拟.html#cb202-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3      1     1 1.02    301. 313.  0.559 0.0845  -2.18    62.2  69.3</span></span>
+<span id="cb202-32"><a href="第十一章模拟.html#cb202-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4      1     1 3.41    301. 313.  0.559 0.0493   1.36    62.2  69.3</span></span>
+<span id="cb202-33"><a href="第十一章模拟.html#cb202-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5      1     1 7.81    301. 313.  0.559 0.00540  2.30    62.2  69.3</span></span>
+<span id="cb202-34"><a href="第十一章模拟.html#cb202-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6      1     2 0.0833 2582.  71.7 1.09  0.0376  -0.0849  35.7 105. </span></span>
+<span id="cb202-35"><a href="第十一章模拟.html#cb202-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 49,994 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="第十一章模拟.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Notice that the simulation time-points change for the individual</span></span>
+<span id="cb203-2"><a href="第十一章模拟.html#cb203-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb203-3"><a href="第十一章模拟.html#cb203-3" aria-hidden="true" tabindex="-1"></a><span class="do">### If you want the same sampling time-points you can do that as well:</span></span>
+<span id="cb203-4"><a href="第十一章模拟.html#cb203-4" aria-hidden="true" tabindex="-1"></a>evw <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="at">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb203-5"><a href="第十一章模拟.html#cb203-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb203-6"><a href="第十一章模拟.html#cb203-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">50</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb203-7"><a href="第十一章模拟.html#cb203-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">id=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb203-8"><a href="第十一章模拟.html#cb203-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb203-9"><a href="第十一章模拟.html#cb203-9" aria-hidden="true" tabindex="-1"></a>sim  <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(rx1, theta, evw,  <span class="at">nSub=</span><span class="dv">100</span>, <span class="at">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb203-10"><a href="第十一章模拟.html#cb203-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">thetaMat=</span>thetaMat,</span>
+<span id="cb203-11"><a href="第十一章模拟.html#cb203-11" aria-hidden="true" tabindex="-1"></a>                <span class="do">## Match boundaries of problem</span></span>
+<span id="cb203-12"><a href="第十一章模拟.html#cb203-12" aria-hidden="true" tabindex="-1"></a>                <span class="at">thetaLower=</span><span class="dv">0</span>, </span>
+<span id="cb203-13"><a href="第十一章模拟.html#cb203-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">sigma=</span><span class="fu">c</span>(<span class="st">&quot;prop.sd&quot;</span>, <span class="st">&quot;add.sd&quot;</span>), <span class="do">## Sigmas are standard deviations</span></span>
+<span id="cb203-14"><a href="第十一章模拟.html#cb203-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">sigmaXform=</span><span class="st">&quot;identity&quot;</span>, <span class="co"># default sigma xform=&quot;identity&quot;</span></span>
+<span id="cb203-15"><a href="第十一章模拟.html#cb203-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">omega=</span><span class="fu">c</span>(<span class="st">&quot;eta.cl&quot;</span>, <span class="st">&quot;eta.v&quot;</span>, <span class="st">&quot;eta.ka&quot;</span>), <span class="do">## etas are variances</span></span>
+<span id="cb203-16"><a href="第十一章模拟.html#cb203-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">omegaXform=</span><span class="st">&quot;variance&quot;</span>, <span class="co"># default omega xform=&quot;variance&quot;</span></span>
+<span id="cb203-17"><a href="第十一章模拟.html#cb203-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">iCov=</span><span class="fu">data.frame</span>(<span class="at">WT=</span><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">70</span>, <span class="dv">15</span>), <span class="at">CLCR=</span><span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">65</span>, <span class="dv">25</span>)),</span>
+<span id="cb203-18"><a href="第十一章模拟.html#cb203-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">dfSub=</span><span class="dv">74</span>, <span class="at">dfObs=</span><span class="dv">476</span>,</span>
+<span id="cb203-19"><a href="第十一章模拟.html#cb203-19" aria-hidden="true" tabindex="-1"></a>                <span class="at">resample=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="第十一章模拟.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ thetaMat has too many items, ignored: &#39;tlag&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="第十一章模拟.html#cb205-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span>sim <span class="sc">%&gt;%</span> <span class="fu">confint</span>(<span class="fu">c</span>(<span class="st">&quot;ipred&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="第十一章模拟.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; summarizing data...</span></span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="第十一章模拟.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; done</span></span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="第十一章模拟.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-133-1.png" /></p>
+</div>
+<div id="omega或sigma参数没有不确定性的进行模拟" class="section level3 hasAnchor">
+<h3>11.3.3<code>omega</code>或<code>sigma</code>参数没有不确定性的进行模拟<a href="第十一章模拟.html#omega或sigma参数没有不确定性的进行模拟" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>如果您不希望从<code>omega</code>或<code>sigma</code>矩阵的任一先验分布中抽样，则您可以通过在求解时指定<code>simVariability = FALSE</code>选项，以下方式关闭此功能 ：</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="第十一章模拟.html#cb209-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb209-2"><a href="第十一章模拟.html#cb209-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">eff</span>(<span class="dv">0</span>) <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb209-3"><a href="第十一章模拟.html#cb209-3" aria-hidden="true" tabindex="-1"></a>  C2 <span class="ot">=</span> centr<span class="sc">/</span>V2;</span>
+<span id="cb209-4"><a href="第十一章模拟.html#cb209-4" aria-hidden="true" tabindex="-1"></a>  C3 <span class="ot">=</span> peri<span class="sc">/</span>V3;</span>
+<span id="cb209-5"><a href="第十一章模拟.html#cb209-5" aria-hidden="true" tabindex="-1"></a>  CL <span class="ot">=</span>  TCl<span class="sc">*</span><span class="fu">exp</span>(eta.Cl) <span class="do">## This is coded as a variable in the model</span></span>
+<span id="cb209-6"><a href="第十一章模拟.html#cb209-6" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span><span class="sc">-</span>KA<span class="sc">*</span>depot;</span>
+<span id="cb209-7"><a href="第十一章模拟.html#cb209-7" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(centr) <span class="ot">=</span> KA<span class="sc">*</span>depot <span class="sc">-</span> CL<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C2 <span class="sc">+</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb209-8"><a href="第十一章模拟.html#cb209-8" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(peri)  <span class="ot">=</span>                    Q<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb209-9"><a href="第十一章模拟.html#cb209-9" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(eff)  <span class="ot">=</span> Kin <span class="sc">-</span> Kout<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>C2<span class="sc">/</span>(EC50<span class="sc">+</span>C2))<span class="sc">*</span>eff;</span>
+<span id="cb209-10"><a href="第十一章模拟.html#cb209-10" aria-hidden="true" tabindex="-1"></a>  e <span class="ot">=</span> eff<span class="sc">+</span>eff.err</span>
+<span id="cb209-11"><a href="第十一章模拟.html#cb209-11" aria-hidden="true" tabindex="-1"></a>  cp <span class="ot">=</span> centr<span class="sc">*</span>(<span class="dv">1</span><span class="sc">+</span>cp.err)</span>
+<span id="cb209-12"><a href="第十一章模拟.html#cb209-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb209-13"><a href="第十一章模拟.html#cb209-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-14"><a href="第十一章模拟.html#cb209-14" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">KA=</span><span class="fl">2.94E-01</span>, <span class="at">TCl=</span><span class="fl">1.86E+01</span>, <span class="at">V2=</span><span class="fl">4.02E+01</span>,  <span class="co"># central </span></span>
+<span id="cb209-15"><a href="第十一章模拟.html#cb209-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">Q=</span><span class="fl">1.05E+01</span>, <span class="at">V3=</span><span class="fl">2.97E+02</span>,                <span class="co"># peripheral</span></span>
+<span id="cb209-16"><a href="第十一章模拟.html#cb209-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">Kin=</span><span class="dv">1</span>, <span class="at">Kout=</span><span class="dv">1</span>, <span class="at">EC50=</span><span class="dv">200</span>)                <span class="co"># effects  </span></span>
+<span id="cb209-17"><a href="第十一章模拟.html#cb209-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-18"><a href="第十一章模拟.html#cb209-18" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">lotri</span>(eff.err <span class="sc">~</span> <span class="fl">0.1</span>, cp.err <span class="sc">~</span> <span class="fl">0.1</span>)</span>
+<span id="cb209-19"><a href="第十一章模拟.html#cb209-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-20"><a href="第十一章模拟.html#cb209-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-21"><a href="第十一章模拟.html#cb209-21" aria-hidden="true" tabindex="-1"></a>sim  <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod, theta, ev, <span class="at">omega=</span>omega, <span class="at">nSub=</span><span class="dv">100</span>, <span class="at">sigma=</span>sigma,</span>
+<span id="cb209-22"><a href="第十一章模拟.html#cb209-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">thetaMat=</span>tMat, <span class="at">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb209-23"><a href="第十一章模拟.html#cb209-23" aria-hidden="true" tabindex="-1"></a>                <span class="at">simVariability=</span><span class="cn">FALSE</span>)</span>
+<span id="cb209-24"><a href="第十一章模拟.html#cb209-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-25"><a href="第十一章模拟.html#cb209-25" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span>sim <span class="sc">%&gt;%</span> <span class="fu">confint</span>(<span class="fu">c</span>(<span class="st">&quot;centr&quot;</span>, <span class="st">&quot;eff&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="第十一章模拟.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; summarizing data...done</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="第十一章模拟.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(s)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-134-1.png" /></p>
+<p>请注意，因为<code>omega</code>和<code>sigma</code>的实现不是模拟的， 所以<code>$omega.list</code>和<code>$sigma.list</code>都返回<code>NULL</code>。</p>
+<div id="rxode2多线程求解与仿真" class="section level5 hasAnchor">
+<h5>11.3.3.0.1 rxode2多线程求解与仿真<a href="第十一章模拟.html#rxode2多线程求解与仿真" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>rxode2现在现在支持在支持OpenMP的编译器(包括Linux和Windows)上进行多线程求解。默认情况下也可以支持Mac OSX，它使用rxCores()确定的所有可用内核进行解算。根据您的系统的不同，这可能是矫枉过正，在某个时候，求解的速度受到计算能力以外的因素的限制。</p>
+<p>您还可以通过使用多核来使用threefry模拟引擎生成随机偏差来加快模拟速度。这由nCoresRV参数控制。例如：</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="第十一章模拟.html#cb212-1" aria-hidden="true" tabindex="-1"></a>sim  <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(mod, theta, ev, <span class="at">omega=</span>omega, <span class="at">nSub=</span><span class="dv">100</span>, <span class="at">sigma=</span>sigma, <span class="at">thetaMat=</span>tMat, <span class="at">nStud=</span><span class="dv">10</span>,</span>
+<span id="cb212-2"><a href="第十一章模拟.html#cb212-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">nCoresRV=</span><span class="dv">2</span>)</span>
+<span id="cb212-3"><a href="第十一章模拟.html#cb212-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb212-4"><a href="第十一章模拟.html#cb212-4" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span>sim <span class="sc">%&gt;%</span> <span class="fu">confint</span>(<span class="fu">c</span>(<span class="st">&quot;eff&quot;</span>, <span class="st">&quot;centr&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="第十一章模拟.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; summarizing data...done</span></span></code></pre></div>
+<p>默认情况下为<code>1</code>核，因为结果取决于模拟中使用的核数和随机种子，以及每个线程共享/架构的工作负载。但是，如果您确保您的合作者拥有相同数量的可用内核，并且拥有支持OpenMP线程的编译，那么您可以使用更多的内核来加快此过程。</p>
+</div>
+</div>
+</div>
+<div id="使用先验数据进行求解" class="section level2 hasAnchor">
+<h2>11.4使用先验数据进行求解<a href="第十一章模拟.html#使用先验数据进行求解" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>rxode2可以使用<a href="https://nlmixr2.github.io/rxode2-manual/rxode2-single-subject.html">单一个体</a>或 <a href="https://nlmixr2.github.io/rxode2-manual/rxode2-sim-var.html">多个个体的单个事件表</a>来求解ODEs。此外，rxode2可以使用带有个性化事件的任意数据框。例如，当使用<code>nlmixr</code>时，您可以使用 <code>rxode2/vignettes/theo_sd</code>数据框</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="第十一章模拟.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
+<span id="cb214-2"><a href="第十一章模拟.html#cb214-2" aria-hidden="true" tabindex="-1"></a><span class="do">### Load data from nlmixr</span></span>
+<span id="cb214-3"><a href="第十一章模拟.html#cb214-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> qs<span class="sc">::</span><span class="fu">qread</span>(<span class="st">&quot;rxode2/vignettes/theo_sd.qs&quot;</span>)</span>
+<span id="cb214-4"><a href="第十一章模拟.html#cb214-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-5"><a href="第十一章模拟.html#cb214-5" aria-hidden="true" tabindex="-1"></a><span class="do">### Create rxode2 model</span></span>
+<span id="cb214-6"><a href="第十一章模拟.html#cb214-6" aria-hidden="true" tabindex="-1"></a>theo <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb214-7"><a href="第十一章模拟.html#cb214-7" aria-hidden="true" tabindex="-1"></a>    tka <span class="sc">~</span> <span class="fl">0.45</span> <span class="co"># Log Ka</span></span>
+<span id="cb214-8"><a href="第十一章模拟.html#cb214-8" aria-hidden="true" tabindex="-1"></a>    tcl <span class="sc">~</span> <span class="dv">1</span> <span class="co"># Log Cl</span></span>
+<span id="cb214-9"><a href="第十一章模拟.html#cb214-9" aria-hidden="true" tabindex="-1"></a>    tv <span class="sc">~</span> <span class="fl">3.45</span>    <span class="co"># Log V</span></span>
+<span id="cb214-10"><a href="第十一章模拟.html#cb214-10" aria-hidden="true" tabindex="-1"></a>    eta.ka <span class="sc">~</span> <span class="fl">0.6</span></span>
+<span id="cb214-11"><a href="第十一章模拟.html#cb214-11" aria-hidden="true" tabindex="-1"></a>    eta.cl <span class="sc">~</span> <span class="fl">0.3</span></span>
+<span id="cb214-12"><a href="第十一章模拟.html#cb214-12" aria-hidden="true" tabindex="-1"></a>    eta.v <span class="sc">~</span> <span class="fl">0.1</span></span>
+<span id="cb214-13"><a href="第十一章模拟.html#cb214-13" aria-hidden="true" tabindex="-1"></a>    ka <span class="ot">&lt;-</span> <span class="fu">exp</span>(tka <span class="sc">+</span> eta.ka)</span>
+<span id="cb214-14"><a href="第十一章模拟.html#cb214-14" aria-hidden="true" tabindex="-1"></a>    cl <span class="ot">&lt;-</span> <span class="fu">exp</span>(tcl <span class="sc">+</span> eta.cl)</span>
+<span id="cb214-15"><a href="第十一章模拟.html#cb214-15" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">&lt;-</span> <span class="fu">exp</span>(tv <span class="sc">+</span> eta.v)</span>
+<span id="cb214-16"><a href="第十一章模拟.html#cb214-16" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span> <span class="sc">-</span>ka <span class="sc">*</span> depot</span>
+<span id="cb214-17"><a href="第十一章模拟.html#cb214-17" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(center) <span class="ot">=</span> ka <span class="sc">*</span> depot <span class="sc">-</span> cl <span class="sc">/</span> v <span class="sc">*</span> center</span>
+<span id="cb214-18"><a href="第十一章模拟.html#cb214-18" aria-hidden="true" tabindex="-1"></a>    cp <span class="ot">=</span> center <span class="sc">/</span> v</span>
+<span id="cb214-19"><a href="第十一章模拟.html#cb214-19" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb214-20"><a href="第十一章模拟.html#cb214-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-21"><a href="第十一章模拟.html#cb214-21" aria-hidden="true" tabindex="-1"></a><span class="do">### Create parameter dataset</span></span>
+<span id="cb214-22"><a href="第十一章模拟.html#cb214-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb214-23"><a href="第十一章模拟.html#cb214-23" aria-hidden="true" tabindex="-1"></a>parsDf <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb214-24"><a href="第十一章模拟.html#cb214-24" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> eta.ka, <span class="sc">~</span> eta.cl, <span class="sc">~</span> eta.v, </span>
+<span id="cb214-25"><a href="第十一章模拟.html#cb214-25" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.105</span>, <span class="sc">-</span><span class="fl">0.487</span>, <span class="sc">-</span><span class="fl">0.080</span>,</span>
+<span id="cb214-26"><a href="第十一章模拟.html#cb214-26" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.221</span>, <span class="fl">0.144</span>, <span class="fl">0.021</span>,</span>
+<span id="cb214-27"><a href="第十一章模拟.html#cb214-27" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.368</span>, <span class="fl">0.031</span>, <span class="fl">0.058</span>,</span>
+<span id="cb214-28"><a href="第十一章模拟.html#cb214-28" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.277</span>, <span class="sc">-</span><span class="fl">0.015</span>, <span class="sc">-</span><span class="fl">0.007</span>,</span>
+<span id="cb214-29"><a href="第十一章模拟.html#cb214-29" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.046</span>, <span class="sc">-</span><span class="fl">0.155</span>, <span class="sc">-</span><span class="fl">0.142</span>,</span>
+<span id="cb214-30"><a href="第十一章模拟.html#cb214-30" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.382</span>, <span class="fl">0.367</span>, <span class="fl">0.203</span>,</span>
+<span id="cb214-31"><a href="第十一章模拟.html#cb214-31" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.791</span>, <span class="fl">0.160</span>, <span class="fl">0.047</span>,</span>
+<span id="cb214-32"><a href="第十一章模拟.html#cb214-32" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.181</span>, <span class="fl">0.168</span>, <span class="fl">0.096</span>,</span>
+<span id="cb214-33"><a href="第十一章模拟.html#cb214-33" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1.420</span>, <span class="fl">0.042</span>, <span class="fl">0.012</span>,</span>
+<span id="cb214-34"><a href="第十一章模拟.html#cb214-34" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.738</span>, <span class="sc">-</span><span class="fl">0.391</span>, <span class="sc">-</span><span class="fl">0.170</span>,</span>
+<span id="cb214-35"><a href="第十一章模拟.html#cb214-35" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.790</span>, <span class="fl">0.281</span>, <span class="fl">0.146</span>,</span>
+<span id="cb214-36"><a href="第十一章模拟.html#cb214-36" aria-hidden="true" tabindex="-1"></a> <span class="sc">-</span><span class="fl">0.527</span>, <span class="sc">-</span><span class="fl">0.126</span>, <span class="sc">-</span><span class="fl">0.198</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb214-37"><a href="第十一章模拟.html#cb214-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">tka =</span> <span class="fl">0.451</span>, <span class="at">tcl =</span> <span class="fl">1.017</span>, <span class="at">tv =</span> <span class="fl">3.449</span>)</span>
+<span id="cb214-38"><a href="第十一章模拟.html#cb214-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-39"><a href="第十一章模拟.html#cb214-39" aria-hidden="true" tabindex="-1"></a><span class="do">### Now solve the dataset</span></span>
+<span id="cb214-40"><a href="第十一章模拟.html#cb214-40" aria-hidden="true" tabindex="-1"></a>solveData <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(theo, parsDf, d)</span>
+<span id="cb214-41"><a href="第十一章模拟.html#cb214-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-42"><a href="第十一章模拟.html#cb214-42" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(solveData, cp)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-136-1.png" /></p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="第十一章模拟.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(solveData)</span>
+<span id="cb215-2"><a href="第十一章模拟.html#cb215-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb215-3"><a href="第十一章模拟.html#cb215-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb215-4"><a href="第十一章模拟.html#cb215-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 12 × 1</span></span>
+<span id="cb215-5"><a href="第十一章模拟.html#cb215-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id   </span></span>
+<span id="cb215-6"><a href="第十一章模拟.html#cb215-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;fct&gt;</span></span>
+<span id="cb215-7"><a href="第十一章模拟.html#cb215-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 1    </span></span>
+<span id="cb215-8"><a href="第十一章模拟.html#cb215-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 2    </span></span>
+<span id="cb215-9"><a href="第十一章模拟.html#cb215-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 3    </span></span>
+<span id="cb215-10"><a href="第十一章模拟.html#cb215-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 4    </span></span>
+<span id="cb215-11"><a href="第十一章模拟.html#cb215-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 5    </span></span>
+<span id="cb215-12"><a href="第十一章模拟.html#cb215-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 6    </span></span>
+<span id="cb215-13"><a href="第十一章模拟.html#cb215-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 7    </span></span>
+<span id="cb215-14"><a href="第十一章模拟.html#cb215-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 8    </span></span>
+<span id="cb215-15"><a href="第十一章模拟.html#cb215-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 9    </span></span>
+<span id="cb215-16"><a href="第十一章模拟.html#cb215-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 10   </span></span>
+<span id="cb215-17"><a href="第十一章模拟.html#cb215-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 11 11   </span></span>
+<span id="cb215-18"><a href="第十一章模拟.html#cb215-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 12 12   </span></span>
+<span id="cb215-19"><a href="第十一章模拟.html#cb215-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb215-20"><a href="第十一章模拟.html#cb215-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  depot center </span></span>
+<span id="cb215-21"><a href="第十一章模拟.html#cb215-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      0      0 </span></span>
+<span id="cb215-22"><a href="第十一章模拟.html#cb215-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb215-23"><a href="第十一章模拟.html#cb215-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 132 × 8</span></span>
+<span id="cb215-24"><a href="第十一章模拟.html#cb215-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      id  time    ka    cl     v    cp     depot center</span></span>
+<span id="cb215-25"><a href="第十一章模拟.html#cb215-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb215-26"><a href="第十一章模拟.html#cb215-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1  0     2.86  3.67  34.8  0    320.          0 </span></span>
+<span id="cb215-27"><a href="第十一章模拟.html#cb215-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2     1  0.25  2.86  3.67  34.8  4.62 157.        161.</span></span>
+<span id="cb215-28"><a href="第十一章模拟.html#cb215-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3     1  0.57  2.86  3.67  34.8  7.12  62.8       248.</span></span>
+<span id="cb215-29"><a href="第十一章模拟.html#cb215-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4     1  1.12  2.86  3.67  34.8  8.09  13.0       282.</span></span>
+<span id="cb215-30"><a href="第十一章模拟.html#cb215-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5     1  2.02  2.86  3.67  34.8  7.68   0.996     267.</span></span>
+<span id="cb215-31"><a href="第十一章模拟.html#cb215-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6     1  3.82  2.86  3.67  34.8  6.38   0.00581   222.</span></span>
+<span id="cb215-32"><a href="第十一章模拟.html#cb215-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 126 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="第十一章模拟.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Of course the fasest way to solve if you don&#39;t care about the rxode2 extra parameters is</span></span>
+<span id="cb216-2"><a href="第十一章模拟.html#cb216-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="第十一章模拟.html#cb216-3" aria-hidden="true" tabindex="-1"></a>solveData <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(theo, parsDf, d, <span class="at">returnType=</span><span class="st">&quot;data.frame&quot;</span>)</span>
+<span id="cb216-4"><a href="第十一章模拟.html#cb216-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-5"><a href="第十一章模拟.html#cb216-5" aria-hidden="true" tabindex="-1"></a><span class="do">### solved data</span></span>
+<span id="cb216-6"><a href="第十一章模拟.html#cb216-6" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">as.tbl</span>(solveData)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="第十一章模拟.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 132 × 8</span></span>
+<span id="cb217-2"><a href="第十一章模拟.html#cb217-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       id  time    ka    cl     v    cp   depot center</span></span>
+<span id="cb217-3"><a href="第十一章模拟.html#cb217-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb217-4"><a href="第十一章模拟.html#cb217-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     1  0     2.86  3.67  34.8  0    3.20e+2    0  </span></span>
+<span id="cb217-5"><a href="第十一章模拟.html#cb217-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     1  0.25  2.86  3.67  34.8  4.62 1.57e+2  161. </span></span>
+<span id="cb217-6"><a href="第十一章模拟.html#cb217-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     1  0.57  2.86  3.67  34.8  7.12 6.28e+1  248. </span></span>
+<span id="cb217-7"><a href="第十一章模拟.html#cb217-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     1  1.12  2.86  3.67  34.8  8.09 1.30e+1  282. </span></span>
+<span id="cb217-8"><a href="第十一章模拟.html#cb217-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     1  2.02  2.86  3.67  34.8  7.68 9.96e-1  267. </span></span>
+<span id="cb217-9"><a href="第十一章模拟.html#cb217-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     1  3.82  2.86  3.67  34.8  6.38 5.81e-3  222. </span></span>
+<span id="cb217-10"><a href="第十一章模拟.html#cb217-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     1  5.1   2.86  3.67  34.8  5.58 1.50e-4  194. </span></span>
+<span id="cb217-11"><a href="第十一章模拟.html#cb217-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     1  7.03  2.86  3.67  34.8  4.55 6.02e-7  158. </span></span>
+<span id="cb217-12"><a href="第十一章模拟.html#cb217-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     1  9.05  2.86  3.67  34.8  3.68 1.77e-9  128. </span></span>
+<span id="cb217-13"><a href="第十一章模拟.html#cb217-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10     1 12.1   2.86  3.67  34.8  2.66 9.43e-9   92.6</span></span>
+<span id="cb217-14"><a href="第十一章模拟.html#cb217-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 122 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="第十一章模拟.html#cb218-1" aria-hidden="true" tabindex="-1"></a>data.table<span class="sc">::</span><span class="fu">data.table</span>(solveData)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="第十一章模拟.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      id  time       ka       cl        v        cp         depot    center</span></span>
+<span id="cb219-2"><a href="第十一章模拟.html#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1:  1  0.00 2.857651 3.669297 34.81332 0.0000000  3.199920e+02   0.00000</span></span>
+<span id="cb219-3"><a href="第十一章模拟.html#cb219-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2:  1  0.25 2.857651 3.669297 34.81332 4.6240421  1.566295e+02 160.97825</span></span>
+<span id="cb219-4"><a href="第十一章模拟.html#cb219-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3:  1  0.57 2.857651 3.669297 34.81332 7.1151647  6.276731e+01 247.70249</span></span>
+<span id="cb219-5"><a href="第十一章模拟.html#cb219-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4:  1  1.12 2.857651 3.669297 34.81332 8.0922106  1.303613e+01 281.71670</span></span>
+<span id="cb219-6"><a href="第十一章模拟.html#cb219-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5:  1  2.02 2.857651 3.669297 34.81332 7.6837844  9.958446e-01 267.49803</span></span>
+<span id="cb219-7"><a href="第十一章模拟.html#cb219-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---                                                                      </span></span>
+<span id="cb219-8"><a href="第十一章模拟.html#cb219-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 128: 12  5.07 2.857651 3.669297 34.81332 5.6044213  1.636210e-04 195.10850</span></span>
+<span id="cb219-9"><a href="第十一章模拟.html#cb219-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 129: 12  7.07 2.857651 3.669297 34.81332 4.5392337  5.385697e-07 158.02579</span></span>
+<span id="cb219-10"><a href="第十一章模拟.html#cb219-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 130: 12  9.03 2.857651 3.669297 34.81332 3.6920276  1.882087e-09 128.53173</span></span>
+<span id="cb219-11"><a href="第十一章模拟.html#cb219-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 131: 12 12.05 2.857651 3.669297 34.81332 2.6855080  8.461424e-09  93.49144</span></span>
+<span id="cb219-12"><a href="第十一章模拟.html#cb219-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 132: 12 24.15 2.857651 3.669297 34.81332 0.7501667 -4.775222e-10  26.11579</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="第十章rxode2的输出.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="第十二章例子.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": null
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>rxode2用户手册中文版 | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="rxode2用户手册中文版 | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="rxode2用户手册中文版 | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="第一章导言.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>rxode2用户手册中文版</a></li>
+<li class="chapter" data-level="" data-path="第一章导言.html"><a href="第一章导言.html"><i class="fa fa-check"></i>第一章导言</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html"><i class="fa fa-check"></i>第二章作者和致谢</a>
+<ul>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#作者"><i class="fa fa-check"></i>2.1作者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#贡献者"><i class="fa fa-check"></i>2.2贡献者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#rxode致谢"><i class="fa fa-check"></i>2.3RxODE致谢：</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html"><i class="fa fa-check"></i>第三章相关 R 包</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#常微分方程求解"><i class="fa fa-check"></i>3.1 常微分方程求解</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#已求解的pk系统"><i class="fa fa-check"></i>3.2已求解的PK系统</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#以下在cran上的软件包含有已求解的pk系统"><i class="fa fa-check"></i>3.2.1以下在CRAN上的软件包含有已求解的PK系统</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#非cran库中的程序包"><i class="fa fa-check"></i>3.2.2非CRAN库中的程序包：</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html"><i class="fa fa-check"></i>第四章安装</a>
+<ul>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#windows"><i class="fa fa-check"></i>4.0.1Windows</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#mac-osx"><i class="fa fa-check"></i>4.0.2 Mac OSX</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#linux"><i class="fa fa-check"></i>4.0.3Linux</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#开发版本"><i class="fa fa-check"></i>4.1开发版本</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html"><i class="fa fa-check"></i>第五章入门</a>
+<ul>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#指定ode参数和初始条件"><i class="fa fa-check"></i>5.1指定ODE参数和初始条件</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#在rxode2中指定给药和采样"><i class="fa fa-check"></i>5.2在rxode2中指定给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#求解ode"><i class="fa fa-check"></i>5.3求解ODE</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html"><i class="fa fa-check"></i>第六章rxode2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#示例"><i class="fa fa-check"></i>6.1示例</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#语法"><i class="fa fa-check"></i>6.2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#标识符"><i class="fa fa-check"></i>6.2.1 标识符</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#逻辑运算符"><i class="fa fa-check"></i>6.3逻辑运算符</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#cmt改变状态的房室编号"><i class="fa fa-check"></i>6.4cmt()改变状态的房室编号</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#rxode2如何编号房室"><i class="fa fa-check"></i>6.4.1rxode2如何编号房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#使用cmt预声明更改房室"><i class="fa fa-check"></i>6.4.2 使用<code>cmt()</code>预声明更改房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#用cmt将房室附加到模型"><i class="fa fa-check"></i>6.4.3用<code>cmt()</code>将房室附加到模型</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html"><i class="fa fa-check"></i>第七章rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2事件表"><i class="fa fa-check"></i>7.1rxode2事件表</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#单次给药额外附加的给药"><i class="fa fa-check"></i>7.2单次给药/额外附加的给药</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注给药"><i class="fa fa-check"></i>7.3输注给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#已知输注速率或输注时长的输注"><i class="fa fa-check"></i>7.3.1已知输注速率或输注时长的输注</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#需要估计输注时长或输注速率的输注零级速率吸收"><i class="fa fa-check"></i>7.3.2需要估计输注时长或输注速率的输注(零级速率吸收)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#稳态"><i class="fa fa-check"></i>7.4稳态</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#复杂加药的稳定状态"><i class="fa fa-check"></i>7.4.1复杂加药的稳定状态</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注或零阶吸收过程的稳态"><i class="fa fa-check"></i>7.4.2输注或零阶吸收过程的稳态</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#重置事件"><i class="fa fa-check"></i>7.5重置事件</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#关闭房室"><i class="fa fa-check"></i>7.6关闭房室</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#经典的rxode2事件"><i class="fa fa-check"></i>7.7经典的rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置注入给药示例"><i class="fa fa-check"></i>7.7.1使用经典RxODE的EVID设置注入给药示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置输注事件示例"><i class="fa fa-check"></i>7.7.2使用经典RxODE的EVID设置输注事件示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置稳态的例子"><i class="fa fa-check"></i>7.7.3使用经典RxODE的EVID设置稳态的例子</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid关闭房室"><i class="fa fa-check"></i>7.7.4使用经典RxODE的EVID关闭房室</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2-nlmixr的数据集"><i class="fa fa-check"></i>7.8rxode2 &amp; nlmixr的数据集</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#按使用类型描述的列"><i class="fa fa-check"></i>7.9按使用类型描述的列</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#个体标识符列"><i class="fa fa-check"></i>7.9.1个体标识符列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#观测列"><i class="fa fa-check"></i>7.9.2观测列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#给药列"><i class="fa fa-check"></i>7.9.3给药列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#协变量列"><i class="fa fa-check"></i>7.9.4协变量列</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#特定数据集列的详细信息"><i class="fa fa-check"></i>7.10特定数据集列的详细信息</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#amt列"><i class="fa fa-check"></i>7.10.1 <code>AMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#censlimit列"><i class="fa fa-check"></i>7.10.2 <code>CENS</code>/<code>LIMIT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#cmt列"><i class="fa fa-check"></i>7.10.3 <code>CMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dur列"><i class="fa fa-check"></i>7.10.4 <code>DUR</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dv列"><i class="fa fa-check"></i>7.10.5 <code>DV</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dvid列"><i class="fa fa-check"></i>7.10.6 <code>DVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#evid列"><i class="fa fa-check"></i>7.10.7 <code>EVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#id列"><i class="fa fa-check"></i>7.10.8 <code>ID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rate列"><i class="fa fa-check"></i>7.10.9 <code>RaTE</code>列</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html"><i class="fa fa-check"></i>第八章轻松创建rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#向事件表添加给药"><i class="fa fa-check"></i>8.1向事件表添加给药</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将采样添加到事件表"><i class="fa fa-check"></i>8.2 将采样添加到事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将事件表展开为多个个体的事件表"><i class="fa fa-check"></i>8.3将事件表展开为多个个体的事件表。</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#在采样窗口内添加给药和采样"><i class="fa fa-check"></i>8.4在采样窗口内添加给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#组合事件表"><i class="fa fa-check"></i>8.5组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#按序列组合事件表"><i class="fa fa-check"></i>8.6按序列组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#通过对事件表重复组合事件表"><i class="fa fa-check"></i>8.7通过对事件表重复组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#使用rbind组合事件表"><i class="fa fa-check"></i>8.8 使用rbind组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#展开事件"><i class="fa fa-check"></i>8.9展开事件</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#rstudio笔记本中的事件表"><i class="fa fa-check"></i>8.10RStudio笔记本中的事件表</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html"><i class="fa fa-check"></i>第九章求解和求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#一般的求解选项"><i class="fa fa-check"></i>9.1 一般的求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#rxcontrol"><i class="fa fa-check"></i>9.1.1 rxControl</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html"><i class="fa fa-check"></i>第十章rxode2的输出</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用rxode2数据框"><i class="fa fa-check"></i>10.1使用rxode2数据框</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#创建交互式数据框"><i class="fa fa-check"></i>10.1.1创建交互式数据框</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#rxode2已求解对象的属性"><i class="fa fa-check"></i>10.1.2rxode2已求解对象的属性</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用已求解的对象作为简单的数据帧"><i class="fa fa-check"></i>10.1.3使用已求解的对象作为简单的数据帧</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#交互式更新数据集"><i class="fa fa-check"></i>10.2交互式更新数据集</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改初始条件"><i class="fa fa-check"></i>10.2.1修改初始条件</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改rxode2的观测时间"><i class="fa fa-check"></i>10.2.2修改rxode2的观测时间</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改仿真参数"><i class="fa fa-check"></i>10.2.3修改仿真参数</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html"><i class="fa fa-check"></i>第十一章模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体的求解"><i class="fa fa-check"></i>11.1单一个体的求解</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体求解与多个个体求解的总结"><i class="fa fa-check"></i>11.1.1单一个体求解与多个个体求解的总结</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2进行群体模拟"><i class="fa fa-check"></i>11.2使用rxode2进行群体模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2模拟变异性"><i class="fa fa-check"></i>11.2.1使用rxode2模拟变异性</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#模拟临床试验"><i class="fa fa-check"></i>11.3模拟临床试验</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#基于逆wishart相关性的模拟"><i class="fa fa-check"></i>11.3.1基于逆Wishart相关性的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用方差标准差标准误差进行模拟"><i class="fa fa-check"></i>11.3.2使用方差/标准差标准误差进行模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#omega或sigma参数没有不确定性的进行模拟"><i class="fa fa-check"></i>11.3.3<code>omega</code>或<code>sigma</code>参数没有不确定性的进行模拟</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用先验数据进行求解"><i class="fa fa-check"></i>11.4使用先验数据进行求解</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html"><i class="fa fa-check"></i>第十二章例子</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#仅预测的模型"><i class="fa fa-check"></i>12.1仅预测的模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#已求解的房室模型"><i class="fa fa-check"></i>12.2已求解的房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#混合已求解的系统和odes"><i class="fa fa-check"></i>12.3混合已求解的系统和ODEs</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#基于体重的给药"><i class="fa fa-check"></i>12.4基于体重的给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#在rxode2中创建2房室模型"><i class="fa fa-check"></i>12.4.1在rxode2中创建2房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模拟协变量"><i class="fa fa-check"></i>12.4.2模拟协变量</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#创建基于体重的事件表"><i class="fa fa-check"></i>12.4.3创建基于体重的事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解达托霉素的模拟"><i class="fa fa-check"></i>12.4.4求解达托霉素的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#达托霉素的参考文献"><i class="fa fa-check"></i>12.4.5达托霉素的参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#场景间和其他嵌套示例"><i class="fa fa-check"></i>12.5场景间和其他嵌套示例</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#事件表"><i class="fa fa-check"></i>12.5.1事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#rxode2模型"><i class="fa fa-check"></i>12.5.2rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模型参数的不确定性"><i class="fa fa-check"></i>12.5.3模型参数的不确定性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#嵌套变异性"><i class="fa fa-check"></i>12.5.4嵌套变异性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#无法解释的变异"><i class="fa fa-check"></i>12.5.5无法解释的变异</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解问题"><i class="fa fa-check"></i>12.5.6求解问题</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#转移室模型"><i class="fa fa-check"></i>12.6转移室模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html"><i class="fa fa-check"></i>第十三章高级和其他主题</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#rxode2中的协变量"><i class="fa fa-check"></i>13.1rxode2中的协变量</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#个体的协变量"><i class="fa fa-check"></i>13.1.1个体的协变量</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#随时间变化的协变量"><i class="fa fa-check"></i>13.1.2随时间变化的协变量</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#shiny与rxode2"><i class="fa fa-check"></i>13.2Shiny与rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#制作r-shiny应用的工具"><i class="fa fa-check"></i>13.2.1制作R Shiny应用的工具</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#使用shiny以图形方式探索参数拟合"><i class="fa fa-check"></i>13.2.2使用shiny以图形方式探索参数拟合</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#将rxode2与管道一起使用"><i class="fa fa-check"></i>13.3将rxode2与管道一起使用</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#为管道设置rxode2模型"><i class="fa fa-check"></i>13.3.1为管道设置rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#模拟一个事件表"><i class="fa fa-check"></i>13.3.2模拟一个事件表</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#从单个事件表模拟多个个体"><i class="fa fa-check"></i>13.3.3从单个事件表模拟多个个体</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#总结模拟的输出"><i class="fa fa-check"></i>13.3.4总结模拟的输出</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#加速rxode2"><i class="fa fa-check"></i>13.4加速rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#通过多个个体并行求解提高rxode2速度"><i class="fa fa-check"></i>13.4.1通过多个个体并行求解提高rxode2速度</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#一个现实生活中的例子"><i class="fa fa-check"></i>13.4.2一个现实生活中的例子</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在您的包中集成rxode2模型"><i class="fa fa-check"></i>13.5在您的包中集成rxode2模型</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在包中使用预编译模型"><i class="fa fa-check"></i>13.5.1在包中使用预编译模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在现有r添加包中使用模型"><i class="fa fa-check"></i>13.5.2在现有R添加包中使用模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#具有雅可比规范的刚性ode"><i class="fa fa-check"></i>13.6具有雅可比规范的刚性ODE</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="index" class="section level1 hasAnchor">
+<h1>rxode2用户手册中文版<a href="index.html#index" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>英文原版作者：<a href="https://github.com/mattfidler">马修·菲德勒</a>(<em>Matthew Fidler</em>)，<a href="https://github.com/hallowkm">梅丽莎·哈洛</a>(<em>Melissa Hallow</em>)，<a href="https://github.com/wwang-at-github">Wang Wenping</a></p>
+<p>英文原版发布日期：2022-11-07</p>
+<p>简体中文翻译作者：<a href="https://s0521.github.io/">付永超</a>(Fu Yongchao)</p>
+<p>中文原版发布日期：2023-06-09</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="第一章导言.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": null
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

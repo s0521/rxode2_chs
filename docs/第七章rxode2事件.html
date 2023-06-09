@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第七章rxode2事件 | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第七章rxode2事件 | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第七章rxode2事件 | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="第六章rxode2语法.html"/>
+<link rel="next" href="第八章轻松创建rxode2事件.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>rxode2用户手册中文版</a></li>
+<li class="chapter" data-level="" data-path="第一章导言.html"><a href="第一章导言.html"><i class="fa fa-check"></i>第一章导言</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html"><i class="fa fa-check"></i>第二章作者和致谢</a>
+<ul>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#作者"><i class="fa fa-check"></i>2.1作者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#贡献者"><i class="fa fa-check"></i>2.2贡献者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#rxode致谢"><i class="fa fa-check"></i>2.3RxODE致谢：</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html"><i class="fa fa-check"></i>第三章相关 R 包</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#常微分方程求解"><i class="fa fa-check"></i>3.1 常微分方程求解</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#已求解的pk系统"><i class="fa fa-check"></i>3.2已求解的PK系统</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#以下在cran上的软件包含有已求解的pk系统"><i class="fa fa-check"></i>3.2.1以下在CRAN上的软件包含有已求解的PK系统</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#非cran库中的程序包"><i class="fa fa-check"></i>3.2.2非CRAN库中的程序包：</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html"><i class="fa fa-check"></i>第四章安装</a>
+<ul>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#windows"><i class="fa fa-check"></i>4.0.1Windows</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#mac-osx"><i class="fa fa-check"></i>4.0.2 Mac OSX</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#linux"><i class="fa fa-check"></i>4.0.3Linux</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#开发版本"><i class="fa fa-check"></i>4.1开发版本</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html"><i class="fa fa-check"></i>第五章入门</a>
+<ul>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#指定ode参数和初始条件"><i class="fa fa-check"></i>5.1指定ODE参数和初始条件</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#在rxode2中指定给药和采样"><i class="fa fa-check"></i>5.2在rxode2中指定给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#求解ode"><i class="fa fa-check"></i>5.3求解ODE</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html"><i class="fa fa-check"></i>第六章rxode2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#示例"><i class="fa fa-check"></i>6.1示例</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#语法"><i class="fa fa-check"></i>6.2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#标识符"><i class="fa fa-check"></i>6.2.1 标识符</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#逻辑运算符"><i class="fa fa-check"></i>6.3逻辑运算符</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#cmt改变状态的房室编号"><i class="fa fa-check"></i>6.4cmt()改变状态的房室编号</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#rxode2如何编号房室"><i class="fa fa-check"></i>6.4.1rxode2如何编号房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#使用cmt预声明更改房室"><i class="fa fa-check"></i>6.4.2 使用<code>cmt()</code>预声明更改房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#用cmt将房室附加到模型"><i class="fa fa-check"></i>6.4.3用<code>cmt()</code>将房室附加到模型</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html"><i class="fa fa-check"></i>第七章rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2事件表"><i class="fa fa-check"></i>7.1rxode2事件表</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#单次给药额外附加的给药"><i class="fa fa-check"></i>7.2单次给药/额外附加的给药</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注给药"><i class="fa fa-check"></i>7.3输注给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#已知输注速率或输注时长的输注"><i class="fa fa-check"></i>7.3.1已知输注速率或输注时长的输注</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#需要估计输注时长或输注速率的输注零级速率吸收"><i class="fa fa-check"></i>7.3.2需要估计输注时长或输注速率的输注(零级速率吸收)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#稳态"><i class="fa fa-check"></i>7.4稳态</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#复杂加药的稳定状态"><i class="fa fa-check"></i>7.4.1复杂加药的稳定状态</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注或零阶吸收过程的稳态"><i class="fa fa-check"></i>7.4.2输注或零阶吸收过程的稳态</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#重置事件"><i class="fa fa-check"></i>7.5重置事件</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#关闭房室"><i class="fa fa-check"></i>7.6关闭房室</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#经典的rxode2事件"><i class="fa fa-check"></i>7.7经典的rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置注入给药示例"><i class="fa fa-check"></i>7.7.1使用经典RxODE的EVID设置注入给药示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置输注事件示例"><i class="fa fa-check"></i>7.7.2使用经典RxODE的EVID设置输注事件示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置稳态的例子"><i class="fa fa-check"></i>7.7.3使用经典RxODE的EVID设置稳态的例子</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid关闭房室"><i class="fa fa-check"></i>7.7.4使用经典RxODE的EVID关闭房室</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2-nlmixr的数据集"><i class="fa fa-check"></i>7.8rxode2 &amp; nlmixr的数据集</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#按使用类型描述的列"><i class="fa fa-check"></i>7.9按使用类型描述的列</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#个体标识符列"><i class="fa fa-check"></i>7.9.1个体标识符列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#观测列"><i class="fa fa-check"></i>7.9.2观测列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#给药列"><i class="fa fa-check"></i>7.9.3给药列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#协变量列"><i class="fa fa-check"></i>7.9.4协变量列</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#特定数据集列的详细信息"><i class="fa fa-check"></i>7.10特定数据集列的详细信息</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#amt列"><i class="fa fa-check"></i>7.10.1 <code>AMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#censlimit列"><i class="fa fa-check"></i>7.10.2 <code>CENS</code>/<code>LIMIT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#cmt列"><i class="fa fa-check"></i>7.10.3 <code>CMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dur列"><i class="fa fa-check"></i>7.10.4 <code>DUR</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dv列"><i class="fa fa-check"></i>7.10.5 <code>DV</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dvid列"><i class="fa fa-check"></i>7.10.6 <code>DVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#evid列"><i class="fa fa-check"></i>7.10.7 <code>EVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#id列"><i class="fa fa-check"></i>7.10.8 <code>ID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rate列"><i class="fa fa-check"></i>7.10.9 <code>RaTE</code>列</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html"><i class="fa fa-check"></i>第八章轻松创建rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#向事件表添加给药"><i class="fa fa-check"></i>8.1向事件表添加给药</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将采样添加到事件表"><i class="fa fa-check"></i>8.2 将采样添加到事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将事件表展开为多个个体的事件表"><i class="fa fa-check"></i>8.3将事件表展开为多个个体的事件表。</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#在采样窗口内添加给药和采样"><i class="fa fa-check"></i>8.4在采样窗口内添加给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#组合事件表"><i class="fa fa-check"></i>8.5组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#按序列组合事件表"><i class="fa fa-check"></i>8.6按序列组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#通过对事件表重复组合事件表"><i class="fa fa-check"></i>8.7通过对事件表重复组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#使用rbind组合事件表"><i class="fa fa-check"></i>8.8 使用rbind组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#展开事件"><i class="fa fa-check"></i>8.9展开事件</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#rstudio笔记本中的事件表"><i class="fa fa-check"></i>8.10RStudio笔记本中的事件表</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html"><i class="fa fa-check"></i>第九章求解和求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#一般的求解选项"><i class="fa fa-check"></i>9.1 一般的求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#rxcontrol"><i class="fa fa-check"></i>9.1.1 rxControl</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html"><i class="fa fa-check"></i>第十章rxode2的输出</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用rxode2数据框"><i class="fa fa-check"></i>10.1使用rxode2数据框</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#创建交互式数据框"><i class="fa fa-check"></i>10.1.1创建交互式数据框</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#rxode2已求解对象的属性"><i class="fa fa-check"></i>10.1.2rxode2已求解对象的属性</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用已求解的对象作为简单的数据帧"><i class="fa fa-check"></i>10.1.3使用已求解的对象作为简单的数据帧</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#交互式更新数据集"><i class="fa fa-check"></i>10.2交互式更新数据集</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改初始条件"><i class="fa fa-check"></i>10.2.1修改初始条件</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改rxode2的观测时间"><i class="fa fa-check"></i>10.2.2修改rxode2的观测时间</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改仿真参数"><i class="fa fa-check"></i>10.2.3修改仿真参数</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html"><i class="fa fa-check"></i>第十一章模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体的求解"><i class="fa fa-check"></i>11.1单一个体的求解</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体求解与多个个体求解的总结"><i class="fa fa-check"></i>11.1.1单一个体求解与多个个体求解的总结</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2进行群体模拟"><i class="fa fa-check"></i>11.2使用rxode2进行群体模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2模拟变异性"><i class="fa fa-check"></i>11.2.1使用rxode2模拟变异性</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#模拟临床试验"><i class="fa fa-check"></i>11.3模拟临床试验</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#基于逆wishart相关性的模拟"><i class="fa fa-check"></i>11.3.1基于逆Wishart相关性的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用方差标准差标准误差进行模拟"><i class="fa fa-check"></i>11.3.2使用方差/标准差标准误差进行模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#omega或sigma参数没有不确定性的进行模拟"><i class="fa fa-check"></i>11.3.3<code>omega</code>或<code>sigma</code>参数没有不确定性的进行模拟</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用先验数据进行求解"><i class="fa fa-check"></i>11.4使用先验数据进行求解</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html"><i class="fa fa-check"></i>第十二章例子</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#仅预测的模型"><i class="fa fa-check"></i>12.1仅预测的模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#已求解的房室模型"><i class="fa fa-check"></i>12.2已求解的房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#混合已求解的系统和odes"><i class="fa fa-check"></i>12.3混合已求解的系统和ODEs</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#基于体重的给药"><i class="fa fa-check"></i>12.4基于体重的给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#在rxode2中创建2房室模型"><i class="fa fa-check"></i>12.4.1在rxode2中创建2房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模拟协变量"><i class="fa fa-check"></i>12.4.2模拟协变量</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#创建基于体重的事件表"><i class="fa fa-check"></i>12.4.3创建基于体重的事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解达托霉素的模拟"><i class="fa fa-check"></i>12.4.4求解达托霉素的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#达托霉素的参考文献"><i class="fa fa-check"></i>12.4.5达托霉素的参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#场景间和其他嵌套示例"><i class="fa fa-check"></i>12.5场景间和其他嵌套示例</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#事件表"><i class="fa fa-check"></i>12.5.1事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#rxode2模型"><i class="fa fa-check"></i>12.5.2rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模型参数的不确定性"><i class="fa fa-check"></i>12.5.3模型参数的不确定性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#嵌套变异性"><i class="fa fa-check"></i>12.5.4嵌套变异性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#无法解释的变异"><i class="fa fa-check"></i>12.5.5无法解释的变异</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解问题"><i class="fa fa-check"></i>12.5.6求解问题</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#转移室模型"><i class="fa fa-check"></i>12.6转移室模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html"><i class="fa fa-check"></i>第十三章高级和其他主题</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#rxode2中的协变量"><i class="fa fa-check"></i>13.1rxode2中的协变量</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#个体的协变量"><i class="fa fa-check"></i>13.1.1个体的协变量</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#随时间变化的协变量"><i class="fa fa-check"></i>13.1.2随时间变化的协变量</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#shiny与rxode2"><i class="fa fa-check"></i>13.2Shiny与rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#制作r-shiny应用的工具"><i class="fa fa-check"></i>13.2.1制作R Shiny应用的工具</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#使用shiny以图形方式探索参数拟合"><i class="fa fa-check"></i>13.2.2使用shiny以图形方式探索参数拟合</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#将rxode2与管道一起使用"><i class="fa fa-check"></i>13.3将rxode2与管道一起使用</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#为管道设置rxode2模型"><i class="fa fa-check"></i>13.3.1为管道设置rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#模拟一个事件表"><i class="fa fa-check"></i>13.3.2模拟一个事件表</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#从单个事件表模拟多个个体"><i class="fa fa-check"></i>13.3.3从单个事件表模拟多个个体</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#总结模拟的输出"><i class="fa fa-check"></i>13.3.4总结模拟的输出</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#加速rxode2"><i class="fa fa-check"></i>13.4加速rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#通过多个个体并行求解提高rxode2速度"><i class="fa fa-check"></i>13.4.1通过多个个体并行求解提高rxode2速度</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#一个现实生活中的例子"><i class="fa fa-check"></i>13.4.2一个现实生活中的例子</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在您的包中集成rxode2模型"><i class="fa fa-check"></i>13.5在您的包中集成rxode2模型</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在包中使用预编译模型"><i class="fa fa-check"></i>13.5.1在包中使用预编译模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在现有r添加包中使用模型"><i class="fa fa-check"></i>13.5.2在现有R添加包中使用模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#具有雅可比规范的刚性ode"><i class="fa fa-check"></i>13.6具有雅可比规范的刚性ODE</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="第七章rxode2事件" class="section level1 hasAnchor">
+<h1>第七章rxode2事件<a href="第七章rxode2事件.html#第七章rxode2事件" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rxode2事件表" class="section level2 hasAnchor">
+<h2>7.1rxode2事件表<a href="第七章rxode2事件.html#rxode2事件表" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>通常，rxode2事件表格遵循NONMEM数据集约定，但有以下例外:</p>
+<ul>
+<li>房室数据项(<code>cmt</code>)可以是包含房室名称的字符串/因子
+<ul>
+<li>您可以关闭房室编号为负或“-cmt”的房室，其中cmt是房室的名称。</li>
+<li>房室数据项(<code>cmt</code>)仍然可以是数字，房室的数量由模型中房室名称的外观来定义。这可能很繁琐，所以您可以通过在模型开始时使用<code>cmt(cmtName</code>)来更容易地指定房室编号。</li>
+</ul></li>
+<li>额外的一列，<code>dur</code>可指定输注持续的时长;
+<ul>
+<li>生物利用度的变化将会改变输注速率<code>rate</code>，因为<code>dur</code>/<code>amt</code>在输入数据中是固定的。</li>
+<li>类似地，当为输注指定<code>rate</code>/<code>amt</code>时，由于<code>rate</code>/<code>amt</code>在输入数据中是固定的，因此生物利用度将改变输液持续时间<code>dur</code>。</li>
+</ul></li>
+<li>一些不常见的NONMEM列不被rxode2支持，如:<code>pcmt</code>, <code>call</code>。</li>
+<li>支持的nonmems风格的事件(0:观测Observation, 1: 给药Dose, 2: 其他Other, 3: 重置Reset, 4: 重置+给药Reset+Dose)。支持的其他事件:
+<ul>
+<li><code>evid = 5</code>或替换事件;这会将用<code>AMT</code>列中指定的值替换房室的值。这等价于<code>deSolve</code>=<code>replace</code>。</li>
+<li><code>evid = 6</code>或倍增事件;这会将用<code>AMT</code>列中指定的值与房室的值相乘。这等价于<code>deSolve</code>=<code>multiply</code>。</li>
+<li><code>evid = 7</code>或者转移室模型/幻影事件。这将给药放入<code>dose()</code>函数中，并计算自上次给药以来的时间<code>tad()</code>，但实际上并没有将给药放入房室。这使得transit()函数可以很容易地应用于房室。</li>
+</ul></li>
+</ul>
+<p>在数据表中以下的条目是合法的:</p>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="20%" />
+<col width="69%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>数据条目</th>
+<th>意义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>iid</td>
+<td>个体的标识符</td>
+<td>可以是整数、因子、字符还是数字</td>
+</tr>
+<tr class="even">
+<td>time</td>
+<td>个体的时间</td>
+<td>每个时间都是数字</td>
+</tr>
+<tr class="odd">
+<td>amt</td>
+<td>给药药量</td>
+<td>给药时值应为正数，观测时值应为0或NA</td>
+</tr>
+<tr class="even">
+<td>rate</td>
+<td>输注速度</td>
+<td>当指定此项时，输注时长dur=amt/rate</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>当rate=-1，给药使用速率参数化;当rate=-2，给药使用持续时长参数化</td>
+</tr>
+<tr class="even">
+<td>dur</td>
+<td>输注持续的时长</td>
+<td>当指定此项时，输注速率rate=amt/dur</td>
+</tr>
+<tr class="odd">
+<td>evid</td>
+<td>事件标识符</td>
+<td>0=观察;1=给药;2=其他;3=重置;4=重置+给药;5=替换;6=倍数;7=转移室</td>
+</tr>
+<tr class="even">
+<td>cmt</td>
+<td>房室</td>
+<td>表示给药或观测事件所处的房室的名称</td>
+</tr>
+<tr class="odd">
+<td>ss</td>
+<td>稳态标志</td>
+<td>0=非稳态;1=稳定状态;2=稳态+先前状态</td>
+</tr>
+<tr class="even">
+<td>ii</td>
+<td>给药间隔</td>
+<td>给药之间的间隔时间。</td>
+</tr>
+<tr class="odd">
+<td>addl</td>
+<td>额外附加的给药次数</td>
+<td>额外附件的与当前给药相同的给药次数。</td>
+</tr>
+</tbody>
+</table>
+<p>另外应注意:</p>
+<ul>
+<li><code>evid</code>可以是经典的RxODE(描述<a href="http://webtrans.yodao.com/server/webtrans/tranUrl?url=https%3A%2F%2Fnlmixr2.github.io%2Frxode2-manual%2Fevents.html%23classic-et&amp;from=auto&amp;to=auto&amp;type=1&amp;product=mdictweb&amp;salt=1685712173380&amp;sign=85e46ec8a62ae0e4e64dc44e6d513ddd">在这里</a>)，或也可以是上面描述的<code>NONMEM</code>风格的<code>evid</code>。</li>
+<li><code>NONMEM</code>的<code>DV</code>不是必需的;<code>rxode2</code>是一个ODE求解框架。</li>
+<li><code>NONMEM</code>的<code>形状</code>不是必需的，因为它是在<code>EVID</code>。</li>
+<li>rxode2它可以接受<code>deSolve</code>兼容的数据框，而不是<code>NONMEM</code>-兼容的数据，。</li>
+</ul>
+<p>当返回rxode2已求解的数据集时，根据求解器选项，您可能会看到一些额外的事件id (EVID):</p>
+<ul>
+<li><code>EVID = -1</code>输注速率参数化，输注结束的时间(对应于<code>rate= -1</code>【译者注：见7.3节】）</li>
+<li><code>EVID = -2</code>输注持续时长参数化，输注结束的时间(对应于<code>rate= -2</code>【译者注：见7.3节】）</li>
+<li><code>EVID = -10</code>当指定零级输注速率时，输注速率结束的时间(对应于<code>rate&gt; 0</code>【译者注：见7.3节】）</li>
+<li><code>EVID = -20</code>当指定零级输注速率时，输注持续时长结束的时间(对应于<code>Dur &gt; 0</code>【译者注：见7.3节】）</li>
+<li><code>Evid = 101,102,103，…</code>这些对应于<code>1</code>，<code>2</code>，<code>3</code>模型事件时间(<code>mtime</code>）.</li>
+</ul>
+<p>这些只能在使用adddose =TRUE和subsetNonmem=FALSE选项组合进行求解时访问。如果你想看到同经典的EVID等价的，你可以使用adddose =NA。</p>
+<p>为了说明事件类型，我们将使用rxode2中原始的教程中的模型用于举例。</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="第七章rxode2事件.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
+<span id="cb41-2"><a href="第七章rxode2事件.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="do">### Model from rxode2 tutorial</span></span>
+<span id="cb41-3"><a href="第七章rxode2事件.html#cb41-3" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">&lt;</span> <span class="sc">-</span> <span class="fu">rxode</span>({</span>
+<span id="cb41-4"><a href="第七章rxode2事件.html#cb41-4" aria-hidden="true" tabindex="-1"></a>KA <span class="ot">=</span><span class="fl">2.94</span> e<span class="sc">-</span>01；</span>
+<span id="cb41-5"><a href="第七章rxode2事件.html#cb41-5" aria-hidden="true" tabindex="-1"></a>CL <span class="ot">=</span><span class="fl">1.86</span> e <span class="sc">+</span> 01；</span>
+<span id="cb41-6"><a href="第七章rxode2事件.html#cb41-6" aria-hidden="true" tabindex="-1"></a>V2 <span class="ot">=</span><span class="fl">4.02</span> e <span class="sc">+</span> 01；</span>
+<span id="cb41-7"><a href="第七章rxode2事件.html#cb41-7" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span><span class="fl">1.05</span> e <span class="sc">+</span> 01；</span>
+<span id="cb41-8"><a href="第七章rxode2事件.html#cb41-8" aria-hidden="true" tabindex="-1"></a>V3 <span class="ot">=</span><span class="fl">2.97</span> e <span class="sc">+</span> 02；</span>
+<span id="cb41-9"><a href="第七章rxode2事件.html#cb41-9" aria-hidden="true" tabindex="-1"></a>kin<span class="ot">=</span>1；</span>
+<span id="cb41-10"><a href="第七章rxode2事件.html#cb41-10" aria-hidden="true" tabindex="-1"></a>Kout <span class="ot">=</span>1；</span>
+<span id="cb41-11"><a href="第七章rxode2事件.html#cb41-11" aria-hidden="true" tabindex="-1"></a>EC50 <span class="ot">=</span>200；</span>
+<span id="cb41-12"><a href="第七章rxode2事件.html#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="do">### Added modeled bioavaiblity, duration and rate</span></span>
+<span id="cb41-13"><a href="第七章rxode2事件.html#cb41-13" aria-hidden="true" tabindex="-1"></a>    fdepot <span class="ot">=</span> 1；</span>
+<span id="cb41-14"><a href="第七章rxode2事件.html#cb41-14" aria-hidden="true" tabindex="-1"></a>    durDepot <span class="ot">=</span> 8；</span>
+<span id="cb41-15"><a href="第七章rxode2事件.html#cb41-15" aria-hidden="true" tabindex="-1"></a>    rateDepot <span class="ot">=</span> 1250；</span>
+<span id="cb41-16"><a href="第七章rxode2事件.html#cb41-16" aria-hidden="true" tabindex="-1"></a>    C2 <span class="ot">=</span> centr<span class="sc">/</span>V2;</span>
+<span id="cb41-17"><a href="第七章rxode2事件.html#cb41-17" aria-hidden="true" tabindex="-1"></a>    C3 <span class="ot">=</span> peri<span class="sc">/</span>V3;</span>
+<span id="cb41-18"><a href="第七章rxode2事件.html#cb41-18" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span><span class="sc">-</span>KA<span class="sc">*</span>depot;</span>
+<span id="cb41-19"><a href="第七章rxode2事件.html#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">f</span>(depot) <span class="ot">=</span> fdepot</span>
+<span id="cb41-20"><a href="第七章rxode2事件.html#cb41-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dur</span>(depot) <span class="ot">=</span> durDepot</span>
+<span id="cb41-21"><a href="第七章rxode2事件.html#cb41-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rate</span>(depot) <span class="ot">=</span> rateDepot</span>
+<span id="cb41-22"><a href="第七章rxode2事件.html#cb41-22" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(centr) <span class="ot">=</span> KA<span class="sc">*</span>depot <span class="sc">-</span> CL<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C2 <span class="sc">+</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb41-23"><a href="第七章rxode2事件.html#cb41-23" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(peri)  <span class="ot">=</span>                    Q<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb41-24"><a href="第七章rxode2事件.html#cb41-24" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(eff)  <span class="ot">=</span> Kin <span class="sc">-</span> Kout<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>C2<span class="sc">/</span>(EC50<span class="sc">+</span>C2))<span class="sc">*</span>eff;</span>
+<span id="cb41-25"><a href="第七章rxode2事件.html#cb41-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">eff</span>(<span class="dv">0</span>) <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb41-26"><a href="第七章rxode2事件.html#cb41-26" aria-hidden="true" tabindex="-1"></a>});</span></code></pre></div>
+</div>
+<div id="单次给药额外附加的给药" class="section level2 hasAnchor">
+<h2>7.2单次给药/额外附加的给药<a href="第七章rxode2事件.html#单次给药额外附加的给药" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>单次给药是rxode2中默认的给药类型，仅需要提供<code>amt</code>/<code>dose</code>。请注意，这使用了rxode2事件表中描述的便利函数et()</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="第七章rxode2事件.html#cb42-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="第七章rxode2事件.html#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>,<span class="at">until=</span><span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="第七章rxode2事件.html#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb42-4"><a href="第七章rxode2事件.html#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="第七章rxode2事件.html#cb42-5" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="第七章rxode2事件.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 101 records ──</span></span>
+<span id="cb43-2"><a href="第七章rxode2事件.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb43-3"><a href="第七章rxode2事件.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb43-4"><a href="第七章rxode2事件.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb43-5"><a href="第七章rxode2事件.html#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb43-6"><a href="第七章rxode2事件.html#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multiple doses in `addl` columns, expand with x$expand();</span></span>
+<span id="cb43-7"><a href="第七章rxode2事件.html#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or etExpand(x)</span></span>
+<span id="cb43-8"><a href="第七章rxode2事件.html#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb43-9"><a href="第七章rxode2事件.html#cb43-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 101 × 5</span></span>
+<span id="cb43-10"><a href="第七章rxode2事件.html#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time   amt  ii  addl evid         </span></span>
+<span id="cb43-11"><a href="第七章rxode2事件.html#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;dbl&gt; [h] &lt;int&gt; &lt;evid&gt;       </span></span>
+<span id="cb43-12"><a href="第七章rxode2事件.html#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0        NA  NA    NA 0:Observation</span></span>
+<span id="cb43-13"><a href="第七章rxode2事件.html#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     10000  12     2 1:Dose (Add) </span></span>
+<span id="cb43-14"><a href="第七章rxode2事件.html#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242    NA  NA    NA 0:Observation</span></span>
+<span id="cb43-15"><a href="第七章rxode2事件.html#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485    NA  NA    NA 0:Observation</span></span>
+<span id="cb43-16"><a href="第七章rxode2事件.html#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727    NA  NA    NA 0:Observation</span></span>
+<span id="cb43-17"><a href="第七章rxode2事件.html#cb43-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970    NA  NA    NA 0:Observation</span></span>
+<span id="cb43-18"><a href="第七章rxode2事件.html#cb43-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21     NA  NA    NA 0:Observation</span></span>
+<span id="cb43-19"><a href="第七章rxode2事件.html#cb43-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45     NA  NA    NA 0:Observation</span></span>
+<span id="cb43-20"><a href="第七章rxode2事件.html#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70     NA  NA    NA 0:Observation</span></span>
+<span id="cb43-21"><a href="第七章rxode2事件.html#cb43-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94     NA  NA    NA 0:Observation</span></span>
+<span id="cb43-22"><a href="第七章rxode2事件.html#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
+<p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="第七章rxode2事件.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
+<span id="cb44-2"><a href="第七章rxode2事件.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb44-3"><a href="第七章rxode2事件.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb44-4"><a href="第七章rxode2事件.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb44-5"><a href="第七章rxode2事件.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb44-6"><a href="第七章rxode2事件.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb44-7"><a href="第七章rxode2事件.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb44-8"><a href="第七章rxode2事件.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb44-9"><a href="第七章rxode2事件.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb44-10"><a href="第七章rxode2事件.html#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：101×5</span></span>
+<span id="cb44-11"><a href="第七章rxode2事件.html#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间    药量     给药间隔 附加给药次数 事件标志</span></span>
+<span id="cb44-12"><a href="第七章rxode2事件.html#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;dbl&gt;    [h]     &lt;int&gt;     &lt;evid&gt;</span></span>
+<span id="cb44-13"><a href="第七章rxode2事件.html#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1 0        NA    NA      NA        0：观测</span></span>
+<span id="cb44-14"><a href="第七章rxode2事件.html#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2 0     10000    12      2         1：给药(及额外附加)</span></span>
+<span id="cb44-15"><a href="第七章rxode2事件.html#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;3 0.242    NA    NA      NA        0：观测</span></span>
+<span id="cb44-16"><a href="第七章rxode2事件.html#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;4 0.485    NA    NA      NA        0：观测</span></span>
+<span id="cb44-17"><a href="第七章rxode2事件.html#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;5 0.727    NA    NA      NA        0：观测</span></span>
+<span id="cb44-18"><a href="第七章rxode2事件.html#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;6 0.970    NA    NA      NA        0：观测</span></span>
+<span id="cb44-19"><a href="第七章rxode2事件.html#cb44-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;7 1.21     NA    NA      NA        0：观测</span></span>
+<span id="cb44-20"><a href="第七章rxode2事件.html#cb44-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;8 1.45     NA    NA      NA        0：观测</span></span>
+<span id="cb44-21"><a href="第七章rxode2事件.html#cb44-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;9 1.70     NA    NA      NA        0：观测</span></span>
+<span id="cb44-22"><a href="第七章rxode2事件.html#cb44-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94     NA    NA      NA        0：观测</span></span>
+<span id="cb44-23"><a href="第七章rxode2事件.html#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb44-24"><a href="第七章rxode2事件.html#cb44-24" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了91行输出内容</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="第七章rxode2事件.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(C2) <span class="sc">+</span></span>
+<span id="cb45-2"><a href="第七章rxode2事件.html#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-46-1.png" /></p>
+</div>
+<div id="输注给药" class="section level2 hasAnchor">
+<h2>7.3输注给药<a href="第七章rxode2事件.html#输注给药" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>rxode2支持几种不同类型的输注实现形式:</p>
+<ul>
+<li><p>已知输注速率的输注(<code>rate</code>）【译者注：常见于已知道输注速率的静脉输液；此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应大于0】</p></li>
+<li><p>已知输注时长的输注(<code>dur</code>）【译者注：常见于已知道输注持续时长的静脉输液；此时应在事件表中给出<code>dur</code>，并且<code>dur</code>的值应大于0】</p></li>
+<li><p>需要估计输注速率的输注(零级速率吸收)【译者注：常见于将吸收处理为零级速率吸收，并需要估计吸收的零级速率常数；此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应为<code>-1</code>】</p></li>
+<li><p>需要估计输注时长的输注(零级速率吸收)【译者注：常见于将吸收处理为零级速率吸收，并需要估计吸收的持续的时长；此时应在事件表中给出<code>rate</code>，并且<code>rate</code>的值应为<code>-2</code>】</p></li>
+</ul>
+<p>【译者注：对于0级速率吸收，模型参数化时存在4种形式，对应上述的4中实现形式：1人为可以控制的0级吸收（比如静脉输液），并且在数据中给出吸收速率；2人为可以控制的0级吸收（比如静脉输液），并且在数据中给出吸收持续的时长；3被近似认为是0级速率吸收，但仅知道药量，并需要估计吸收的0级速率常数；4被近似认为是0级速率吸收，但仅知道药量，并需要估计吸收持续的时长；】</p>
+<div id="已知输注速率或输注时长的输注" class="section level3 hasAnchor">
+<h3>7.3.1已知输注速率或输注时长的输注<a href="第七章rxode2事件.html#已知输注速率或输注时长的输注" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>下一种类型的事件是输注入;有两种方法可以指定输注;第一种是<code>dur</code>关键字。</p>
+<p>一个例子是:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="第七章rxode2事件.html#cb46-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href="第七章rxode2事件.html#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>,<span class="at">until=</span><span class="dv">24</span>, <span class="at">dur=</span><span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-3"><a href="第七章rxode2事件.html#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb46-4"><a href="第七章rxode2事件.html#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="第七章rxode2事件.html#cb46-5" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="第七章rxode2事件.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 101 records ──</span></span>
+<span id="cb47-2"><a href="第七章rxode2事件.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb47-3"><a href="第七章rxode2事件.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb47-4"><a href="第七章rxode2事件.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb47-5"><a href="第七章rxode2事件.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb47-6"><a href="第七章rxode2事件.html#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multiple doses in `addl` columns, expand with x$expand();</span></span>
+<span id="cb47-7"><a href="第七章rxode2事件.html#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or etExpand(x)</span></span>
+<span id="cb47-8"><a href="第七章rxode2事件.html#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb47-9"><a href="第七章rxode2事件.html#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 101 × 6</span></span>
+<span id="cb47-10"><a href="第七章rxode2事件.html#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time   amt  ii  addl evid          dur</span></span>
+<span id="cb47-11"><a href="第七章rxode2事件.html#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;dbl&gt; [h] &lt;int&gt; &lt;evid&gt;        [h]</span></span>
+<span id="cb47-12"><a href="第七章rxode2事件.html#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0        NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-13"><a href="第七章rxode2事件.html#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     10000  12     2 1:Dose (Add)    8</span></span>
+<span id="cb47-14"><a href="第七章rxode2事件.html#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242    NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-15"><a href="第七章rxode2事件.html#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485    NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-16"><a href="第七章rxode2事件.html#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727    NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-17"><a href="第七章rxode2事件.html#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970    NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-18"><a href="第七章rxode2事件.html#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21     NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-19"><a href="第七章rxode2事件.html#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45     NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-20"><a href="第七章rxode2事件.html#cb47-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70     NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-21"><a href="第七章rxode2事件.html#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94     NA  NA    NA 0:Observation  NA</span></span>
+<span id="cb47-22"><a href="第七章rxode2事件.html#cb47-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
+<p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="第七章rxode2事件.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
+<span id="cb48-2"><a href="第七章rxode2事件.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb48-3"><a href="第七章rxode2事件.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb48-4"><a href="第七章rxode2事件.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb48-5"><a href="第七章rxode2事件.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb48-6"><a href="第七章rxode2事件.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb48-7"><a href="第七章rxode2事件.html#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb48-8"><a href="第七章rxode2事件.html#cb48-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb48-9"><a href="第七章rxode2事件.html#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb48-10"><a href="第七章rxode2事件.html#cb48-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：101×6</span></span>
+<span id="cb48-11"><a href="第七章rxode2事件.html#cb48-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间    药量     给药间隔 附加给药次数 事件标志       输注时长</span></span>
+<span id="cb48-12"><a href="第七章rxode2事件.html#cb48-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;dbl&gt;    [h]     &lt;int&gt;     &lt;evid&gt;           [h]</span></span>
+<span id="cb48-13"><a href="第七章rxode2事件.html#cb48-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1 0        NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-14"><a href="第七章rxode2事件.html#cb48-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2 0     10000    12      2         1：给药(及额外附加) 8</span></span>
+<span id="cb48-15"><a href="第七章rxode2事件.html#cb48-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;3 0.242    NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-16"><a href="第七章rxode2事件.html#cb48-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;4 0.485    NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-17"><a href="第七章rxode2事件.html#cb48-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;5 0.727    NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-18"><a href="第七章rxode2事件.html#cb48-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;6 0.970    NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-19"><a href="第七章rxode2事件.html#cb48-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;7 1.21     NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-20"><a href="第七章rxode2事件.html#cb48-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;8 1.45     NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-21"><a href="第七章rxode2事件.html#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;9 1.70     NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-22"><a href="第七章rxode2事件.html#cb48-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94     NA    NA      NA        0：观测           NA</span></span>
+<span id="cb48-23"><a href="第七章rxode2事件.html#cb48-23" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了91行输出内容</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="第七章rxode2事件.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot, C2) <span class="sc">+</span></span>
+<span id="cb49-2"><a href="第七章rxode2事件.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-48-1.png" /></p>
+<p>另一种，它也可以由<code>rate</code>组件指定:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="第七章rxode2事件.html#cb50-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb50-2"><a href="第七章rxode2事件.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>,<span class="at">until=</span><span class="dv">24</span>, <span class="at">rate=</span><span class="dv">10000</span><span class="sc">/</span><span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb50-3"><a href="第七章rxode2事件.html#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb50-4"><a href="第七章rxode2事件.html#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="第七章rxode2事件.html#cb50-5" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="第七章rxode2事件.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 101 records ──</span></span>
+<span id="cb51-2"><a href="第七章rxode2事件.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb51-3"><a href="第七章rxode2事件.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb51-4"><a href="第七章rxode2事件.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb51-5"><a href="第七章rxode2事件.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb51-6"><a href="第七章rxode2事件.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multiple doses in `addl` columns, expand with x$expand();</span></span>
+<span id="cb51-7"><a href="第七章rxode2事件.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or etExpand(x)</span></span>
+<span id="cb51-8"><a href="第七章rxode2事件.html#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb51-9"><a href="第七章rxode2事件.html#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 101 × 6</span></span>
+<span id="cb51-10"><a href="第七章rxode2事件.html#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time   amt rate        ii  addl evid         </span></span>
+<span id="cb51-11"><a href="第七章rxode2事件.html#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;dbl&gt; &lt;rate/dur&gt; [h] &lt;int&gt; &lt;evid&gt;       </span></span>
+<span id="cb51-12"><a href="第七章rxode2事件.html#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0        NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-13"><a href="第七章rxode2事件.html#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     10000  1250       12     2 1:Dose (Add) </span></span>
+<span id="cb51-14"><a href="第七章rxode2事件.html#cb51-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-15"><a href="第七章rxode2事件.html#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-16"><a href="第七章rxode2事件.html#cb51-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-17"><a href="第七章rxode2事件.html#cb51-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-18"><a href="第七章rxode2事件.html#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-19"><a href="第七章rxode2事件.html#cb51-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-20"><a href="第七章rxode2事件.html#cb51-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-21"><a href="第七章rxode2事件.html#cb51-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb51-22"><a href="第七章rxode2事件.html#cb51-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
+<p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="第七章rxode2事件.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
+<span id="cb52-2"><a href="第七章rxode2事件.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb52-3"><a href="第七章rxode2事件.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb52-4"><a href="第七章rxode2事件.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb52-5"><a href="第七章rxode2事件.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb52-6"><a href="第七章rxode2事件.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb52-7"><a href="第七章rxode2事件.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb52-8"><a href="第七章rxode2事件.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb52-9"><a href="第七章rxode2事件.html#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb52-10"><a href="第七章rxode2事件.html#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：101×6</span></span>
+<span id="cb52-11"><a href="第七章rxode2事件.html#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间    药量 速率        给药间隔 附加给药次数 事件标志</span></span>
+<span id="cb52-12"><a href="第七章rxode2事件.html#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;dbl&gt; &lt;rate/dur&gt; [h]     &lt;int&gt;     &lt;evid&gt;           </span></span>
+<span id="cb52-13"><a href="第七章rxode2事件.html#cb52-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1 0        NA NA         NA      NA        0：观测           </span></span>
+<span id="cb52-14"><a href="第七章rxode2事件.html#cb52-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2 0     10000 1250       12      2         1：给药(及额外附加)</span></span>
+<span id="cb52-15"><a href="第七章rxode2事件.html#cb52-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;3 0.242    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb52-16"><a href="第七章rxode2事件.html#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;4 0.485    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb52-17"><a href="第七章rxode2事件.html#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;5 0.727    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb52-18"><a href="第七章rxode2事件.html#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;6 0.970    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb52-19"><a href="第七章rxode2事件.html#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;7 1.21     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb52-20"><a href="第七章rxode2事件.html#cb52-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;8 1.45     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb52-21"><a href="第七章rxode2事件.html#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;9 1.70     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb52-22"><a href="第七章rxode2事件.html#cb52-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94     NA NA          NA      NA        0：观测          </span></span>
+<span id="cb52-23"><a href="第七章rxode2事件.html#cb52-23" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了91行输出内容</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="第七章rxode2事件.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot, C2) <span class="sc">+</span></span>
+<span id="cb53-2"><a href="第七章rxode2事件.html#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-50-1.png" /></p>
+<p>上述两种实现方式是相同的，除了生物利用度如何输注改变之外。</p>
+<p>在使用<code>rate</code>建模的情况下，当生物利用度减小，输注时长也会减小，这与在NONMEM中一样。例如:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="第七章rxode2事件.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev, <span class="fu">c</span>(<span class="at">fdepot=</span><span class="fl">0.25</span>)) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot, C2) <span class="sc">+</span></span>
+<span id="cb54-2"><a href="第七章rxode2事件.html#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-51-1.png" /></p>
+<p>同样，当增加生物利用度时，输注时长也会增加。</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="第七章rxode2事件.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev, <span class="fu">c</span>(<span class="at">fdepot=</span><span class="fl">1.25</span>)) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot, C2) <span class="sc">+</span></span>
+<span id="cb55-2"><a href="第七章rxode2事件.html#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-52-1.png" /></p>
+<p>这种行为的基本原理是，<code>rate</code>和<code>amt</code>是由事件表指定的，因此，随着生物利用度的增加，唯一可以改变的是输注的持续时间。</p>
+<p>与指定<code>rate</code>类似，如果您在事件表中指定amt和dur组件，生物利用度变化也会影响输注速率<code>rate</code>。</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="第七章rxode2事件.html#cb56-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="第七章rxode2事件.html#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>,<span class="at">until=</span><span class="dv">24</span>, <span class="at">dur=</span><span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-3"><a href="第七章rxode2事件.html#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span></code></pre></div>
+<p>你可以在下面的图中看到，生物利用度变化对<code>rate</code>影响而不是对输注持续时长影响的对比:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="第七章rxode2事件.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb57-2"><a href="第七章rxode2事件.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb57-3"><a href="第七章rxode2事件.html#cb57-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-4"><a href="第七章rxode2事件.html#cb57-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(m1, ev, <span class="fu">c</span>(<span class="at">fdepot=</span><span class="fl">1.25</span>)) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot) <span class="sc">+</span></span>
+<span id="cb57-5"><a href="第七章rxode2事件.html#cb57-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">5000</span>)</span>
+<span id="cb57-6"><a href="第七章rxode2事件.html#cb57-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-7"><a href="第七章rxode2事件.html#cb57-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(m1, ev, <span class="fu">c</span>(<span class="at">fdepot=</span><span class="fl">0.25</span>)) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot) <span class="sc">+</span></span>
+<span id="cb57-8"><a href="第七章rxode2事件.html#cb57-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>)<span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">5000</span>)</span>
+<span id="cb57-9"><a href="第七章rxode2事件.html#cb57-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-10"><a href="第七章rxode2事件.html#cb57-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Use patchwork syntax to combine plots</span></span>
+<span id="cb57-11"><a href="第七章rxode2事件.html#cb57-11" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">*</span> p2</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-54-1.png" /></p>
+</div>
+<div id="需要估计输注时长或输注速率的输注零级速率吸收" class="section level3 hasAnchor">
+<h3>7.3.2需要估计输注时长或输注速率的输注(零级速率吸收)<a href="第七章rxode2事件.html#需要估计输注时长或输注速率的输注零级速率吸收" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>您可以对输注持续时长进行建模，这相当于NONMEM的<code>rate=-2</code>。</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="第七章rxode2事件.html#cb58-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="第七章rxode2事件.html#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>,<span class="at">until=</span><span class="dv">24</span>, <span class="at">rate=</span><span class="sc">-</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb58-3"><a href="第七章rxode2事件.html#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb58-4"><a href="第七章rxode2事件.html#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="第七章rxode2事件.html#cb58-5" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="第七章rxode2事件.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 101 records ──</span></span>
+<span id="cb59-2"><a href="第七章rxode2事件.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb59-3"><a href="第七章rxode2事件.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb59-4"><a href="第七章rxode2事件.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb59-5"><a href="第七章rxode2事件.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb59-6"><a href="第七章rxode2事件.html#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multiple doses in `addl` columns, expand with x$expand();</span></span>
+<span id="cb59-7"><a href="第七章rxode2事件.html#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or etExpand(x)</span></span>
+<span id="cb59-8"><a href="第七章rxode2事件.html#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb59-9"><a href="第七章rxode2事件.html#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 101 × 6</span></span>
+<span id="cb59-10"><a href="第七章rxode2事件.html#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time   amt rate        ii  addl evid         </span></span>
+<span id="cb59-11"><a href="第七章rxode2事件.html#cb59-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;dbl&gt; &lt;rate/dur&gt; [h] &lt;int&gt; &lt;evid&gt;       </span></span>
+<span id="cb59-12"><a href="第七章rxode2事件.html#cb59-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0        NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-13"><a href="第七章rxode2事件.html#cb59-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     10000 -2:dur      12     2 1:Dose (Add) </span></span>
+<span id="cb59-14"><a href="第七章rxode2事件.html#cb59-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-15"><a href="第七章rxode2事件.html#cb59-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-16"><a href="第七章rxode2事件.html#cb59-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-17"><a href="第七章rxode2事件.html#cb59-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-18"><a href="第七章rxode2事件.html#cb59-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-19"><a href="第七章rxode2事件.html#cb59-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-20"><a href="第七章rxode2事件.html#cb59-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-21"><a href="第七章rxode2事件.html#cb59-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb59-22"><a href="第七章rxode2事件.html#cb59-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
+<p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="第七章rxode2事件.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
+<span id="cb60-2"><a href="第七章rxode2事件.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb60-3"><a href="第七章rxode2事件.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb60-4"><a href="第七章rxode2事件.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb60-5"><a href="第七章rxode2事件.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb60-6"><a href="第七章rxode2事件.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb60-7"><a href="第七章rxode2事件.html#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb60-8"><a href="第七章rxode2事件.html#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb60-9"><a href="第七章rxode2事件.html#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb60-10"><a href="第七章rxode2事件.html#cb60-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：101×6</span></span>
+<span id="cb60-11"><a href="第七章rxode2事件.html#cb60-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间    药量 速率        给药间隔 附加给药次数 事件标志</span></span>
+<span id="cb60-12"><a href="第七章rxode2事件.html#cb60-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;dbl&gt; &lt;rate/dur&gt; [h]     &lt;int&gt;     &lt;evid&gt;           </span></span>
+<span id="cb60-13"><a href="第七章rxode2事件.html#cb60-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1 0        NA NA         NA      NA        0：观测           </span></span>
+<span id="cb60-14"><a href="第七章rxode2事件.html#cb60-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2 0     10000 -2:dur     12      2         1：给药(及额外附加)</span></span>
+<span id="cb60-15"><a href="第七章rxode2事件.html#cb60-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;3 0.242    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb60-16"><a href="第七章rxode2事件.html#cb60-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;4 0.485    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb60-17"><a href="第七章rxode2事件.html#cb60-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;5 0.727    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb60-18"><a href="第七章rxode2事件.html#cb60-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;6 0.970    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb60-19"><a href="第七章rxode2事件.html#cb60-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;7 1.21     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb60-20"><a href="第七章rxode2事件.html#cb60-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;8 1.45     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb60-21"><a href="第七章rxode2事件.html#cb60-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;9 1.70     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb60-22"><a href="第七章rxode2事件.html#cb60-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94     NA NA          NA      NA        0：观测          </span></span>
+<span id="cb60-23"><a href="第七章rxode2事件.html#cb60-23" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了91行输出内容</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="第七章rxode2事件.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev, <span class="fu">c</span>(<span class="at">durDepot=</span><span class="dv">7</span>)) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot, C2) <span class="sc">+</span></span>
+<span id="cb61-2"><a href="第七章rxode2事件.html#cb61-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-56-1.png" /></p>
+<p>同样，您也可以对吸收速率进行建模。这相当于NONMEM的<code>rate=-1</code>，也是在rxode2的事件表中指定数据项的方式。</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="第七章rxode2事件.html#cb62-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="第七章rxode2事件.html#cb62-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>,<span class="at">until=</span><span class="dv">24</span>, <span class="at">rate=</span><span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb62-3"><a href="第七章rxode2事件.html#cb62-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb62-4"><a href="第七章rxode2事件.html#cb62-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="第七章rxode2事件.html#cb62-5" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="第七章rxode2事件.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 101 records ──</span></span>
+<span id="cb63-2"><a href="第七章rxode2事件.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb63-3"><a href="第七章rxode2事件.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb63-4"><a href="第七章rxode2事件.html#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb63-5"><a href="第七章rxode2事件.html#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb63-6"><a href="第七章rxode2事件.html#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multiple doses in `addl` columns, expand with x$expand();</span></span>
+<span id="cb63-7"><a href="第七章rxode2事件.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or etExpand(x)</span></span>
+<span id="cb63-8"><a href="第七章rxode2事件.html#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb63-9"><a href="第七章rxode2事件.html#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 101 × 6</span></span>
+<span id="cb63-10"><a href="第七章rxode2事件.html#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time   amt rate        ii  addl evid         </span></span>
+<span id="cb63-11"><a href="第七章rxode2事件.html#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;dbl&gt; &lt;rate/dur&gt; [h] &lt;int&gt; &lt;evid&gt;       </span></span>
+<span id="cb63-12"><a href="第七章rxode2事件.html#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0        NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-13"><a href="第七章rxode2事件.html#cb63-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     10000 -1:rate     12     2 1:Dose (Add) </span></span>
+<span id="cb63-14"><a href="第七章rxode2事件.html#cb63-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-15"><a href="第七章rxode2事件.html#cb63-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-16"><a href="第七章rxode2事件.html#cb63-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-17"><a href="第七章rxode2事件.html#cb63-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970    NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-18"><a href="第七章rxode2事件.html#cb63-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-19"><a href="第七章rxode2事件.html#cb63-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-20"><a href="第七章rxode2事件.html#cb63-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-21"><a href="第七章rxode2事件.html#cb63-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94     NA NA          NA    NA 0:Observation</span></span>
+<span id="cb63-22"><a href="第七章rxode2事件.html#cb63-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
+<p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="第七章rxode2事件.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
+<span id="cb64-2"><a href="第七章rxode2事件.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb64-3"><a href="第七章rxode2事件.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb64-4"><a href="第七章rxode2事件.html#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb64-5"><a href="第七章rxode2事件.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb64-6"><a href="第七章rxode2事件.html#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb64-7"><a href="第七章rxode2事件.html#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb64-8"><a href="第七章rxode2事件.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb64-9"><a href="第七章rxode2事件.html#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb64-10"><a href="第七章rxode2事件.html#cb64-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：101×6</span></span>
+<span id="cb64-11"><a href="第七章rxode2事件.html#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间    药量 速率        给药间隔 附加给药次数 事件标志</span></span>
+<span id="cb64-12"><a href="第七章rxode2事件.html#cb64-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;dbl&gt; &lt;rate/dur&gt; [h]     &lt;int&gt;     &lt;evid&gt;           </span></span>
+<span id="cb64-13"><a href="第七章rxode2事件.html#cb64-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1 0        NA NA         NA      NA        0：观测           </span></span>
+<span id="cb64-14"><a href="第七章rxode2事件.html#cb64-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2 0     10000 -1:rate    12      2         1：给药(及额外附加)</span></span>
+<span id="cb64-15"><a href="第七章rxode2事件.html#cb64-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;3 0.242    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb64-16"><a href="第七章rxode2事件.html#cb64-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;4 0.485    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb64-17"><a href="第七章rxode2事件.html#cb64-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;5 0.727    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb64-18"><a href="第七章rxode2事件.html#cb64-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;6 0.970    NA NA         NA      NA        0：观测           </span></span>
+<span id="cb64-19"><a href="第七章rxode2事件.html#cb64-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;7 1.21     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb64-20"><a href="第七章rxode2事件.html#cb64-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;8 1.45     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb64-21"><a href="第七章rxode2事件.html#cb64-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;9 1.70     NA NA         NA      NA        0：观测           </span></span>
+<span id="cb64-22"><a href="第七章rxode2事件.html#cb64-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94     NA NA          NA      NA        0：观测          </span></span>
+<span id="cb64-23"><a href="第七章rxode2事件.html#cb64-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb64-24"><a href="第七章rxode2事件.html#cb64-24" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了91行输出内容</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="第七章rxode2事件.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev, <span class="fu">c</span>(<span class="at">rateDepot=</span><span class="dv">10000</span><span class="sc">/</span><span class="dv">3</span>)) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot, C2) <span class="sc">+</span></span>
+<span id="cb65-2"><a href="第七章rxode2事件.html#cb65-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-58-1.png" /></p>
+</div>
+</div>
+<div id="稳态" class="section level2 hasAnchor">
+<h2>7.4稳态<a href="第七章rxode2事件.html#稳态" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>以事件表中”给药”药量信息和“给出的给药间隔”信息重复足够多次给药直到稳态，然后基于稳态时的给药进行求解。【译者注：即到达稳态时的时间是事件表中SS=1时的时间，有关SS的进一步的中文解释可以见译者所著的Phoenix的<a href="https://s0521.github.io/cn/2019/07/%E8%BE%93%E5%85%A5%E9%80%89%E9%A1%B94-%E7%A8%B3%E6%80%81-ss/">输入选项4 稳态 SS</a>一文】</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="第七章rxode2事件.html#cb66-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb66-2"><a href="第七章rxode2事件.html#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>, <span class="at">ss=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb66-3"><a href="第七章rxode2事件.html#cb66-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb66-4"><a href="第七章rxode2事件.html#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-5"><a href="第七章rxode2事件.html#cb66-5" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="第七章rxode2事件.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 101 records ──</span></span>
+<span id="cb67-2"><a href="第七章rxode2事件.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb67-3"><a href="第七章rxode2事件.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb67-4"><a href="第七章rxode2事件.html#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb67-5"><a href="第七章rxode2事件.html#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb67-6"><a href="第七章rxode2事件.html#cb67-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb67-7"><a href="第七章rxode2事件.html#cb67-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 101 × 5</span></span>
+<span id="cb67-8"><a href="第七章rxode2事件.html#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time   amt  ii evid             ss</span></span>
+<span id="cb67-9"><a href="第七章rxode2事件.html#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;dbl&gt; [h] &lt;evid&gt;        &lt;int&gt;</span></span>
+<span id="cb67-10"><a href="第七章rxode2事件.html#cb67-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0        NA  NA 0:Observation    NA</span></span>
+<span id="cb67-11"><a href="第七章rxode2事件.html#cb67-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     10000  12 1:Dose (Add)      1</span></span>
+<span id="cb67-12"><a href="第七章rxode2事件.html#cb67-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242    NA  NA 0:Observation    NA</span></span>
+<span id="cb67-13"><a href="第七章rxode2事件.html#cb67-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485    NA  NA 0:Observation    NA</span></span>
+<span id="cb67-14"><a href="第七章rxode2事件.html#cb67-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727    NA  NA 0:Observation    NA</span></span>
+<span id="cb67-15"><a href="第七章rxode2事件.html#cb67-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970    NA  NA 0:Observation    NA</span></span>
+<span id="cb67-16"><a href="第七章rxode2事件.html#cb67-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21     NA  NA 0:Observation    NA</span></span>
+<span id="cb67-17"><a href="第七章rxode2事件.html#cb67-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45     NA  NA 0:Observation    NA</span></span>
+<span id="cb67-18"><a href="第七章rxode2事件.html#cb67-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70     NA  NA 0:Observation    NA</span></span>
+<span id="cb67-19"><a href="第七章rxode2事件.html#cb67-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94     NA  NA 0:Observation    NA</span></span>
+<span id="cb67-20"><a href="第七章rxode2事件.html#cb67-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 91 more rows</span></span></code></pre></div>
+<p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="第七章rxode2事件.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有101条记录 ──</span></span>
+<span id="cb68-2"><a href="第七章rxode2事件.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;1个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb68-3"><a href="第七章rxode2事件.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb68-4"><a href="第七章rxode2事件.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb68-5"><a href="第七章rxode2事件.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb68-6"><a href="第七章rxode2事件.html#cb68-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb68-7"><a href="第七章rxode2事件.html#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb68-8"><a href="第七章rxode2事件.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb68-9"><a href="第七章rxode2事件.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb68-10"><a href="第七章rxode2事件.html#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：101×6</span></span>
+<span id="cb68-11"><a href="第七章rxode2事件.html#cb68-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间    药量     给药间隔 附加给药次数 事件标志          稳态</span></span>
+<span id="cb68-12"><a href="第七章rxode2事件.html#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;dbl&gt;    [h]     &lt;int&gt;     &lt;evid&gt;           &lt;int&gt; </span></span>
+<span id="cb68-13"><a href="第七章rxode2事件.html#cb68-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0        NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-14"><a href="第七章rxode2事件.html#cb68-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0     10000    12      2         1：给药(及额外附加) 1</span></span>
+<span id="cb68-15"><a href="第七章rxode2事件.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.242    NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-16"><a href="第七章rxode2事件.html#cb68-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.485    NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-17"><a href="第七章rxode2事件.html#cb68-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.727    NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-18"><a href="第七章rxode2事件.html#cb68-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.970    NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-19"><a href="第七章rxode2事件.html#cb68-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 1.21     NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-20"><a href="第七章rxode2事件.html#cb68-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8 1.45     NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-21"><a href="第七章rxode2事件.html#cb68-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9 1.70     NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-22"><a href="第七章rxode2事件.html#cb68-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94     NA    NA      NA        0：观测           NA</span></span>
+<span id="cb68-23"><a href="第七章rxode2事件.html#cb68-23" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了91行输出内容</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="第七章rxode2事件.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(C2)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-60-1.png" /></p>
+<div id="复杂加药的稳定状态" class="section level3 hasAnchor">
+<h3>7.4.1复杂加药的稳定状态<a href="第七章rxode2事件.html#复杂加药的稳定状态" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>通过使用<code>ss=2</code>标志，您可以使用类似”早上100 mg vs晚上150 mg“这样的不太规整的给药方案【译者注：吐槽，原文使用nonstandard dosing(非标准给药)容此给药方案，但这种给药方案在临床挺”标准”的，仅仅是有些嵌套而已，这种嵌套给基于NCA的PK参数带来了些麻烦，估计作者是因此将此种方案定义为不标准；所以我基于我的上述理由将此翻译为不太规整，以此来表达原文作者想表达含义】基于线性动力学中的超定位原理(super-positioning)【译者注：没见过其他人在药动学中提到此词，我猜作者可能是想说线性药动学的线性叠加原理】到达稳态。这是通过:</p>
+<ul>
+<li>保存所有状态值</li>
+<li>重置所有状态，求解系统至稳态</li>
+<li>将所有先前的状态值加回来</li>
+</ul>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="第七章rxode2事件.html#cb70-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb70-2"><a href="第七章rxode2事件.html#cb70-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">24</span>, <span class="at">ss=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb70-3"><a href="第七章rxode2事件.html#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">12</span>, <span class="at">amt=</span><span class="dv">15000</span>, <span class="at">ii=</span><span class="dv">24</span>, <span class="at">ss=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb70-4"><a href="第七章rxode2事件.html#cb70-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">24</span>, <span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">24</span>, <span class="at">addl=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb70-5"><a href="第七章rxode2事件.html#cb70-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">36</span>, <span class="at">amt=</span><span class="dv">15000</span>, <span class="at">ii=</span><span class="dv">24</span>, <span class="at">addl=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb70-6"><a href="第七章rxode2事件.html#cb70-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">64</span>, <span class="at">length.out=</span><span class="dv">500</span>))</span>
+<span id="cb70-7"><a href="第七章rxode2事件.html#cb70-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-8"><a href="第七章rxode2事件.html#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb70-9"><a href="第七章rxode2事件.html#cb70-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-10"><a href="第七章rxode2事件.html#cb70-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev,<span class="at">maxsteps=</span><span class="dv">10000</span>) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(C2) <span class="sc">+</span></span>
+<span id="cb70-11"><a href="第七章rxode2事件.html#cb70-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;rect&quot;</span>, <span class="at">xmin=</span><span class="dv">0</span>, <span class="at">xmax=</span><span class="dv">24</span>, <span class="at">ymin=</span><span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax=</span><span class="cn">Inf</span>,</span>
+<span id="cb70-12"><a href="第七章rxode2事件.html#cb70-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb70-13"><a href="第七章rxode2事件.html#cb70-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="fl">12.5</span>, <span class="at">y=</span><span class="dv">7</span>,</span>
+<span id="cb70-14"><a href="第七章rxode2事件.html#cb70-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">label=</span><span class="st">&quot;Initial Steady State Period&quot;</span>) <span class="sc">+</span></span>
+<span id="cb70-15"><a href="第七章rxode2事件.html#cb70-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x=</span><span class="dv">44</span>,   <span class="at">y=</span><span class="dv">7</span>,</span>
+<span id="cb70-16"><a href="第七章rxode2事件.html#cb70-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">label=</span><span class="st">&quot;Steady State AM/PM dosing&quot;</span>)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-61-1.png" /></p>
+<p>你可以看到，它需要一个完整的给药周期才能达到真正的复杂给药方案的稳态【译者注：此时到达稳态时的时间还是事件表中SS=1时的时间，Phoenix实现此类给药方案到达稳态的方式与此有些略微差异，是将SS=1和SS=2的信息卸载一行中的不同列并且SS=1，有关SS的进一步的中文解释可以见译者所著的Phoenix的<a href="https://s0521.github.io/cn/2019/07/%E8%BE%93%E5%85%A5%E9%80%89%E9%A1%B94-%E7%A8%B3%E6%80%81-ss/">输入选项4 稳态 SS</a>一文】。</p>
+</div>
+<div id="输注或零阶吸收过程的稳态" class="section level3 hasAnchor">
+<h3>7.4.2输注或零阶吸收过程的稳态<a href="第七章rxode2事件.html#输注或零阶吸收过程的稳态" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>rxode2</code>支持的最后一种稳态是恒定输注速率数值直到输注到达稳态。这可以用与NONMEM相同的方式指定，即:</p>
+<ul>
+<li>没有给药间间隔时间<code>ii</code>=<code>0</code></li>
+<li>稳态标识<code>ss</code>=<code>1</code></li>
+<li>输入已知的输注速率(此时事件表汇中<code>rate</code>&gt;0)，或估计输注速率(此时<code>rate</code>=<code>-1</code>)。</li>
+<li>药量为零<code>amt</code>=<code>0</code></li>
+<li>一旦达到稳态恒定输注，使用此记录时将关闭输注，就像NONMEM一样。</li>
+</ul>
+<p>请注意，我们为模型指定输注持续时长的<code>rate</code>=<code>-2</code>没有多大意义，因为我们是在求解输注直到稳定状态。输注持续时长由稳态解指定。</p>
+<p>还需要注意的是，这种输注至稳态的生物利用度变化也没有意义，因为它们既没有改变稳态输注的速率，也没有改变输注的持续时长。因此，这种给药事件的生物利用度参数化被忽略。</p>
+<p>下面是一个例子:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="第七章rxode2事件.html#cb71-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb71-2"><a href="第七章rxode2事件.html#cb71-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">0</span>, <span class="at">ss=</span><span class="dv">1</span>,<span class="at">rate=</span><span class="dv">10000</span><span class="sc">/</span><span class="dv">8</span>)</span>
+<span id="cb71-3"><a href="第七章rxode2事件.html#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="第七章rxode2事件.html#cb71-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(C2, eff)</span>
+<span id="cb71-5"><a href="第七章rxode2事件.html#cb71-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-6"><a href="第七章rxode2事件.html#cb71-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-7"><a href="第七章rxode2事件.html#cb71-7" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb71-8"><a href="第七章rxode2事件.html#cb71-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">200000</span>, <span class="at">rate=</span><span class="dv">10000</span><span class="sc">/</span><span class="dv">8</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb71-9"><a href="第七章rxode2事件.html#cb71-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="dv">0</span>, <span class="dv">250</span>, <span class="at">length.out=</span><span class="dv">1000</span>)</span>
+<span id="cb71-10"><a href="第七章rxode2事件.html#cb71-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-11"><a href="第七章rxode2事件.html#cb71-11" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(C2, eff)</span>
+<span id="cb71-12"><a href="第七章rxode2事件.html#cb71-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-13"><a href="第七章rxode2事件.html#cb71-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb71-14"><a href="第七章rxode2事件.html#cb71-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-15"><a href="第七章rxode2事件.html#cb71-15" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-62-1.png" /></p>
+<p>这不仅可以用于PK，也可以用于疾病过程的稳态。</p>
+</div>
+</div>
+<div id="重置事件" class="section level2 hasAnchor">
+<h2>7.5重置事件<a href="第七章rxode2事件.html#重置事件" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>重置事件通过<code>evid=3</code>或<code>evid= reset</code>实现，对于同时reset和dose, 由<code>evid=4</code>实现。</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="第七章rxode2事件.html#cb72-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb72-2"><a href="第七章rxode2事件.html#cb72-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>, <span class="at">addl=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb72-3"><a href="第七章rxode2事件.html#cb72-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">6</span>, <span class="at">evid=</span>reset) <span class="sc">%&gt;%</span></span>
+<span id="cb72-4"><a href="第七章rxode2事件.html#cb72-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb72-5"><a href="第七章rxode2事件.html#cb72-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-6"><a href="第七章rxode2事件.html#cb72-6" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="第七章rxode2事件.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 102 records ──</span></span>
+<span id="cb73-2"><a href="第七章rxode2事件.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb73-3"><a href="第七章rxode2事件.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb73-4"><a href="第七章rxode2事件.html#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb73-5"><a href="第七章rxode2事件.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb73-6"><a href="第七章rxode2事件.html#cb73-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multiple doses in `addl` columns, expand with x$expand();</span></span>
+<span id="cb73-7"><a href="第七章rxode2事件.html#cb73-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or etExpand(x)</span></span>
+<span id="cb73-8"><a href="第七章rxode2事件.html#cb73-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb73-9"><a href="第七章rxode2事件.html#cb73-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 102 × 5</span></span>
+<span id="cb73-10"><a href="第七章rxode2事件.html#cb73-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time   amt  ii  addl evid         </span></span>
+<span id="cb73-11"><a href="第七章rxode2事件.html#cb73-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;dbl&gt; [h] &lt;int&gt; &lt;evid&gt;       </span></span>
+<span id="cb73-12"><a href="第七章rxode2事件.html#cb73-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0        NA  NA    NA 0:Observation</span></span>
+<span id="cb73-13"><a href="第七章rxode2事件.html#cb73-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     10000  12     3 1:Dose (Add) </span></span>
+<span id="cb73-14"><a href="第七章rxode2事件.html#cb73-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242    NA  NA    NA 0:Observation</span></span>
+<span id="cb73-15"><a href="第七章rxode2事件.html#cb73-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485    NA  NA    NA 0:Observation</span></span>
+<span id="cb73-16"><a href="第七章rxode2事件.html#cb73-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727    NA  NA    NA 0:Observation</span></span>
+<span id="cb73-17"><a href="第七章rxode2事件.html#cb73-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970    NA  NA    NA 0:Observation</span></span>
+<span id="cb73-18"><a href="第七章rxode2事件.html#cb73-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21     NA  NA    NA 0:Observation</span></span>
+<span id="cb73-19"><a href="第七章rxode2事件.html#cb73-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45     NA  NA    NA 0:Observation</span></span>
+<span id="cb73-20"><a href="第七章rxode2事件.html#cb73-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70     NA  NA    NA 0:Observation</span></span>
+<span id="cb73-21"><a href="第七章rxode2事件.html#cb73-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94     NA  NA    NA 0:Observation</span></span>
+<span id="cb73-22"><a href="第七章rxode2事件.html#cb73-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 92 more rows</span></span></code></pre></div>
+<p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="第七章rxode2事件.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有102条记录 ──</span></span>
+<span id="cb74-2"><a href="第七章rxode2事件.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb74-3"><a href="第七章rxode2事件.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb74-4"><a href="第七章rxode2事件.html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb74-5"><a href="第七章rxode2事件.html#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb74-6"><a href="第七章rxode2事件.html#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb74-7"><a href="第七章rxode2事件.html#cb74-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb74-8"><a href="第七章rxode2事件.html#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb74-9"><a href="第七章rxode2事件.html#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb74-10"><a href="第七章rxode2事件.html#cb74-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：102×5</span></span>
+<span id="cb74-11"><a href="第七章rxode2事件.html#cb74-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间    药量     给药间隔 附加给药次数 事件标志</span></span>
+<span id="cb74-12"><a href="第七章rxode2事件.html#cb74-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;dbl&gt;    [h]     &lt;int&gt;     &lt;evid&gt; </span></span>
+<span id="cb74-13"><a href="第七章rxode2事件.html#cb74-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0        NA    NA      NA        0：观测</span></span>
+<span id="cb74-14"><a href="第七章rxode2事件.html#cb74-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0     10000    12      3         1：给药(及额外附加)</span></span>
+<span id="cb74-15"><a href="第七章rxode2事件.html#cb74-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.242    NA    NA      NA        0：观测</span></span>
+<span id="cb74-16"><a href="第七章rxode2事件.html#cb74-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.485    NA    NA      NA        0：观测</span></span>
+<span id="cb74-17"><a href="第七章rxode2事件.html#cb74-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.727    NA    NA      NA        0：观测</span></span>
+<span id="cb74-18"><a href="第七章rxode2事件.html#cb74-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.970    NA    NA      NA        0：观测</span></span>
+<span id="cb74-19"><a href="第七章rxode2事件.html#cb74-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 1.21     NA    NA      NA        0：观测</span></span>
+<span id="cb74-20"><a href="第七章rxode2事件.html#cb74-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8 1.45     NA    NA      NA        0：观测</span></span>
+<span id="cb74-21"><a href="第七章rxode2事件.html#cb74-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9 1.70     NA    NA      NA        0：观测</span></span>
+<span id="cb74-22"><a href="第七章rxode2事件.html#cb74-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94     NA    NA      NA        0：观测</span></span>
+<span id="cb74-23"><a href="第七章rxode2事件.html#cb74-23" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了92行输出内容</span></span></code></pre></div>
+<p>求解器显示了当系统在给药后6小时重置时，系统中发生的情况。</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="第七章rxode2事件.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot,C2, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-64-1.png" /></p>
+<p>您可以看到所有房室都被重置为初始值。在下一次给药时开始给药的循环周期。</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="第七章rxode2事件.html#cb76-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb76-2"><a href="第七章rxode2事件.html#cb76-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>, <span class="at">addl=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb76-3"><a href="第七章rxode2事件.html#cb76-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">6</span>, <span class="at">amt=</span><span class="dv">10000</span>, <span class="at">evid=</span><span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb76-4"><a href="第七章rxode2事件.html#cb76-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb76-5"><a href="第七章rxode2事件.html#cb76-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-6"><a href="第七章rxode2事件.html#cb76-6" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="第七章rxode2事件.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 102 records ──</span></span>
+<span id="cb77-2"><a href="第七章rxode2事件.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb77-3"><a href="第七章rxode2事件.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb77-4"><a href="第七章rxode2事件.html#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb77-5"><a href="第七章rxode2事件.html#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb77-6"><a href="第七章rxode2事件.html#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multiple doses in `addl` columns, expand with x$expand();</span></span>
+<span id="cb77-7"><a href="第七章rxode2事件.html#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or etExpand(x)</span></span>
+<span id="cb77-8"><a href="第七章rxode2事件.html#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb77-9"><a href="第七章rxode2事件.html#cb77-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 102 × 5</span></span>
+<span id="cb77-10"><a href="第七章rxode2事件.html#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time   amt  ii  addl evid         </span></span>
+<span id="cb77-11"><a href="第七章rxode2事件.html#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;dbl&gt; [h] &lt;int&gt; &lt;evid&gt;       </span></span>
+<span id="cb77-12"><a href="第七章rxode2事件.html#cb77-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0        NA  NA    NA 0:Observation</span></span>
+<span id="cb77-13"><a href="第七章rxode2事件.html#cb77-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     10000  12     3 1:Dose (Add) </span></span>
+<span id="cb77-14"><a href="第七章rxode2事件.html#cb77-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242    NA  NA    NA 0:Observation</span></span>
+<span id="cb77-15"><a href="第七章rxode2事件.html#cb77-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485    NA  NA    NA 0:Observation</span></span>
+<span id="cb77-16"><a href="第七章rxode2事件.html#cb77-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727    NA  NA    NA 0:Observation</span></span>
+<span id="cb77-17"><a href="第七章rxode2事件.html#cb77-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970    NA  NA    NA 0:Observation</span></span>
+<span id="cb77-18"><a href="第七章rxode2事件.html#cb77-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21     NA  NA    NA 0:Observation</span></span>
+<span id="cb77-19"><a href="第七章rxode2事件.html#cb77-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45     NA  NA    NA 0:Observation</span></span>
+<span id="cb77-20"><a href="第七章rxode2事件.html#cb77-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70     NA  NA    NA 0:Observation</span></span>
+<span id="cb77-21"><a href="第七章rxode2事件.html#cb77-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94     NA  NA    NA 0:Observation</span></span>
+<span id="cb77-22"><a href="第七章rxode2事件.html#cb77-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 92 more rows</span></span></code></pre></div>
+<p>【译者注：因为上面的代码全是输出的注释，所以虽然是代码，这次也对上述内容进行下翻译，并同时提供翻译和未翻译版，便于读者理解，下文为对上文代码的翻译】</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="第七章rxode2事件.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有102条记录 ──</span></span>
+<span id="cb78-2"><a href="第七章rxode2事件.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb78-3"><a href="第七章rxode2事件.html#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb78-4"><a href="第七章rxode2事件.html#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb78-5"><a href="第七章rxode2事件.html#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb78-6"><a href="第七章rxode2事件.html#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb78-7"><a href="第七章rxode2事件.html#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb78-8"><a href="第七章rxode2事件.html#cb78-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb78-9"><a href="第七章rxode2事件.html#cb78-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb78-10"><a href="第七章rxode2事件.html#cb78-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：102×5</span></span>
+<span id="cb78-11"><a href="第七章rxode2事件.html#cb78-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间    药量     给药间隔 附加给药次数 事件标志</span></span>
+<span id="cb78-12"><a href="第七章rxode2事件.html#cb78-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;dbl&gt;    [h]     &lt;int&gt;     &lt;evid&gt; </span></span>
+<span id="cb78-13"><a href="第七章rxode2事件.html#cb78-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0        NA    NA      NA        0：观测</span></span>
+<span id="cb78-14"><a href="第七章rxode2事件.html#cb78-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0     10000    12      3         1：给药(及额外附加)</span></span>
+<span id="cb78-15"><a href="第七章rxode2事件.html#cb78-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.242    NA    NA      NA        0：观测</span></span>
+<span id="cb78-16"><a href="第七章rxode2事件.html#cb78-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.485    NA    NA      NA        0：观测</span></span>
+<span id="cb78-17"><a href="第七章rxode2事件.html#cb78-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.727    NA    NA      NA        0：观测</span></span>
+<span id="cb78-18"><a href="第七章rxode2事件.html#cb78-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.970    NA    NA      NA        0：观测</span></span>
+<span id="cb78-19"><a href="第七章rxode2事件.html#cb78-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 1.21     NA    NA      NA        0：观测</span></span>
+<span id="cb78-20"><a href="第七章rxode2事件.html#cb78-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8 1.45     NA    NA      NA        0：观测</span></span>
+<span id="cb78-21"><a href="第七章rxode2事件.html#cb78-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9 1.70     NA    NA      NA        0：观测</span></span>
+<span id="cb78-22"><a href="第七章rxode2事件.html#cb78-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94     NA    NA      NA        0：观测</span></span>
+<span id="cb78-23"><a href="第七章rxode2事件.html#cb78-23" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了92行输出内容</span></span></code></pre></div>
+<p>在这种情况下，整个系统被重置并在重置时发生给药。</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="第七章rxode2事件.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot,C2, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-66-1.png" /></p>
+</div>
+<div id="关闭房室" class="section level2 hasAnchor">
+<h2>7.6关闭房室<a href="第七章rxode2事件.html#关闭房室" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>您也可以关闭一个房室，这类似于重置事件。</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="第七章rxode2事件.html#cb80-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb80-2"><a href="第七章rxode2事件.html#cb80-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>, <span class="at">addl=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb80-3"><a href="第七章rxode2事件.html#cb80-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">6</span>, <span class="at">cmt=</span><span class="st">&quot;-depot&quot;</span>, <span class="at">evid=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb80-4"><a href="第七章rxode2事件.html#cb80-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb80-5"><a href="第七章rxode2事件.html#cb80-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-6"><a href="第七章rxode2事件.html#cb80-6" aria-hidden="true" tabindex="-1"></a>ev</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="第七章rxode2事件.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── EventTable with 102 records ──</span></span>
+<span id="cb81-2"><a href="第七章rxode2事件.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 dosing records (see x$get.dosing(); add with add.dosing</span></span>
+<span id="cb81-3"><a href="第七章rxode2事件.html#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or et)</span></span>
+<span id="cb81-4"><a href="第七章rxode2事件.html#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 100 observation times (see x$get.sampling(); add with</span></span>
+<span id="cb81-5"><a href="第七章rxode2事件.html#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; add.sampling or et)</span></span>
+<span id="cb81-6"><a href="第七章rxode2事件.html#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; multiple doses in `addl` columns, expand with x$expand();</span></span>
+<span id="cb81-7"><a href="第七章rxode2事件.html#cb81-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or etExpand(x)</span></span>
+<span id="cb81-8"><a href="第七章rxode2事件.html#cb81-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of x: ──</span></span>
+<span id="cb81-9"><a href="第七章rxode2事件.html#cb81-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 102 × 6</span></span>
+<span id="cb81-10"><a href="第七章rxode2事件.html#cb81-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     time cmt         amt  ii  addl evid         </span></span>
+<span id="cb81-11"><a href="第七章rxode2事件.html#cb81-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      [h] &lt;chr&gt;     &lt;dbl&gt; [h] &lt;int&gt; &lt;evid&gt;       </span></span>
+<span id="cb81-12"><a href="第七章rxode2事件.html#cb81-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 0     (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-13"><a href="第七章rxode2事件.html#cb81-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 0     (default) 10000  12     3 1:Dose (Add) </span></span>
+<span id="cb81-14"><a href="第七章rxode2事件.html#cb81-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 0.242 (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-15"><a href="第七章rxode2事件.html#cb81-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 0.485 (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-16"><a href="第七章rxode2事件.html#cb81-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 0.727 (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-17"><a href="第七章rxode2事件.html#cb81-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 0.970 (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-18"><a href="第七章rxode2事件.html#cb81-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 1.21  (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-19"><a href="第七章rxode2事件.html#cb81-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 1.45  (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-20"><a href="第七章rxode2事件.html#cb81-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1.70  (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-21"><a href="第七章rxode2事件.html#cb81-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1.94  (obs)        NA  NA    NA 0:Observation</span></span>
+<span id="cb81-22"><a href="第七章rxode2事件.html#cb81-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 92 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="第七章rxode2事件.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 事件表，其中包含有102条记录 ──</span></span>
+<span id="cb82-2"><a href="第七章rxode2事件.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;2个给药记录(参见x$get.dosing()；可使用add.dosing</span></span>
+<span id="cb82-3"><a href="第七章rxode2事件.html#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb82-4"><a href="第七章rxode2事件.html#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;100次观测(参见x$get.samping()；可使用add.Samples</span></span>
+<span id="cb82-5"><a href="第七章rxode2事件.html#cb82-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或et添加)</span></span>
+<span id="cb82-6"><a href="第七章rxode2事件.html#cb82-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;addl列中的多次给药，可使用x$Expand()展开；</span></span>
+<span id="cb82-7"><a href="第七章rxode2事件.html#cb82-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;或etExpand(X)</span></span>
+<span id="cb82-8"><a href="第七章rxode2事件.html#cb82-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;── 第一部分 关于x： ──</span></span>
+<span id="cb82-9"><a href="第七章rxode2事件.html#cb82-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb82-10"><a href="第七章rxode2事件.html#cb82-10" aria-hidden="true" tabindex="-1"></a><span class="co">#A Tibble：102×6</span></span>
+<span id="cb82-11"><a href="第七章rxode2事件.html#cb82-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  时间   cmt        药量     给药间隔 附加给药次数 事件标志</span></span>
+<span id="cb82-12"><a href="第七章rxode2事件.html#cb82-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [h]   &lt;chr&gt;     &lt;dbl&gt;    [h]     &lt;int&gt;     &lt;evid&gt; </span></span>
+<span id="cb82-13"><a href="第七章rxode2事件.html#cb82-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0    (obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-14"><a href="第七章rxode2事件.html#cb82-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0    (default) 10000    12      3         1：给药(及额外附加)</span></span>
+<span id="cb82-15"><a href="第七章rxode2事件.html#cb82-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.242(obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-16"><a href="第七章rxode2事件.html#cb82-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.485(obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-17"><a href="第七章rxode2事件.html#cb82-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 0.727(obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-18"><a href="第七章rxode2事件.html#cb82-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 0.970(obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-19"><a href="第七章rxode2事件.html#cb82-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 1.21 (obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-20"><a href="第七章rxode2事件.html#cb82-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8 1.45 (obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-21"><a href="第七章rxode2事件.html#cb82-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9 1.70 (obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-22"><a href="第七章rxode2事件.html#cb82-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;10 1.94 (obs)        NA    NA      NA        0：观测</span></span>
+<span id="cb82-23"><a href="第七章rxode2事件.html#cb82-23" aria-hidden="true" tabindex="-1"></a><span class="co">#…后续还有了92行输出内容</span></span></code></pre></div>
+<p>求解器显示了这在系统中的作用:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="第七章rxode2事件.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot,C2, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-68-1.png" /></p>
+<p>在这种情况下，depot房室关闭，depot房室中的浓度被设置为初始值，但其他房室浓度/水平不重置。当depot房室发生另一次给药时，depot房室重新打开。</p>
+<p>请注意，对房室的给药只会对被给药的房室起作用。因此，如果你关闭eff房室，即使另一个房室depot房室发生给药后，eff房室会仍然继续关闭。</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="第七章rxode2事件.html#cb84-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb84-2"><a href="第七章rxode2事件.html#cb84-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>, <span class="at">addl=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb84-3"><a href="第七章rxode2事件.html#cb84-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">6</span>, <span class="at">cmt=</span><span class="st">&quot;-eff&quot;</span>, <span class="at">evid=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb84-4"><a href="第七章rxode2事件.html#cb84-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb84-5"><a href="第七章rxode2事件.html#cb84-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-6"><a href="第七章rxode2事件.html#cb84-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot,C2, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-69-1.png" /></p>
+<p>要重新打开房室，需要对此房室进行一次药量为零的给药或与为此房室添加一个evid=2的记录。</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="第七章rxode2事件.html#cb85-1" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">et</span>(<span class="at">timeUnits=</span><span class="st">&quot;hr&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb85-2"><a href="第七章rxode2事件.html#cb85-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">amt=</span><span class="dv">10000</span>, <span class="at">ii=</span><span class="dv">12</span>, <span class="at">addl=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb85-3"><a href="第七章rxode2事件.html#cb85-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">6</span>, <span class="at">cmt=</span><span class="st">&quot;-eff&quot;</span>, <span class="at">evid=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb85-4"><a href="第七章rxode2事件.html#cb85-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="at">time=</span><span class="dv">12</span>,<span class="at">cmt=</span><span class="st">&quot;eff&quot;</span>,<span class="at">evid=</span><span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb85-5"><a href="第七章rxode2事件.html#cb85-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">et</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">24</span>, <span class="at">length.out=</span><span class="dv">100</span>))</span>
+<span id="cb85-6"><a href="第七章rxode2事件.html#cb85-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-7"><a href="第七章rxode2事件.html#cb85-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rxSolve</span>(m1, ev) <span class="sc">%&gt;%</span> <span class="fu">plot</span>(depot,C2, eff)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-70-1.png" /></p>
+</div>
+<div id="经典的rxode2事件" class="section level2 hasAnchor">
+<h2>7.7经典的rxode2事件<a href="第七章rxode2事件.html#经典的rxode2事件" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>【译者注：由于rxode2还有前一代版本rxode，所以为了兼容性也支持前一代版本中的evid的编码方式，对于不了解前代前一代版本rxode读者，无需学习与了解此章节，跳过整个7.2章节即可。】</p>
+<p>最初RxODE支持复合事件IDs;rxode2仍然支持这些参数，但使用常规的NONMEM数据集标准通常更有用，部分建模工具也使用该标准，如在rxode2类型文章中有描述到的NONMEM、Monolix和nlmixr。</p>
+<p>通常，RxODE支持在下表中描述的单个事件id<code>evid</code>中进行事件编码。</p>
+<table>
+<thead>
+<tr class="header">
+<th>100 + cmt</th>
+<th>Infusion/Event Flag</th>
+<th>输注标志或事件标志</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100 + cmt</td>
+<td>0 = bolus dose</td>
+<td>0 =注入式给药</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>1 = infusion (rate)</td>
+<td>1 =输注(速率)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>2 = infusion (dur)</td>
+<td>2 =输注(时长)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>6 = turn off modeled duration</td>
+<td>6 =关闭输注时长</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>7 = turn off modeled rate</td>
+<td>7 =关闭输注速率</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>8 = turn on modeled duration</td>
+<td>8 =打开输注时长</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>9 = turn on modeled rate</td>
+<td>9 =打开输注速率</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>4 = replace event</td>
+<td>4 =替换事件</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>5 = multiply event</td>
+<td>5 =倍数事件</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="55%" />
+<col width="35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>&lt; 99 cmt</th>
+<th>SS flag &amp; Turning of Compartment</th>
+<th>SS标志和房室关闭</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt; 99 cmt</td>
+<td>1 = dose</td>
+<td>1 =给药</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>10 = Steady state 1 (equivalent to SS=1)</td>
+<td>10 =稳态1(相当于SS=1)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>20 = Steady state 2 (equivalent to SS=2)</td>
+<td>20 =稳态2(相当于SS=2)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>30 = Turn off a compartment (equivalent to -CMT w/EVID=2)</td>
+<td>30 =关闭一个房室(相当于-CMT w/EVID=2)</td>
+</tr>
+</tbody>
+</table>
+<p>经典的EVID将上表中的数字连接起来，因此向1号房室的输注将是10101，向199号室的输注将是119901。</p>
+<p>支持EVID= 0(观测)、EVID=2(其他类型事件)和EVID=3。在内部，EVID=9是一个非观测事件，确保系统初始化为零;EVID=9不能手动设置。EVID 10-99表示参数化模型的时间干预，类似于NONMEM的MTIME(model-event-times)。这与药量(amt)和时间列一起指定ODE系统中的事件。</p>
+<p>对于指定的EVIDs &gt; 100的输注，amt列表示速率值。</p>
+<p>对于输注标志1和2 <code>+amt</code>打开输注到特定的房室-amt关闭输注到特定的房室。要指定给药/持续时长，请将给药记录放在持续时长开始或停止的时间。</p>
+<p>对于使用输注速率/持续时长输注参数化的输注的标志，在输注喀什市标志之后必须有一个停止输注的记录。</p>
+<p>这些数字连接在一起形成一个完整的RxODE事件ID，如下面的例子所示:</p>
+<div id="使用经典rxode的evid设置注入给药示例" class="section level3 hasAnchor">
+<h3>7.7.1使用经典RxODE的EVID设置注入给药示例<a href="第七章rxode2事件.html#使用经典rxode的evid设置注入给药示例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>在第0时刻给#1号房室注入100剂量</em></p>
+<table>
+<thead>
+<tr class="header">
+<th>time</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>101</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><em>在第0时刻给#99号房室注入100剂量</em></p>
+<table>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>9901</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><em>在第0时刻给$199号房室注入100剂量</em></p>
+<table>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>109901</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="使用经典rxode的evid设置输注事件示例" class="section level3 hasAnchor">
+<h3>7.7.2使用经典RxODE的EVID设置输注事件示例<a href="第七章rxode2事件.html#使用经典rxode的evid设置输注事件示例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>对#1号房室以速率50输注1.5小时(使用生物利用度参数化时，生物利用度的变化会改变输注时长)</p>
+<table>
+<thead>
+<tr class="header">
+<th>time</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>10101</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1.5</td>
+<td>10101</td>
+<td>-50</td>
+</tr>
+</tbody>
+</table>
+<p>对#1号房室以速率50输注1.5小时(使用生物利用度参数化时，生物利用度的变化改变输注速率)</p>
+<table>
+<thead>
+<tr class="header">
+<th>time</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>20101</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1.5</td>
+<td>20101</td>
+<td>-50</td>
+</tr>
+</tbody>
+</table>
+<p>模型以输注速率参数化并且药量为50</p>
+<table>
+<thead>
+<tr class="header">
+<th>time</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>90101</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>70101</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>模型以输注时长参数化并且药量为50</p>
+<table>
+<thead>
+<tr class="header">
+<th>time</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>80101</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>60101</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>0.5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="使用经典rxode的evid设置稳态的例子" class="section level3 hasAnchor">
+<h3>7.7.3使用经典RxODE的EVID设置稳态的例子<a href="第七章rxode2事件.html#使用经典rxode的evid设置稳态的例子" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>给药至#1号房室至达稳态</p>
+<table>
+<thead>
+<tr class="header">
+<th>time</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>110</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<p>am50 pm 100给药至#1号房室至达稳</p>
+<table>
+<thead>
+<tr class="header">
+<th>time</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>110</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>120</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="使用经典rxode的evid关闭房室" class="section level3 hasAnchor">
+<h3>7.7.4使用经典RxODE的EVID关闭房室<a href="第七章rxode2事件.html#使用经典rxode的evid关闭房室" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>在时间为12时关闭#1号房室</p>
+<table>
+<thead>
+<tr class="header">
+<th>time</th>
+<th>evid</th>
+<th>amt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>110</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>130</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<p>在rxode2中的事件标识码被编码为单个事件编号evid。对于100以下的房室，编码如下:</p>
+<ul>
+<li>对于观察事件的事件是<code>0</code>。</li>
+<li>对于特定的房室，注入给药定义为:
+<ul>
+<li>100*(房室号)+ 1</li>
+<li>捕获<code>amt</code>后给药</li>
+</ul></li>
+<li>对于静脉注射【译者注：原文此处似乎笔误，此处应为静脉输注】给药，事件定义为:
+<ul>
+<li>10000 + 100*(房室号)+ 1</li>
+<li>输注速率记录在<code>amt</code>列</li>
+<li>通过在输注停止时用相同的<code>EVID</code>减法<code>amt</code>来关闭输注。</li>
+</ul></li>
+</ul>
+<p>对于大于或等于100的房室，100位及以上的数字被转移到第100,000位数字。对于第99个房室的给药，注入房室的给药evid是9901，输注方式的给药evid是19901。第199房室的剂量是109901。第199室的输液剂量记录为119901。</p>
+</div>
+</div>
+<div id="rxode2-nlmixr的数据集" class="section level2 hasAnchor">
+<h2>7.8rxode2 &amp; nlmixr的数据集<a href="第七章rxode2事件.html#rxode2-nlmixr的数据集" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>输入nlmixr的数据与rxode2的数据输入类型相同，它与NONMEM的数据相似(大多数NONMEM就绪的数据集可以直接在nlmixr中使用)。</p>
+</div>
+<div id="按使用类型描述的列" class="section level2 hasAnchor">
+<h2>7.9按使用类型描述的列<a href="第七章rxode2事件.html#按使用类型描述的列" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="个体标识符列" class="section level3 hasAnchor">
+<h3>7.9.1个体标识符列<a href="第七章rxode2事件.html#个体标识符列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>受试者个体识别列将受试者个体分开以识别随机效应。</p>
+<ul>
+<li><code>ID</code>:个体标识符，可以是整数、字符或因子。</li>
+</ul>
+</div>
+<div id="观测列" class="section level3 hasAnchor">
+<h3>7.9.2观测列<a href="第七章rxode2事件.html#观测列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>观察列用于指示因变量以及如何使用或测量它。</p>
+<ul>
+<li><code>DV</code>:包含测量值的数字列</li>
+<li><code>CENS</code>表示删失的数字列，如低于测定的定量下限。</li>
+<li><code>LIMIT</code>一个数值列，用于帮助指示删失的类型，如低于测定的定量下限。</li>
+<li><code>MDV</code>:<code>DV</code>值缺失的指示符</li>
+<li><code>CMT</code>:房室的名称或编号</li>
+<li><code>DVID</code>:因变量标识符</li>
+<li><code>EVID</code>事件标识符</li>
+</ul>
+</div>
+<div id="给药列" class="section level3 hasAnchor">
+<h3>7.9.3给药列<a href="第七章rxode2事件.html#给药列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><code>AMT</code>:给药量的具体数值</li>
+<li><code>CMT</code>:房室的名称或编号</li>
+<li><code>EVID</code>:事件标识符</li>
+<li><code>ADDL</code>:额外附加的给药的次数</li>
+<li><code>RATE</code>或<code>DUR</code>剂量:给药的速率或持续时长</li>
+</ul>
+</div>
+<div id="协变量列" class="section level3 hasAnchor">
+<h3>7.9.4协变量列<a href="第七章rxode2事件.html#协变量列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="特定数据集列的详细信息" class="section level2 hasAnchor">
+<h2>7.10特定数据集列的详细信息<a href="第七章rxode2事件.html#特定数据集列的详细信息" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>下面的详细信息按列名的字母顺序排序。要按用途分组，请参阅上面的文档。</p>
+<div id="amt列" class="section level3 hasAnchor">
+<h3>7.10.1 <code>AMT</code>列<a href="第七章rxode2事件.html#amt列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>AMT列定义了给药的药量。</p>
+<p>对于观测行，它应该是<code>0</code>或<code>NA</code>。</p>
+<p>对于给药行，它是给予<code>CMT</code>的给药量。如果给药为零阶速率(如恒定速率输注)，则可以使用<code>RATE</code>或<code>DUR</code>列设置输注。</p>
+</div>
+<div id="censlimit列" class="section level3 hasAnchor">
+<h3>7.10.2 <code>CENS</code>/<code>LIMIT</code>列<a href="第七章rxode2事件.html#censlimit列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>CENS</code>列是指示是否发生删失的指示列。对于药代动力学建模，通常在样品低于定量下限时进行删失。在<code>rxode2</code>内部保存这些值，以便<code>nlmixr</code>可以在似然计算中使用它们。</p>
+<p>CENS = 0表示测量DV值时未删失。</p>
+<p>CENS = 1表示一个值是左删失(或低于定量下线)，DV中的值是删失/定量极限。</p>
+<p>CENS = -1表示一个值是右删失(或超过定量上)，DV中的值为删失/定量极限。</p>
+<p><code>LIMIT</code>是关于<code>nlmixr</code>如何处理删失的附加信息，也存储在<code>rxode2</code>的数据结构中。当一个值处于删失状态时，比如低于定量下限1，您可能还会认为该值高于某个阈值，比如零。在这种情况下，0表示截尾值在0到1之间。</p>
+<p>简而言之:</p>
+<p>CENS = 0，LIMIT被忽略，因为观测值未删失</p>
+<p>CENS = 1，个体预测值在(LIMIT, DV)范围内</p>
+<p>CENS = -1，个体预测值在(DV, LIMIT)范围内</p>
+</div>
+<div id="cmt列" class="section level3 hasAnchor">
+<h3>7.10.3 <code>CMT</code>列<a href="第七章rxode2事件.html#cmt列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>CMT列表示事件发生的房室。当作为字符串或因子(首选方法)给出时，它将根据模型中的名称进行匹配。当以整数形式给出时，它与模型中出现的房室顺序相匹配。</p>
+</div>
+<div id="dur列" class="section level3 hasAnchor">
+<h3>7.10.4 <code>DUR</code>列<a href="第七章rxode2事件.html#dur列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>DUR列定义了一次输注的持续时长。它用于设置零级输注速率的持续时间。</p>
+</div>
+<div id="dv列" class="section level3 hasAnchor">
+<h3>7.10.5 <code>DV</code>列<a href="第七章rxode2事件.html#dv列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>DV列表示当前房室(见CMT)中观测到的当前测量值，带有当前测量标识符(见DVID)，该列数值可能缺失(见MDV)或删失(见CENS)。</p>
+</div>
+<div id="dvid列" class="section level3 hasAnchor">
+<h3>7.10.6 <code>DVID</code>列<a href="第七章rxode2事件.html#dvid列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>待办事项【译者注：这是作者下写给自己的话，意思是这里他还没有撰写或者在代码中实现，有待于未来完成此事】</p>
+</div>
+<div id="evid列" class="section level3 hasAnchor">
+<h3>7.10.7 <code>EVID</code>列<a href="第七章rxode2事件.html#evid列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>EVID列是一行数据的事件标识符。</p>
+<p>对于观测记录行，它将是0。对于常规给药记录，它将是1。在<a href="https://nlmixr2.github.io/rxode2/articles/rxode2-event-types.html">rxode2事件类型</a>和<a href="https://nlmixr2.github.io/rxode2/articles/rxode2-events-classic.html">经典rxode事件</a>插图中详细介绍了更多EVID值。</p>
+</div>
+<div id="id列" class="section level3 hasAnchor">
+<h3>7.10.8 <code>ID</code>列<a href="第七章rxode2事件.html#id列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ID列是个体标识符。这一栏用于将个体(通常是单个人或动物)与另一个个体分开。</p>
+<p>在模型中，ID列用于分离个体。数值积分器会为每个新个体重新初始化，并为所有随机效应选择新值。</p>
+</div>
+<div id="rate列" class="section level3 hasAnchor">
+<h3>7.10.9 <code>RaTE</code>列<a href="第七章rxode2事件.html#rate列" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>待办事项【译者注：这是作者下写给自己的话，意思是这里他还没有撰写或者在代码中实现，有待于未来完成此事】</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="第六章rxode2语法.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="第八章轻松创建rxode2事件.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": null
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

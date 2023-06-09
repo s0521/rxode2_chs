@@ -1,0 +1,19 @@
+---
+title: "rxode2用户手册中文版"
+author: "付永超"
+date: "2023-06-09"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+favicon: "favicon.ico"
+# url: your book url like https:https://github.com/s0521
+# cover-image: path to the social sharing image like images/cover.jpg
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+    \includegraphics[width=2in,height=2in]{logo.png}\LARGE\\}
+  - \posttitle{\end{center}}
+link-citations: yes
+github-repo: s0521/rxode2_chs
+---

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第十章rxode2的输出 | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第十章rxode2的输出 | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第十章rxode2的输出 | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="第九章求解和求解选项.html"/>
+<link rel="next" href="第十一章模拟.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>rxode2用户手册中文版</a></li>
+<li class="chapter" data-level="" data-path="第一章导言.html"><a href="第一章导言.html"><i class="fa fa-check"></i>第一章导言</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html"><i class="fa fa-check"></i>第二章作者和致谢</a>
+<ul>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#作者"><i class="fa fa-check"></i>2.1作者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#贡献者"><i class="fa fa-check"></i>2.2贡献者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#rxode致谢"><i class="fa fa-check"></i>2.3RxODE致谢：</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html"><i class="fa fa-check"></i>第三章相关 R 包</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#常微分方程求解"><i class="fa fa-check"></i>3.1 常微分方程求解</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#已求解的pk系统"><i class="fa fa-check"></i>3.2已求解的PK系统</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#以下在cran上的软件包含有已求解的pk系统"><i class="fa fa-check"></i>3.2.1以下在CRAN上的软件包含有已求解的PK系统</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#非cran库中的程序包"><i class="fa fa-check"></i>3.2.2非CRAN库中的程序包：</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html"><i class="fa fa-check"></i>第四章安装</a>
+<ul>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#windows"><i class="fa fa-check"></i>4.0.1Windows</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#mac-osx"><i class="fa fa-check"></i>4.0.2 Mac OSX</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#linux"><i class="fa fa-check"></i>4.0.3Linux</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#开发版本"><i class="fa fa-check"></i>4.1开发版本</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html"><i class="fa fa-check"></i>第五章入门</a>
+<ul>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#指定ode参数和初始条件"><i class="fa fa-check"></i>5.1指定ODE参数和初始条件</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#在rxode2中指定给药和采样"><i class="fa fa-check"></i>5.2在rxode2中指定给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#求解ode"><i class="fa fa-check"></i>5.3求解ODE</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html"><i class="fa fa-check"></i>第六章rxode2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#示例"><i class="fa fa-check"></i>6.1示例</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#语法"><i class="fa fa-check"></i>6.2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#标识符"><i class="fa fa-check"></i>6.2.1 标识符</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#逻辑运算符"><i class="fa fa-check"></i>6.3逻辑运算符</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#cmt改变状态的房室编号"><i class="fa fa-check"></i>6.4cmt()改变状态的房室编号</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#rxode2如何编号房室"><i class="fa fa-check"></i>6.4.1rxode2如何编号房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#使用cmt预声明更改房室"><i class="fa fa-check"></i>6.4.2 使用<code>cmt()</code>预声明更改房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#用cmt将房室附加到模型"><i class="fa fa-check"></i>6.4.3用<code>cmt()</code>将房室附加到模型</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html"><i class="fa fa-check"></i>第七章rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2事件表"><i class="fa fa-check"></i>7.1rxode2事件表</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#单次给药额外附加的给药"><i class="fa fa-check"></i>7.2单次给药/额外附加的给药</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注给药"><i class="fa fa-check"></i>7.3输注给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#已知输注速率或输注时长的输注"><i class="fa fa-check"></i>7.3.1已知输注速率或输注时长的输注</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#需要估计输注时长或输注速率的输注零级速率吸收"><i class="fa fa-check"></i>7.3.2需要估计输注时长或输注速率的输注(零级速率吸收)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#稳态"><i class="fa fa-check"></i>7.4稳态</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#复杂加药的稳定状态"><i class="fa fa-check"></i>7.4.1复杂加药的稳定状态</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注或零阶吸收过程的稳态"><i class="fa fa-check"></i>7.4.2输注或零阶吸收过程的稳态</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#重置事件"><i class="fa fa-check"></i>7.5重置事件</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#关闭房室"><i class="fa fa-check"></i>7.6关闭房室</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#经典的rxode2事件"><i class="fa fa-check"></i>7.7经典的rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置注入给药示例"><i class="fa fa-check"></i>7.7.1使用经典RxODE的EVID设置注入给药示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置输注事件示例"><i class="fa fa-check"></i>7.7.2使用经典RxODE的EVID设置输注事件示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置稳态的例子"><i class="fa fa-check"></i>7.7.3使用经典RxODE的EVID设置稳态的例子</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid关闭房室"><i class="fa fa-check"></i>7.7.4使用经典RxODE的EVID关闭房室</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2-nlmixr的数据集"><i class="fa fa-check"></i>7.8rxode2 &amp; nlmixr的数据集</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#按使用类型描述的列"><i class="fa fa-check"></i>7.9按使用类型描述的列</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#个体标识符列"><i class="fa fa-check"></i>7.9.1个体标识符列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#观测列"><i class="fa fa-check"></i>7.9.2观测列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#给药列"><i class="fa fa-check"></i>7.9.3给药列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#协变量列"><i class="fa fa-check"></i>7.9.4协变量列</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#特定数据集列的详细信息"><i class="fa fa-check"></i>7.10特定数据集列的详细信息</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#amt列"><i class="fa fa-check"></i>7.10.1 <code>AMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#censlimit列"><i class="fa fa-check"></i>7.10.2 <code>CENS</code>/<code>LIMIT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#cmt列"><i class="fa fa-check"></i>7.10.3 <code>CMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dur列"><i class="fa fa-check"></i>7.10.4 <code>DUR</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dv列"><i class="fa fa-check"></i>7.10.5 <code>DV</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dvid列"><i class="fa fa-check"></i>7.10.6 <code>DVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#evid列"><i class="fa fa-check"></i>7.10.7 <code>EVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#id列"><i class="fa fa-check"></i>7.10.8 <code>ID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rate列"><i class="fa fa-check"></i>7.10.9 <code>RaTE</code>列</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html"><i class="fa fa-check"></i>第八章轻松创建rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#向事件表添加给药"><i class="fa fa-check"></i>8.1向事件表添加给药</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将采样添加到事件表"><i class="fa fa-check"></i>8.2 将采样添加到事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将事件表展开为多个个体的事件表"><i class="fa fa-check"></i>8.3将事件表展开为多个个体的事件表。</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#在采样窗口内添加给药和采样"><i class="fa fa-check"></i>8.4在采样窗口内添加给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#组合事件表"><i class="fa fa-check"></i>8.5组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#按序列组合事件表"><i class="fa fa-check"></i>8.6按序列组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#通过对事件表重复组合事件表"><i class="fa fa-check"></i>8.7通过对事件表重复组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#使用rbind组合事件表"><i class="fa fa-check"></i>8.8 使用rbind组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#展开事件"><i class="fa fa-check"></i>8.9展开事件</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#rstudio笔记本中的事件表"><i class="fa fa-check"></i>8.10RStudio笔记本中的事件表</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html"><i class="fa fa-check"></i>第九章求解和求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#一般的求解选项"><i class="fa fa-check"></i>9.1 一般的求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#rxcontrol"><i class="fa fa-check"></i>9.1.1 rxControl</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html"><i class="fa fa-check"></i>第十章rxode2的输出</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用rxode2数据框"><i class="fa fa-check"></i>10.1使用rxode2数据框</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#创建交互式数据框"><i class="fa fa-check"></i>10.1.1创建交互式数据框</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#rxode2已求解对象的属性"><i class="fa fa-check"></i>10.1.2rxode2已求解对象的属性</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用已求解的对象作为简单的数据帧"><i class="fa fa-check"></i>10.1.3使用已求解的对象作为简单的数据帧</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#交互式更新数据集"><i class="fa fa-check"></i>10.2交互式更新数据集</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改初始条件"><i class="fa fa-check"></i>10.2.1修改初始条件</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改rxode2的观测时间"><i class="fa fa-check"></i>10.2.2修改rxode2的观测时间</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改仿真参数"><i class="fa fa-check"></i>10.2.3修改仿真参数</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html"><i class="fa fa-check"></i>第十一章模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体的求解"><i class="fa fa-check"></i>11.1单一个体的求解</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体求解与多个个体求解的总结"><i class="fa fa-check"></i>11.1.1单一个体求解与多个个体求解的总结</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2进行群体模拟"><i class="fa fa-check"></i>11.2使用rxode2进行群体模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2模拟变异性"><i class="fa fa-check"></i>11.2.1使用rxode2模拟变异性</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#模拟临床试验"><i class="fa fa-check"></i>11.3模拟临床试验</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#基于逆wishart相关性的模拟"><i class="fa fa-check"></i>11.3.1基于逆Wishart相关性的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用方差标准差标准误差进行模拟"><i class="fa fa-check"></i>11.3.2使用方差/标准差标准误差进行模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#omega或sigma参数没有不确定性的进行模拟"><i class="fa fa-check"></i>11.3.3<code>omega</code>或<code>sigma</code>参数没有不确定性的进行模拟</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用先验数据进行求解"><i class="fa fa-check"></i>11.4使用先验数据进行求解</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html"><i class="fa fa-check"></i>第十二章例子</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#仅预测的模型"><i class="fa fa-check"></i>12.1仅预测的模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#已求解的房室模型"><i class="fa fa-check"></i>12.2已求解的房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#混合已求解的系统和odes"><i class="fa fa-check"></i>12.3混合已求解的系统和ODEs</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#基于体重的给药"><i class="fa fa-check"></i>12.4基于体重的给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#在rxode2中创建2房室模型"><i class="fa fa-check"></i>12.4.1在rxode2中创建2房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模拟协变量"><i class="fa fa-check"></i>12.4.2模拟协变量</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#创建基于体重的事件表"><i class="fa fa-check"></i>12.4.3创建基于体重的事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解达托霉素的模拟"><i class="fa fa-check"></i>12.4.4求解达托霉素的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#达托霉素的参考文献"><i class="fa fa-check"></i>12.4.5达托霉素的参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#场景间和其他嵌套示例"><i class="fa fa-check"></i>12.5场景间和其他嵌套示例</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#事件表"><i class="fa fa-check"></i>12.5.1事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#rxode2模型"><i class="fa fa-check"></i>12.5.2rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模型参数的不确定性"><i class="fa fa-check"></i>12.5.3模型参数的不确定性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#嵌套变异性"><i class="fa fa-check"></i>12.5.4嵌套变异性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#无法解释的变异"><i class="fa fa-check"></i>12.5.5无法解释的变异</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解问题"><i class="fa fa-check"></i>12.5.6求解问题</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#转移室模型"><i class="fa fa-check"></i>12.6转移室模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html"><i class="fa fa-check"></i>第十三章高级和其他主题</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#rxode2中的协变量"><i class="fa fa-check"></i>13.1rxode2中的协变量</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#个体的协变量"><i class="fa fa-check"></i>13.1.1个体的协变量</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#随时间变化的协变量"><i class="fa fa-check"></i>13.1.2随时间变化的协变量</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#shiny与rxode2"><i class="fa fa-check"></i>13.2Shiny与rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#制作r-shiny应用的工具"><i class="fa fa-check"></i>13.2.1制作R Shiny应用的工具</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#使用shiny以图形方式探索参数拟合"><i class="fa fa-check"></i>13.2.2使用shiny以图形方式探索参数拟合</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#将rxode2与管道一起使用"><i class="fa fa-check"></i>13.3将rxode2与管道一起使用</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#为管道设置rxode2模型"><i class="fa fa-check"></i>13.3.1为管道设置rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#模拟一个事件表"><i class="fa fa-check"></i>13.3.2模拟一个事件表</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#从单个事件表模拟多个个体"><i class="fa fa-check"></i>13.3.3从单个事件表模拟多个个体</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#总结模拟的输出"><i class="fa fa-check"></i>13.3.4总结模拟的输出</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#加速rxode2"><i class="fa fa-check"></i>13.4加速rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#通过多个个体并行求解提高rxode2速度"><i class="fa fa-check"></i>13.4.1通过多个个体并行求解提高rxode2速度</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#一个现实生活中的例子"><i class="fa fa-check"></i>13.4.2一个现实生活中的例子</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在您的包中集成rxode2模型"><i class="fa fa-check"></i>13.5在您的包中集成rxode2模型</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在包中使用预编译模型"><i class="fa fa-check"></i>13.5.1在包中使用预编译模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在现有r添加包中使用模型"><i class="fa fa-check"></i>13.5.2在现有R添加包中使用模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#具有雅可比规范的刚性ode"><i class="fa fa-check"></i>13.6具有雅可比规范的刚性ODE</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="第十章rxode2的输出" class="section level1 hasAnchor">
+<h1>第十章rxode2的输出<a href="第十章rxode2的输出.html#第十章rxode2的输出" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="使用rxode2数据框" class="section level2 hasAnchor">
+<h2>10.1使用rxode2数据框<a href="第十章rxode2的输出.html#使用rxode2数据框" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="创建交互式数据框" class="section level3 hasAnchor">
+<h3>10.1.1创建交互式数据框<a href="第十章rxode2的输出.html#创建交互式数据框" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>rxode2</code>支持返回已求解的对象，该对象是一个修改后的数据帧。 这是由<code>predict()</code>、<code>solve()</code>或<code>rxSolve()</code>方法完成的。</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="第十章rxode2的输出.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
+<span id="cb129-2"><a href="第十章rxode2的输出.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(units)</span>
+<span id="cb129-3"><a href="第十章rxode2的输出.html#cb129-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-4"><a href="第十章rxode2的输出.html#cb129-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Setup example model</span></span>
+<span id="cb129-5"><a href="第十章rxode2的输出.html#cb129-5" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb129-6"><a href="第十章rxode2的输出.html#cb129-6" aria-hidden="true" tabindex="-1"></a>  C2 <span class="ot">=</span> centr<span class="sc">/</span>V2;</span>
+<span id="cb129-7"><a href="第十章rxode2的输出.html#cb129-7" aria-hidden="true" tabindex="-1"></a>  C3 <span class="ot">=</span> peri<span class="sc">/</span>V3;</span>
+<span id="cb129-8"><a href="第十章rxode2的输出.html#cb129-8" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span><span class="sc">-</span>KA<span class="sc">*</span>depot;</span>
+<span id="cb129-9"><a href="第十章rxode2的输出.html#cb129-9" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(centr) <span class="ot">=</span> KA<span class="sc">*</span>depot <span class="sc">-</span> CL<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C2 <span class="sc">+</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb129-10"><a href="第十章rxode2的输出.html#cb129-10" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(peri)  <span class="ot">=</span>                    Q<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb129-11"><a href="第十章rxode2的输出.html#cb129-11" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(eff)  <span class="ot">=</span> Kin <span class="sc">-</span> Kout<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>C2<span class="sc">/</span>(EC50<span class="sc">+</span>C2))<span class="sc">*</span>eff;</span>
+<span id="cb129-12"><a href="第十章rxode2的输出.html#cb129-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb129-13"><a href="第十章rxode2的输出.html#cb129-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-14"><a href="第十章rxode2的输出.html#cb129-14" aria-hidden="true" tabindex="-1"></a><span class="do">### Seup parameters and initial conditions</span></span>
+<span id="cb129-15"><a href="第十章rxode2的输出.html#cb129-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-16"><a href="第十章rxode2的输出.html#cb129-16" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> </span>
+<span id="cb129-17"><a href="第十章rxode2的输出.html#cb129-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">KA=</span><span class="fl">2.94E-01</span>, <span class="at">CL=</span><span class="fl">1.86E+01</span>, <span class="at">V2=</span><span class="fl">4.02E+01</span>, <span class="co"># central </span></span>
+<span id="cb129-18"><a href="第十章rxode2的输出.html#cb129-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q=</span><span class="fl">1.05E+01</span>,  <span class="at">V3=</span><span class="fl">2.97E+02</span>,              <span class="co"># peripheral</span></span>
+<span id="cb129-19"><a href="第十章rxode2的输出.html#cb129-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Kin=</span><span class="dv">1</span>, <span class="at">Kout=</span><span class="dv">1</span>, <span class="at">EC50=</span><span class="dv">200</span>)               <span class="co"># effects</span></span>
+<span id="cb129-20"><a href="第十章rxode2的输出.html#cb129-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-21"><a href="第十章rxode2的输出.html#cb129-21" aria-hidden="true" tabindex="-1"></a>inits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">eff=</span><span class="dv">1</span>)</span>
+<span id="cb129-22"><a href="第十章rxode2的输出.html#cb129-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-23"><a href="第十章rxode2的输出.html#cb129-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Setup dosing event information</span></span>
+<span id="cb129-24"><a href="第十章rxode2的输出.html#cb129-24" aria-hidden="true" tabindex="-1"></a>ev <span class="ot">&lt;-</span> <span class="fu">eventTable</span>(<span class="at">amount.units=</span><span class="st">&quot;mg&quot;</span>, <span class="at">time.units=</span><span class="st">&quot;hours&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb129-25"><a href="第十章rxode2的输出.html#cb129-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add.dosing</span>(<span class="at">dose=</span><span class="dv">10000</span>, <span class="at">nbr.doses=</span><span class="dv">10</span>, <span class="at">dosing.interval=</span><span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb129-26"><a href="第十章rxode2的输出.html#cb129-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add.dosing</span>(<span class="at">dose=</span><span class="dv">20000</span>, <span class="at">nbr.doses=</span><span class="dv">5</span>, <span class="at">start.time=</span><span class="dv">120</span>,</span>
+<span id="cb129-27"><a href="第十章rxode2的输出.html#cb129-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">dosing.interval=</span><span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb129-28"><a href="第十章rxode2的输出.html#cb129-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add.sampling</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">240</span>);</span>
+<span id="cb129-29"><a href="第十章rxode2的输出.html#cb129-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-30"><a href="第十章rxode2的输出.html#cb129-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-31"><a href="第十章rxode2的输出.html#cb129-31" aria-hidden="true" tabindex="-1"></a><span class="do">### Now solve</span></span>
+<span id="cb129-32"><a href="第十章rxode2的输出.html#cb129-32" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod1,theta, ev, inits)</span>
+<span id="cb129-33"><a href="第十章rxode2的输出.html#cb129-33" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="第十章rxode2的输出.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb130-2"><a href="第十章rxode2的输出.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb130-3"><a href="第十章rxode2的输出.html#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 </span></span>
+<span id="cb130-4"><a href="第十章rxode2的输出.html#cb130-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 </span></span>
+<span id="cb130-5"><a href="第十章rxode2的输出.html#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb130-6"><a href="第十章rxode2的输出.html#cb130-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb130-7"><a href="第十章rxode2的输出.html#cb130-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     1 </span></span>
+<span id="cb130-8"><a href="第十章rxode2的输出.html#cb130-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb130-9"><a href="第十章rxode2的输出.html#cb130-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 241 × 7</span></span>
+<span id="cb130-10"><a href="第十章rxode2的输出.html#cb130-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb130-11"><a href="第十章rxode2的输出.html#cb130-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb130-12"><a href="第十章rxode2的输出.html#cb130-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0   0   0     10000     0     0   1   </span></span>
+<span id="cb130-13"><a href="第十章rxode2的输出.html#cb130-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08</span></span>
+<span id="cb130-14"><a href="第十章rxode2的输出.html#cb130-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18</span></span>
+<span id="cb130-15"><a href="第十章rxode2的输出.html#cb130-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23</span></span>
+<span id="cb130-16"><a href="第十章rxode2的输出.html#cb130-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23</span></span>
+<span id="cb130-17"><a href="第十章rxode2的输出.html#cb130-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21</span></span>
+<span id="cb130-18"><a href="第十章rxode2的输出.html#cb130-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 235 more rows</span></span></code></pre></div>
+<p>或者</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="第十章rxode2的输出.html#cb131-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">solve</span>(mod1,theta, ev, inits)</span>
+<span id="cb131-2"><a href="第十章rxode2的输出.html#cb131-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="第十章rxode2的输出.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb132-2"><a href="第十章rxode2的输出.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb132-3"><a href="第十章rxode2的输出.html#cb132-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 </span></span>
+<span id="cb132-4"><a href="第十章rxode2的输出.html#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 </span></span>
+<span id="cb132-5"><a href="第十章rxode2的输出.html#cb132-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb132-6"><a href="第十章rxode2的输出.html#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb132-7"><a href="第十章rxode2的输出.html#cb132-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     1 </span></span>
+<span id="cb132-8"><a href="第十章rxode2的输出.html#cb132-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb132-9"><a href="第十章rxode2的输出.html#cb132-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 241 × 7</span></span>
+<span id="cb132-10"><a href="第十章rxode2的输出.html#cb132-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb132-11"><a href="第十章rxode2的输出.html#cb132-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb132-12"><a href="第十章rxode2的输出.html#cb132-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0   0   0     10000     0     0   1   </span></span>
+<span id="cb132-13"><a href="第十章rxode2的输出.html#cb132-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08</span></span>
+<span id="cb132-14"><a href="第十章rxode2的输出.html#cb132-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18</span></span>
+<span id="cb132-15"><a href="第十章rxode2的输出.html#cb132-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23</span></span>
+<span id="cb132-16"><a href="第十章rxode2的输出.html#cb132-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23</span></span>
+<span id="cb132-17"><a href="第十章rxode2的输出.html#cb132-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21</span></span>
+<span id="cb132-18"><a href="第十章rxode2的输出.html#cb132-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 235 more rows</span></span></code></pre></div>
+<p>或者和<code>mattigr</code>的管道操作符一起使用</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="第十章rxode2的输出.html#cb133-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> mod1 <span class="sc">%&gt;%</span> <span class="fu">solve</span>(theta, ev, inits)</span>
+<span id="cb133-2"><a href="第十章rxode2的输出.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="第十章rxode2的输出.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb134-2"><a href="第十章rxode2的输出.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb134-3"><a href="第十章rxode2的输出.html#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 </span></span>
+<span id="cb134-4"><a href="第十章rxode2的输出.html#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 </span></span>
+<span id="cb134-5"><a href="第十章rxode2的输出.html#cb134-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb134-6"><a href="第十章rxode2的输出.html#cb134-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb134-7"><a href="第十章rxode2的输出.html#cb134-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     1 </span></span>
+<span id="cb134-8"><a href="第十章rxode2的输出.html#cb134-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb134-9"><a href="第十章rxode2的输出.html#cb134-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 241 × 7</span></span>
+<span id="cb134-10"><a href="第十章rxode2的输出.html#cb134-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb134-11"><a href="第十章rxode2的输出.html#cb134-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb134-12"><a href="第十章rxode2的输出.html#cb134-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0   0   0     10000     0     0   1   </span></span>
+<span id="cb134-13"><a href="第十章rxode2的输出.html#cb134-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08</span></span>
+<span id="cb134-14"><a href="第十章rxode2的输出.html#cb134-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18</span></span>
+<span id="cb134-15"><a href="第十章rxode2的输出.html#cb134-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23</span></span>
+<span id="cb134-16"><a href="第十章rxode2的输出.html#cb134-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23</span></span>
+<span id="cb134-17"><a href="第十章rxode2的输出.html#cb134-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21</span></span>
+<span id="cb134-18"><a href="第十章rxode2的输出.html#cb134-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 235 more rows</span></span></code></pre></div>
+</div>
+<div id="rxode2已求解对象的属性" class="section level3 hasAnchor">
+<h3>10.1.2rxode2已求解对象的属性<a href="第十章rxode2的输出.html#rxode2已求解对象的属性" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="使用已求解的对象作为简单的数据帧" class="section level3 hasAnchor">
+<h3>10.1.3使用已求解的对象作为简单的数据帧<a href="第十章rxode2的输出.html#使用已求解的对象作为简单的数据帧" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>已求解的对象作为<code>data.frame</code>或<code>tbl</code>可以通过<code>dpylr</code>添加包对数据进行筛选。例如，您可以轻松的对其进行筛选。</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="第十章rxode2的输出.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="第十章rxode2的输出.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb136-2"><a href="第十章rxode2的输出.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;dplyr&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="第十章rxode2的输出.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span></span>
+<span id="cb137-2"><a href="第十章rxode2的输出.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb137-3"><a href="第十章rxode2的输出.html#cb137-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="第十章rxode2的输出.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span></span>
+<span id="cb138-2"><a href="第十章rxode2的输出.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb138-3"><a href="第十章rxode2的输出.html#cb138-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="第十章rxode2的输出.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="do">### You can  drop units for comparisons and filtering</span></span>
+<span id="cb139-2"><a href="第十章rxode2的输出.html#cb139-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> mod1 <span class="sc">%&gt;%</span> <span class="fu">solve</span>(theta,ev,inits) <span class="sc">%&gt;%</span></span>
+<span id="cb139-3"><a href="第十章rxode2的输出.html#cb139-3" aria-hidden="true" tabindex="-1"></a>    drop_units <span class="sc">%&gt;%</span> <span class="fu">filter</span>(time <span class="sc">&lt;=</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> as.tbl</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="第十章rxode2的输出.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning: `as.tbl()` was deprecated in dplyr 1.0.0.</span></span>
+<span id="cb140-2"><a href="第十章rxode2的输出.html#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ℹ Please use `tibble::as_tibble()` instead.</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="第十章rxode2的输出.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="do">### or keep them and compare with the proper units.</span></span>
+<span id="cb141-2"><a href="第十章rxode2的输出.html#cb141-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> mod1 <span class="sc">%&gt;%</span> <span class="fu">solve</span>(theta,ev,inits) <span class="sc">%&gt;%</span></span>
+<span id="cb141-3"><a href="第十章rxode2的输出.html#cb141-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(time <span class="sc">&lt;=</span> <span class="fu">set_units</span>(<span class="dv">3</span>, hr)) <span class="sc">%&gt;%</span> as.tbl</span>
+<span id="cb141-4"><a href="第十章rxode2的输出.html#cb141-4" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="第十章rxode2的输出.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 7</span></span>
+<span id="cb142-2"><a href="第十章rxode2的输出.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb142-3"><a href="第十章rxode2的输出.html#cb142-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb142-4"><a href="第十章rxode2的输出.html#cb142-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0   0   0     10000     0     0   1   </span></span>
+<span id="cb142-5"><a href="第十章rxode2的输出.html#cb142-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08</span></span>
+<span id="cb142-6"><a href="第十章rxode2的输出.html#cb142-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18</span></span>
+<span id="cb142-7"><a href="第十章rxode2的输出.html#cb142-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23</span></span></code></pre></div>
+</div>
+</div>
+<div id="交互式更新数据集" class="section level2 hasAnchor">
+<h2>10.2交互式更新数据集<a href="第十章rxode2的输出.html#交互式更新数据集" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>然而，它不仅仅是一个简单的数据对象。您可以使用已求解的对象动态更新参数，甚至修改采样时间。</p>
+<p>首先，我们需要重新创建原始已求解的系统：</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="第十章rxode2的输出.html#cb143-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> mod1 <span class="sc">%&gt;%</span> <span class="fu">solve</span>(theta,ev,inits);</span>
+<span id="cb143-2"><a href="第十章rxode2的输出.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="第十章rxode2的输出.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb144-2"><a href="第十章rxode2的输出.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb144-3"><a href="第十章rxode2的输出.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 </span></span>
+<span id="cb144-4"><a href="第十章rxode2的输出.html#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 </span></span>
+<span id="cb144-5"><a href="第十章rxode2的输出.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb144-6"><a href="第十章rxode2的输出.html#cb144-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb144-7"><a href="第十章rxode2的输出.html#cb144-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     1 </span></span>
+<span id="cb144-8"><a href="第十章rxode2的输出.html#cb144-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb144-9"><a href="第十章rxode2的输出.html#cb144-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 241 × 7</span></span>
+<span id="cb144-10"><a href="第十章rxode2的输出.html#cb144-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb144-11"><a href="第十章rxode2的输出.html#cb144-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb144-12"><a href="第十章rxode2的输出.html#cb144-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0   0   0     10000     0     0   1   </span></span>
+<span id="cb144-13"><a href="第十章rxode2的输出.html#cb144-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.08</span></span>
+<span id="cb144-14"><a href="第十章rxode2的输出.html#cb144-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.18</span></span>
+<span id="cb144-15"><a href="第十章rxode2的输出.html#cb144-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.23</span></span>
+<span id="cb144-16"><a href="第十章rxode2的输出.html#cb144-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.23</span></span>
+<span id="cb144-17"><a href="第十章rxode2的输出.html#cb144-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.21</span></span>
+<span id="cb144-18"><a href="第十章rxode2的输出.html#cb144-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 235 more rows</span></span></code></pre></div>
+<div id="修改初始条件" class="section level3 hasAnchor">
+<h3>10.2.1修改初始条件<a href="第十章rxode2的输出.html#修改初始条件" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>要检查或更改初始条件，您可以使用语法 <code>cmt.0</code>、<code>cmt0</code>或<code>cmt_0</code>。在模型定义<code>eff</code>房室的情况下，可以这样操作：</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="第十章rxode2的输出.html#cb145-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>eff0</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="第十章rxode2的输出.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div>
+<p>它显示eff房室的初始条件。如果您希望将此初始条件修改为2，可以通过以下方式轻松完成：</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="第十章rxode2的输出.html#cb147-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>eff0 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb147-2"><a href="第十章rxode2的输出.html#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="第十章rxode2的输出.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb148-2"><a href="第十章rxode2的输出.html#cb148-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb148-3"><a href="第十章rxode2的输出.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 </span></span>
+<span id="cb148-4"><a href="第十章rxode2的输出.html#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 </span></span>
+<span id="cb148-5"><a href="第十章rxode2的输出.html#cb148-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb148-6"><a href="第十章rxode2的输出.html#cb148-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb148-7"><a href="第十章rxode2的输出.html#cb148-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     2 </span></span>
+<span id="cb148-8"><a href="第十章rxode2的输出.html#cb148-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb148-9"><a href="第十章rxode2的输出.html#cb148-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 241 × 7</span></span>
+<span id="cb148-10"><a href="第十章rxode2的输出.html#cb148-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   time    C2    C3  depot centr  peri   eff</span></span>
+<span id="cb148-11"><a href="第十章rxode2的输出.html#cb148-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb148-12"><a href="第十章rxode2的输出.html#cb148-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1    0   0   0     10000     0     0   2   </span></span>
+<span id="cb148-13"><a href="第十章rxode2的输出.html#cb148-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2    1  44.4 0.920  7453. 1784.  273.  1.50</span></span>
+<span id="cb148-14"><a href="第十章rxode2的输出.html#cb148-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3    2  54.9 2.67   5554. 2206.  794.  1.37</span></span>
+<span id="cb148-15"><a href="第十章rxode2的输出.html#cb148-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    3  51.9 4.46   4140. 2087. 1324.  1.31</span></span>
+<span id="cb148-16"><a href="第十章rxode2的输出.html#cb148-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5    4  44.5 5.98   3085. 1789. 1776.  1.27</span></span>
+<span id="cb148-17"><a href="第十章rxode2的输出.html#cb148-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6    5  36.5 7.18   2299. 1467. 2132.  1.23</span></span>
+<span id="cb148-18"><a href="第十章rxode2的输出.html#cb148-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 235 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="第十章rxode2的输出.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-106-1.png" /></p>
+</div>
+<div id="修改rxode2的观测时间" class="section level3 hasAnchor">
+<h3>10.2.2修改rxode2的观测时间<a href="第十章rxode2的输出.html#修改rxode2的观测时间" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>请注意，eff房室的初始条件现在是<code>2</code>。</p>
+<p>您还可以通过修改<code>t</code>或<code>time</code>轻松修改采样时间。例如：</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="第十章rxode2的输出.html#cb150-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">5</span>,<span class="at">length.out=</span><span class="dv">20</span>)</span>
+<span id="cb150-2"><a href="第十章rxode2的输出.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="第十章rxode2的输出.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb151-2"><a href="第十章rxode2的输出.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb151-3"><a href="第十章rxode2的输出.html#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      V2      V3      KA      CL       Q     Kin    Kout    EC50 </span></span>
+<span id="cb151-4"><a href="第十章rxode2的输出.html#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  40.200 297.000   0.294  18.600  10.500   1.000   1.000 200.000 </span></span>
+<span id="cb151-5"><a href="第十章rxode2的输出.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb151-6"><a href="第十章rxode2的输出.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb151-7"><a href="第十章rxode2的输出.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     2 </span></span>
+<span id="cb151-8"><a href="第十章rxode2的输出.html#cb151-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb151-9"><a href="第十章rxode2的输出.html#cb151-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 20 × 7</span></span>
+<span id="cb151-10"><a href="第十章rxode2的输出.html#cb151-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    time    C2     C3  depot centr  peri   eff</span></span>
+<span id="cb151-11"><a href="第十章rxode2的输出.html#cb151-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     [h] &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb151-12"><a href="第十章rxode2的输出.html#cb151-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0       0   0      10000     0    0    2   </span></span>
+<span id="cb151-13"><a href="第十章rxode2的输出.html#cb151-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0.263  16.8 0.0817  9255.  677.  24.3  1.79</span></span>
+<span id="cb151-14"><a href="第十章rxode2的输出.html#cb151-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.526  29.5 0.299   8566. 1187.  88.7  1.65</span></span>
+<span id="cb151-15"><a href="第十章rxode2的输出.html#cb151-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.789  38.9 0.615   7929. 1562. 183.   1.55</span></span>
+<span id="cb151-16"><a href="第十章rxode2的输出.html#cb151-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 1.05   45.5 1.00    7338. 1830. 298.   1.49</span></span>
+<span id="cb151-17"><a href="第十章rxode2的输出.html#cb151-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1.32   50.1 1.44    6792. 2013. 427.   1.44</span></span>
+<span id="cb151-18"><a href="第十章rxode2的输出.html#cb151-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 14 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="第十章rxode2的输出.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-107-1.png" /></p>
+</div>
+<div id="修改仿真参数" class="section level3 hasAnchor">
+<h3>10.2.3修改仿真参数<a href="第十章rxode2的输出.html#修改仿真参数" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>您还可以通过<code>$</code>操作符访问或修改参数。例如，对于<code>KA</code>可以通过以下方式访问：</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="第十章rxode2的输出.html#cb153-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>KA</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="第十章rxode2的输出.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.294</span></span></code></pre></div>
+<p>您可以通过为其赋值一个新值来修改它。</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="第十章rxode2的输出.html#cb155-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>KA <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb155-2"><a href="第十章rxode2的输出.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="第十章rxode2的输出.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Solved rxode2 object ──</span></span>
+<span id="cb156-2"><a href="第十章rxode2的输出.html#cb156-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Parameters ($params): ──</span></span>
+<span id="cb156-3"><a href="第十章rxode2的输出.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    V2    V3    KA    CL     Q   Kin  Kout  EC50 </span></span>
+<span id="cb156-4"><a href="第十章rxode2的输出.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  40.2 297.0   1.0  18.6  10.5   1.0   1.0 200.0 </span></span>
+<span id="cb156-5"><a href="第十章rxode2的输出.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Initial Conditions ($inits): ──</span></span>
+<span id="cb156-6"><a href="第十章rxode2的输出.html#cb156-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; depot centr  peri   eff </span></span>
+<span id="cb156-7"><a href="第十章rxode2的输出.html#cb156-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     0     0     0     2 </span></span>
+<span id="cb156-8"><a href="第十章rxode2的输出.html#cb156-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── First part of data (object): ──</span></span>
+<span id="cb156-9"><a href="第十章rxode2的输出.html#cb156-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 20 × 7</span></span>
+<span id="cb156-10"><a href="第十章rxode2的输出.html#cb156-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    time    C2    C3  depot centr   peri   eff</span></span>
+<span id="cb156-11"><a href="第十章rxode2的输出.html#cb156-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     [h] &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb156-12"><a href="第十章rxode2的输出.html#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 0       0   0     10000     0     0    2   </span></span>
+<span id="cb156-13"><a href="第十章rxode2的输出.html#cb156-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 0.263  52.2 0.261  7686. 2098.   77.6  1.82</span></span>
+<span id="cb156-14"><a href="第十章rxode2的输出.html#cb156-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 0.526  83.3 0.900  5908. 3348.  267.   1.74</span></span>
+<span id="cb156-15"><a href="第十章rxode2的输出.html#cb156-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 0.789  99.8 1.75   4541. 4010.  519.   1.69</span></span>
+<span id="cb156-16"><a href="第十章rxode2的输出.html#cb156-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 1.05  106.  2.69   3490. 4273.  800.   1.67</span></span>
+<span id="cb156-17"><a href="第十章rxode2的输出.html#cb156-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 1.32  106.  3.66   2683. 4272. 1086.   1.64</span></span>
+<span id="cb156-18"><a href="第十章rxode2的输出.html#cb156-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 14 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="第十章rxode2的输出.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x)</span></code></pre></div>
+<p><img src="assets/unnamed-chunk-109-1.png" /></p>
+<p>您可以使用<code>$params</code>、<code>$inits</code>、<code>$events</code>来访问/修改所有参数、初始化或事件，语法类似与上面使用。</p>
+<p>这种语法使得更新和探索各种参数对已求解对象的影响变得容易。</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="第九章求解和求解选项.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="第十一章模拟.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": null
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

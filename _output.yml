@@ -1,0 +1,22 @@
+bookdown::gitbook:
+  number_sections: false
+  css: style.css
+  config:
+    toc:
+      scroll_highlight: yes
+      toc_depth: 3
+    toolbar:
+      position: fixed
+    edit: null
+    download: null
+    sharing:  
+      github: yes
+      facebook: false
+      twitter: false
+      linkedin: false
+      weibo: false
+      instapaper: false
+      vk: false
+      whatsapp: false
+      all: null
+    search: yes

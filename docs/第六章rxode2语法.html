@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第六章rxode2语法 | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第六章rxode2语法 | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第六章rxode2语法 | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="第五章入门.html"/>
+<link rel="next" href="第七章rxode2事件.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>rxode2用户手册中文版</a></li>
+<li class="chapter" data-level="" data-path="第一章导言.html"><a href="第一章导言.html"><i class="fa fa-check"></i>第一章导言</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html"><i class="fa fa-check"></i>第二章作者和致谢</a>
+<ul>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#作者"><i class="fa fa-check"></i>2.1作者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#贡献者"><i class="fa fa-check"></i>2.2贡献者</a></li>
+<li class="chapter" data-level="" data-path="第二章作者和致谢.html"><a href="第二章作者和致谢.html#rxode致谢"><i class="fa fa-check"></i>2.3RxODE致谢：</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html"><i class="fa fa-check"></i>第三章相关 R 包</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#常微分方程求解"><i class="fa fa-check"></i>3.1 常微分方程求解</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#已求解的pk系统"><i class="fa fa-check"></i>3.2已求解的PK系统</a>
+<ul>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#以下在cran上的软件包含有已求解的pk系统"><i class="fa fa-check"></i>3.2.1以下在CRAN上的软件包含有已求解的PK系统</a></li>
+<li class="chapter" data-level="" data-path="第三章相关-r-包.html"><a href="第三章相关-r-包.html#非cran库中的程序包"><i class="fa fa-check"></i>3.2.2非CRAN库中的程序包：</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html"><i class="fa fa-check"></i>第四章安装</a>
+<ul>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#windows"><i class="fa fa-check"></i>4.0.1Windows</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#mac-osx"><i class="fa fa-check"></i>4.0.2 Mac OSX</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#linux"><i class="fa fa-check"></i>4.0.3Linux</a></li>
+<li class="chapter" data-level="" data-path="第四章安装.html"><a href="第四章安装.html#开发版本"><i class="fa fa-check"></i>4.1开发版本</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html"><i class="fa fa-check"></i>第五章入门</a>
+<ul>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#指定ode参数和初始条件"><i class="fa fa-check"></i>5.1指定ODE参数和初始条件</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#在rxode2中指定给药和采样"><i class="fa fa-check"></i>5.2在rxode2中指定给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第五章入门.html"><a href="第五章入门.html#求解ode"><i class="fa fa-check"></i>5.3求解ODE</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html"><i class="fa fa-check"></i>第六章rxode2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#示例"><i class="fa fa-check"></i>6.1示例</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#语法"><i class="fa fa-check"></i>6.2语法</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#标识符"><i class="fa fa-check"></i>6.2.1 标识符</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#逻辑运算符"><i class="fa fa-check"></i>6.3逻辑运算符</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#cmt改变状态的房室编号"><i class="fa fa-check"></i>6.4cmt()改变状态的房室编号</a>
+<ul>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#rxode2如何编号房室"><i class="fa fa-check"></i>6.4.1rxode2如何编号房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#使用cmt预声明更改房室"><i class="fa fa-check"></i>6.4.2 使用<code>cmt()</code>预声明更改房室</a></li>
+<li class="chapter" data-level="" data-path="第六章rxode2语法.html"><a href="第六章rxode2语法.html#用cmt将房室附加到模型"><i class="fa fa-check"></i>6.4.3用<code>cmt()</code>将房室附加到模型</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html"><i class="fa fa-check"></i>第七章rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2事件表"><i class="fa fa-check"></i>7.1rxode2事件表</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#单次给药额外附加的给药"><i class="fa fa-check"></i>7.2单次给药/额外附加的给药</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注给药"><i class="fa fa-check"></i>7.3输注给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#已知输注速率或输注时长的输注"><i class="fa fa-check"></i>7.3.1已知输注速率或输注时长的输注</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#需要估计输注时长或输注速率的输注零级速率吸收"><i class="fa fa-check"></i>7.3.2需要估计输注时长或输注速率的输注(零级速率吸收)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#稳态"><i class="fa fa-check"></i>7.4稳态</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#复杂加药的稳定状态"><i class="fa fa-check"></i>7.4.1复杂加药的稳定状态</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#输注或零阶吸收过程的稳态"><i class="fa fa-check"></i>7.4.2输注或零阶吸收过程的稳态</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#重置事件"><i class="fa fa-check"></i>7.5重置事件</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#关闭房室"><i class="fa fa-check"></i>7.6关闭房室</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#经典的rxode2事件"><i class="fa fa-check"></i>7.7经典的rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置注入给药示例"><i class="fa fa-check"></i>7.7.1使用经典RxODE的EVID设置注入给药示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置输注事件示例"><i class="fa fa-check"></i>7.7.2使用经典RxODE的EVID设置输注事件示例</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid设置稳态的例子"><i class="fa fa-check"></i>7.7.3使用经典RxODE的EVID设置稳态的例子</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#使用经典rxode的evid关闭房室"><i class="fa fa-check"></i>7.7.4使用经典RxODE的EVID关闭房室</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rxode2-nlmixr的数据集"><i class="fa fa-check"></i>7.8rxode2 &amp; nlmixr的数据集</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#按使用类型描述的列"><i class="fa fa-check"></i>7.9按使用类型描述的列</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#个体标识符列"><i class="fa fa-check"></i>7.9.1个体标识符列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#观测列"><i class="fa fa-check"></i>7.9.2观测列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#给药列"><i class="fa fa-check"></i>7.9.3给药列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#协变量列"><i class="fa fa-check"></i>7.9.4协变量列</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#特定数据集列的详细信息"><i class="fa fa-check"></i>7.10特定数据集列的详细信息</a>
+<ul>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#amt列"><i class="fa fa-check"></i>7.10.1 <code>AMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#censlimit列"><i class="fa fa-check"></i>7.10.2 <code>CENS</code>/<code>LIMIT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#cmt列"><i class="fa fa-check"></i>7.10.3 <code>CMT</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dur列"><i class="fa fa-check"></i>7.10.4 <code>DUR</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dv列"><i class="fa fa-check"></i>7.10.5 <code>DV</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#dvid列"><i class="fa fa-check"></i>7.10.6 <code>DVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#evid列"><i class="fa fa-check"></i>7.10.7 <code>EVID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#id列"><i class="fa fa-check"></i>7.10.8 <code>ID</code>列</a></li>
+<li class="chapter" data-level="" data-path="第七章rxode2事件.html"><a href="第七章rxode2事件.html#rate列"><i class="fa fa-check"></i>7.10.9 <code>RaTE</code>列</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html"><i class="fa fa-check"></i>第八章轻松创建rxode2事件</a>
+<ul>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#向事件表添加给药"><i class="fa fa-check"></i>8.1向事件表添加给药</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将采样添加到事件表"><i class="fa fa-check"></i>8.2 将采样添加到事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#将事件表展开为多个个体的事件表"><i class="fa fa-check"></i>8.3将事件表展开为多个个体的事件表。</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#在采样窗口内添加给药和采样"><i class="fa fa-check"></i>8.4在采样窗口内添加给药和采样</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#组合事件表"><i class="fa fa-check"></i>8.5组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#按序列组合事件表"><i class="fa fa-check"></i>8.6按序列组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#通过对事件表重复组合事件表"><i class="fa fa-check"></i>8.7通过对事件表重复组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#使用rbind组合事件表"><i class="fa fa-check"></i>8.8 使用rbind组合事件表</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#展开事件"><i class="fa fa-check"></i>8.9展开事件</a></li>
+<li class="chapter" data-level="" data-path="第八章轻松创建rxode2事件.html"><a href="第八章轻松创建rxode2事件.html#rstudio笔记本中的事件表"><i class="fa fa-check"></i>8.10RStudio笔记本中的事件表</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html"><i class="fa fa-check"></i>第九章求解和求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#一般的求解选项"><i class="fa fa-check"></i>9.1 一般的求解选项</a>
+<ul>
+<li class="chapter" data-level="" data-path="第九章求解和求解选项.html"><a href="第九章求解和求解选项.html#rxcontrol"><i class="fa fa-check"></i>9.1.1 rxControl</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html"><i class="fa fa-check"></i>第十章rxode2的输出</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用rxode2数据框"><i class="fa fa-check"></i>10.1使用rxode2数据框</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#创建交互式数据框"><i class="fa fa-check"></i>10.1.1创建交互式数据框</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#rxode2已求解对象的属性"><i class="fa fa-check"></i>10.1.2rxode2已求解对象的属性</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#使用已求解的对象作为简单的数据帧"><i class="fa fa-check"></i>10.1.3使用已求解的对象作为简单的数据帧</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#交互式更新数据集"><i class="fa fa-check"></i>10.2交互式更新数据集</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改初始条件"><i class="fa fa-check"></i>10.2.1修改初始条件</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改rxode2的观测时间"><i class="fa fa-check"></i>10.2.2修改rxode2的观测时间</a></li>
+<li class="chapter" data-level="" data-path="第十章rxode2的输出.html"><a href="第十章rxode2的输出.html#修改仿真参数"><i class="fa fa-check"></i>10.2.3修改仿真参数</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html"><i class="fa fa-check"></i>第十一章模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体的求解"><i class="fa fa-check"></i>11.1单一个体的求解</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#单一个体求解与多个个体求解的总结"><i class="fa fa-check"></i>11.1.1单一个体求解与多个个体求解的总结</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2进行群体模拟"><i class="fa fa-check"></i>11.2使用rxode2进行群体模拟</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用rxode2模拟变异性"><i class="fa fa-check"></i>11.2.1使用rxode2模拟变异性</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#模拟临床试验"><i class="fa fa-check"></i>11.3模拟临床试验</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#基于逆wishart相关性的模拟"><i class="fa fa-check"></i>11.3.1基于逆Wishart相关性的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用方差标准差标准误差进行模拟"><i class="fa fa-check"></i>11.3.2使用方差/标准差标准误差进行模拟</a></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#omega或sigma参数没有不确定性的进行模拟"><i class="fa fa-check"></i>11.3.3<code>omega</code>或<code>sigma</code>参数没有不确定性的进行模拟</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十一章模拟.html"><a href="第十一章模拟.html#使用先验数据进行求解"><i class="fa fa-check"></i>11.4使用先验数据进行求解</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html"><i class="fa fa-check"></i>第十二章例子</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#仅预测的模型"><i class="fa fa-check"></i>12.1仅预测的模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#已求解的房室模型"><i class="fa fa-check"></i>12.2已求解的房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#混合已求解的系统和odes"><i class="fa fa-check"></i>12.3混合已求解的系统和ODEs</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#基于体重的给药"><i class="fa fa-check"></i>12.4基于体重的给药</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#在rxode2中创建2房室模型"><i class="fa fa-check"></i>12.4.1在rxode2中创建2房室模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模拟协变量"><i class="fa fa-check"></i>12.4.2模拟协变量</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#创建基于体重的事件表"><i class="fa fa-check"></i>12.4.3创建基于体重的事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解达托霉素的模拟"><i class="fa fa-check"></i>12.4.4求解达托霉素的模拟</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#达托霉素的参考文献"><i class="fa fa-check"></i>12.4.5达托霉素的参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#场景间和其他嵌套示例"><i class="fa fa-check"></i>12.5场景间和其他嵌套示例</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#事件表"><i class="fa fa-check"></i>12.5.1事件表</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#rxode2模型"><i class="fa fa-check"></i>12.5.2rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#模型参数的不确定性"><i class="fa fa-check"></i>12.5.3模型参数的不确定性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#嵌套变异性"><i class="fa fa-check"></i>12.5.4嵌套变异性</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#无法解释的变异"><i class="fa fa-check"></i>12.5.5无法解释的变异</a></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#求解问题"><i class="fa fa-check"></i>12.5.6求解问题</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十二章例子.html"><a href="第十二章例子.html#转移室模型"><i class="fa fa-check"></i>12.6转移室模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html"><i class="fa fa-check"></i>第十三章高级和其他主题</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#rxode2中的协变量"><i class="fa fa-check"></i>13.1rxode2中的协变量</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#个体的协变量"><i class="fa fa-check"></i>13.1.1个体的协变量</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#随时间变化的协变量"><i class="fa fa-check"></i>13.1.2随时间变化的协变量</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#shiny与rxode2"><i class="fa fa-check"></i>13.2Shiny与rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#制作r-shiny应用的工具"><i class="fa fa-check"></i>13.2.1制作R Shiny应用的工具</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#使用shiny以图形方式探索参数拟合"><i class="fa fa-check"></i>13.2.2使用shiny以图形方式探索参数拟合</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#将rxode2与管道一起使用"><i class="fa fa-check"></i>13.3将rxode2与管道一起使用</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#为管道设置rxode2模型"><i class="fa fa-check"></i>13.3.1为管道设置rxode2模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#模拟一个事件表"><i class="fa fa-check"></i>13.3.2模拟一个事件表</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#从单个事件表模拟多个个体"><i class="fa fa-check"></i>13.3.3从单个事件表模拟多个个体</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#总结模拟的输出"><i class="fa fa-check"></i>13.3.4总结模拟的输出</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#加速rxode2"><i class="fa fa-check"></i>13.4加速rxode2</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#通过多个个体并行求解提高rxode2速度"><i class="fa fa-check"></i>13.4.1通过多个个体并行求解提高rxode2速度</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#一个现实生活中的例子"><i class="fa fa-check"></i>13.4.2一个现实生活中的例子</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在您的包中集成rxode2模型"><i class="fa fa-check"></i>13.5在您的包中集成rxode2模型</a>
+<ul>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在包中使用预编译模型"><i class="fa fa-check"></i>13.5.1在包中使用预编译模型</a></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#在现有r添加包中使用模型"><i class="fa fa-check"></i>13.5.2在现有R添加包中使用模型</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="第十三章高级和其他主题.html"><a href="第十三章高级和其他主题.html#具有雅可比规范的刚性ode"><i class="fa fa-check"></i>13.6具有雅可比规范的刚性ODE</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="第六章rxode2语法" class="section level1 hasAnchor">
+<h1>第六章rxode2语法<a href="第六章rxode2语法.html#第六章rxode2语法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>本章节简要描述了用于定义模型的语法，<code>rxode2</code>将把这些模型转换为r可调用的编译代码。它还描述了<code>R</code>和<code>rxode2</code>模型指定之间变量的通信。</p>
+<div id="示例" class="section level2 hasAnchor">
+<h2>6.1示例<a href="第六章rxode2语法.html#示例" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="第六章rxode2语法.html#cb28-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># An rxode2 model specification (this line is a comment).</span></span>
+<span id="cb28-2"><a href="第六章rxode2语法.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="第六章rxode2语法.html#cb28-3" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span>(comed<span class="sc">==</span><span class="dv">0</span>){   <span class="co"># concomitant medication (con-med)?</span></span>
+<span id="cb28-4"><a href="第六章rxode2语法.html#cb28-4" aria-hidden="true" tabindex="-1"></a>      F <span class="ot">=</span> <span class="fl">1.0</span>;     <span class="co"># full bioavailability w.o. con-med</span></span>
+<span id="cb28-5"><a href="第六章rxode2语法.html#cb28-5" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb28-6"><a href="第六章rxode2语法.html#cb28-6" aria-hidden="true" tabindex="-1"></a>   <span class="cf">else</span> {</span>
+<span id="cb28-7"><a href="第六章rxode2语法.html#cb28-7" aria-hidden="true" tabindex="-1"></a>      F <span class="ot">=</span> <span class="fl">0.80</span>;    <span class="co"># 20% reduced bioavailability</span></span>
+<span id="cb28-8"><a href="第六章rxode2语法.html#cb28-8" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb28-9"><a href="第六章rxode2语法.html#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="第六章rxode2语法.html#cb28-10" aria-hidden="true" tabindex="-1"></a>   C2 <span class="ot">=</span> centr<span class="sc">/</span>V2;  <span class="co"># concentration in the central compartment</span></span>
+<span id="cb28-11"><a href="第六章rxode2语法.html#cb28-11" aria-hidden="true" tabindex="-1"></a>   C3 <span class="ot">=</span> peri<span class="sc">/</span>V3;   <span class="co"># concentration in the peripheral compartment</span></span>
+<span id="cb28-12"><a href="第六章rxode2语法.html#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-13"><a href="第六章rxode2语法.html#cb28-13" aria-hidden="true" tabindex="-1"></a>   <span class="co"># ODE describing the PK and PD</span></span>
+<span id="cb28-14"><a href="第六章rxode2语法.html#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="第六章rxode2语法.html#cb28-15" aria-hidden="true" tabindex="-1"></a>   d<span class="sc">/</span><span class="fu">dt</span>(depot) <span class="ot">=</span> <span class="sc">-</span>KA<span class="sc">*</span>depot;</span>
+<span id="cb28-16"><a href="第六章rxode2语法.html#cb28-16" aria-hidden="true" tabindex="-1"></a>   d<span class="sc">/</span><span class="fu">dt</span>(centr) <span class="ot">=</span> F<span class="sc">*</span>KA<span class="sc">*</span>depot <span class="sc">-</span> CL<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C2 <span class="sc">+</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb28-17"><a href="第六章rxode2语法.html#cb28-17" aria-hidden="true" tabindex="-1"></a>   d<span class="sc">/</span><span class="fu">dt</span>(peri)  <span class="ot">=</span>                      Q<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C3;</span>
+<span id="cb28-18"><a href="第六章rxode2语法.html#cb28-18" aria-hidden="true" tabindex="-1"></a>   d<span class="sc">/</span><span class="fu">dt</span>(eff)   <span class="ot">=</span> Kin <span class="sc">-</span> Kout<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>C2<span class="sc">/</span>(EC50<span class="sc">+</span>C2))<span class="sc">*</span>eff;</span></code></pre></div>
+</div>
+<div id="语法" class="section level2 hasAnchor">
+<h2>6.2语法<a href="第六章rxode2语法.html#语法" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>一个<code>rxode2</code>模型描述由一个或多个语句组成，不同语句间可在句尾可选地添加分号<code>;</code>进行分隔，和可选添加注释(注释由#开始和在行尾结束)。</p>
+<p>语句块是由大括号<code>{...}</code>分隔的一组语句。</p>
+<p>语句可以是赋值、条件<code>if</code>/<code>else if</code>/<code>else</code>、<code>while</code>循环(可以通过<code>break</code>退出)、特殊语句或打印语句(用于调试/测试)。</p>
+<p>赋值语句可以是：</p>
+<ul>
+<li><strong>简单</strong>赋值，其中赋值符左手边是标识符(即变量)</li>
+<li>对特殊的<strong>时间导数</strong>赋值，其中赋值符左手边指定相应状态变量(房室)中的数量相对于时间的变化，例如，<code>d/dt(depot)</code>：</li>
+<li>对特殊的<strong>初始条件</strong>赋值，其中赋值符左手边指定被指定的初始条件的房室， 例如<code>depot(0) = 0</code></li>
+<li>对特殊的模型事件的修改，包括<strong>生物利用度</strong> (<code>f(depot)=1</code>)，<strong>滞后时间</strong>(<code>alag(depot)=0</code>)，<strong>使用输注速率参数化</strong> (<code>rate(depot)=2</code>)和<strong>使用输注持续时长参数化</strong>(<code>dur(depot)=2</code>)。在<a href="https://nlmixr2.github.io/rxode2-manual/events.html#events">rxode2事件部分</a>中可以找到这些模型特征的一个示例，以及用于描述输注参数化方式的事件规范和rxode2数据规范。</li>
+<li>特殊<strong>更改点语法或模型时间</strong>。这些模型时间是由<code>mtime(var)=time</code>指定</li>
+<li>特殊的<strong>雅可比导数</strong>复制，其中赋值符左手边指定房室ode相相对于某个变量的变化。例如，如果<code>d/dt(y) = dy</code>，则为此使用Jacobian 房室可以指定为<code>df(y)/dy(dy) = 1</code>。对于非常刚性的ODE系统，获得解或指定雅可比矩阵可能会有一些好处。然而，对于我们使用LSODA尝试的几个刚性系统，这实际上略微减慢了求解速度。</li>
+</ul>
+<p>注意赋值可以通过<code>=</code>、<code>&lt;-</code>或<code>~</code>来完成。</p>
+<p>使用<code>~</code>运算符赋值时，不会输出<strong>简单赋值</strong>和<strong>时间导数</strong>赋值。</p>
+<p>特别声明可以是：</p>
+<ul>
+<li><strong>房室声明语句</strong>，它可以改变默认的给药房室和假设的房室数，以及在最后添加额外的房室名(对多终点nlmixr模型有用);这些是由<code>cmt(compartmentName)</code>指定</li>
+<li><strong>参数声明语句</strong>, 它可以确保输入参数按一定的顺序排列，而不是按解析的顺序排列参数。这对于在使用2个不同的ODE模型时保持参数顺序相同非常有用。它们由 <code>param(par1, par2,...)</code>指定</li>
+</ul>
+<p>一个示例模型如下所示:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="第六章rxode2语法.html#cb29-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># simple assignment</span></span>
+<span id="cb29-2"><a href="第六章rxode2语法.html#cb29-2" aria-hidden="true" tabindex="-1"></a>   C2 <span class="ot">=</span> centr<span class="sc">/</span>V2;</span>
+<span id="cb29-3"><a href="第六章rxode2语法.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="第六章rxode2语法.html#cb29-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># time-derivative assignment</span></span>
+<span id="cb29-5"><a href="第六章rxode2语法.html#cb29-5" aria-hidden="true" tabindex="-1"></a>   d<span class="sc">/</span><span class="fu">dt</span>(centr) <span class="ot">=</span> F<span class="sc">*</span>KA<span class="sc">*</span>depot <span class="sc">-</span> CL<span class="sc">*</span>C2 <span class="sc">-</span> Q<span class="sc">*</span>C2 <span class="sc">+</span> Q<span class="sc">*</span>C3; </span></code></pre></div>
+<p>赋值和<code>if</code>语句中的表达式可以是数值或逻辑值。</p>
+<p>数字表达式可以包括以下数字运算符<code>+, -, *, /, ^</code>以及C或R数学库中定义的数学函数(例如<code>fabs</code>、<code>exp</code>、<code>log</code>、<code>sin</code>、<code>abs</code>)。</p>
+<p>您还可以访问<a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Numerical-analysis-subroutines">R数学库</a>中的R函数， 就像log gamma函数的<code>lgammafn</code>一样。</p>
+<p><code>rxode2</code>语法区分大小写，即<code>ABC</code>与<code>abc</code>、<code>Abc</code>、<code>ABc</code>等是不同。</p>
+<div id="标识符" class="section level3 hasAnchor">
+<h3>6.2.1 标识符<a href="第六章rxode2语法.html#标识符" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>与R一样，标识符(变量名)可能由一个或多个字母数字， 下划线<code>_</code>或句点<code>.</code>字符组成，但第一个字符不能是数字或下划线<code>_</code>。</p>
+<p>模型描述中的标识符可以参考：</p>
+<ul>
+<li>动态系统中的状态变量(例如，药代动力学模型中的房室)。</li>
+<li>隐含输入变量<code>t</code>(时间)、<code>tlast</code>(最后时间点)和 <code>podo</code>(口服剂量，在未记录的吸收过转移室型中)。</li>
+<li>特殊常数如<code>pi</code>或 <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Mathematical-constants">R的预定义常量</a>。</li>
+<li>模型参数(例如<code>ka</code>吸收率、<code>CL</code>清除率等)</li>
+<li>其他，作为模型描述的一部分由赋值符创建的；这些被称为LHS(左手边)变量。</li>
+</ul>
+<p>目前<code>rxode2</code>建模语言只识别系统状态变量和“参数”，因此，需要从R传递到ODE模型的任何值(例如，<code>age</code>)都应该在<code>rxSolve()</code>的<code>params</code>参数中传递，或者在提供的事件数据集中传递。</p>
+<p>在<code>rxode2</code>事件表中有某些变量名。 为避免混淆，以下事件表相关项目不能 被赋值或用作状态，但可以在rxode2代码中访问：</p>
+<ul>
+<li><code>cmt</code></li>
+<li><code>dvid</code></li>
+<li><code>addl</code></li>
+<li><code>ss</code></li>
+<li><code>rate</code></li>
+<li><code>id</code></li>
+</ul>
+<p>但是，以下变量不能在模型描述中使用：</p>
+<ul>
+<li><code>evid</code></li>
+<li><code>ii</code></li>
+</ul>
+<p>有时rxode2会生成反馈给rxode2的变量。 类似地，nlmixr生成一些变量，用于nlmixr估计和模拟。这些变量以 <code>rx</code>或<code>nlmixr</code>前缀。为避免任何问题，建议不要为变量使用<code>rx</code>或<code>nlmixr</code> 前缀。</p>
+</div>
+</div>
+<div id="逻辑运算符" class="section level2 hasAnchor">
+<h2>6.3逻辑运算符<a href="第六章rxode2语法.html#逻辑运算符" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>逻辑运算符支持标准的R运算符<code>==</code>、<code>!=</code> <code>&gt;=</code> <code>&lt;=</code> <code>&gt;</code>和<code>&lt;</code>。像R一样，它们可以用在<code>if()</code>或<code>while()</code> 语句，<code>ifelse()</code>表达式。此外，它们可以在标准的赋值中。例如，以下内容有效：</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="第六章rxode2语法.html#cb30-1" aria-hidden="true" tabindex="-1"></a>cov1 <span class="ot">=</span> covm<span class="sc">*</span>(sexf <span class="sc">==</span> <span class="st">&quot;female&quot;</span>) <span class="sc">+</span> covm<span class="sc">*</span>(sexf <span class="sc">!=</span> <span class="st">&quot;female&quot;</span>)</span></code></pre></div>
+<p>请注意，您还可以在比较中使用字符表达式。 这种便利是有代价的，因为字符比较比数值表达式慢。与R不同，<code>as.numeric</code>或 <code>as.integer</code>对于这些逻辑语句不仅不需要，而且如果您尝试使用这些函数，将导致语法错误。</p>
+</div>
+<div id="cmt改变状态的房室编号" class="section level2 hasAnchor">
+<h2>6.4cmt()改变状态的房室编号<a href="第六章rxode2语法.html#cmt改变状态的房室编号" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>使用<code>cmt()</code>语句可以更改房室的顺序。要了解<code>cmt()</code>可以做什么，您需要了解<code>rxode2</code>如何编号房室。</p>
+<p>下面是rxode2如何编号房室的示例</p>
+<div id="rxode2如何编号房室" class="section level3 hasAnchor">
+<h3>6.4.1rxode2如何编号房室<a href="第六章rxode2语法.html#rxode2如何编号房室" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>rxode2在解析时自动分配房室编号。例如，对于Mavoglurant PBPK模型，可以使用以下模型：</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="第六章rxode2语法.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
+<span id="cb31-2"><a href="第六章rxode2语法.html#cb31-2" aria-hidden="true" tabindex="-1"></a>pbpk <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb31-3"><a href="第六章rxode2语法.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    KbBR <span class="ot">=</span> <span class="fu">exp</span>(lKbBR)</span>
+<span id="cb31-4"><a href="第六章rxode2语法.html#cb31-4" aria-hidden="true" tabindex="-1"></a>    KbMU <span class="ot">=</span> <span class="fu">exp</span>(lKbMU)</span>
+<span id="cb31-5"><a href="第六章rxode2语法.html#cb31-5" aria-hidden="true" tabindex="-1"></a>    KbAD <span class="ot">=</span> <span class="fu">exp</span>(lKbAD)</span>
+<span id="cb31-6"><a href="第六章rxode2语法.html#cb31-6" aria-hidden="true" tabindex="-1"></a>    CLint<span class="ot">=</span> <span class="fu">exp</span>(lCLint <span class="sc">+</span> eta.LClint)</span>
+<span id="cb31-7"><a href="第六章rxode2语法.html#cb31-7" aria-hidden="true" tabindex="-1"></a>    KbBO <span class="ot">=</span> <span class="fu">exp</span>(lKbBO)</span>
+<span id="cb31-8"><a href="第六章rxode2语法.html#cb31-8" aria-hidden="true" tabindex="-1"></a>    KbRB <span class="ot">=</span> <span class="fu">exp</span>(lKbRB)</span>
+<span id="cb31-9"><a href="第六章rxode2语法.html#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="第六章rxode2语法.html#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Regional blood flows</span></span>
+<span id="cb31-11"><a href="第六章rxode2语法.html#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cardiac output (L/h) from White et al (1968)</span></span>
+<span id="cb31-12"><a href="第六章rxode2语法.html#cb31-12" aria-hidden="true" tabindex="-1"></a>    CO  <span class="ot">=</span> (<span class="fl">187.00</span><span class="sc">*</span>WT<span class="sc">^</span><span class="fl">0.81</span>)<span class="sc">*</span><span class="dv">60</span><span class="sc">/</span><span class="dv">1000</span>; </span>
+<span id="cb31-13"><a href="第六章rxode2语法.html#cb31-13" aria-hidden="true" tabindex="-1"></a>    QHT <span class="ot">=</span> <span class="fl">4.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-14"><a href="第六章rxode2语法.html#cb31-14" aria-hidden="true" tabindex="-1"></a>    QBR <span class="ot">=</span> <span class="fl">12.0</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-15"><a href="第六章rxode2语法.html#cb31-15" aria-hidden="true" tabindex="-1"></a>    QMU <span class="ot">=</span> <span class="fl">17.0</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-16"><a href="第六章rxode2语法.html#cb31-16" aria-hidden="true" tabindex="-1"></a>    QAD <span class="ot">=</span> <span class="fl">5.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-17"><a href="第六章rxode2语法.html#cb31-17" aria-hidden="true" tabindex="-1"></a>    QSK <span class="ot">=</span> <span class="fl">5.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-18"><a href="第六章rxode2语法.html#cb31-18" aria-hidden="true" tabindex="-1"></a>    QSP <span class="ot">=</span> <span class="fl">3.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-19"><a href="第六章rxode2语法.html#cb31-19" aria-hidden="true" tabindex="-1"></a>    QPA <span class="ot">=</span> <span class="fl">1.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-20"><a href="第六章rxode2语法.html#cb31-20" aria-hidden="true" tabindex="-1"></a>    QLI <span class="ot">=</span> <span class="fl">25.5</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-21"><a href="第六章rxode2语法.html#cb31-21" aria-hidden="true" tabindex="-1"></a>    QST <span class="ot">=</span> <span class="fl">1.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-22"><a href="第六章rxode2语法.html#cb31-22" aria-hidden="true" tabindex="-1"></a>    QGU <span class="ot">=</span> <span class="fl">14.0</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-23"><a href="第六章rxode2语法.html#cb31-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Hepatic artery blood flow</span></span>
+<span id="cb31-24"><a href="第六章rxode2语法.html#cb31-24" aria-hidden="true" tabindex="-1"></a>    QHA <span class="ot">=</span> QLI <span class="sc">-</span> (QSP <span class="sc">+</span> QPA <span class="sc">+</span> QST <span class="sc">+</span> QGU); </span>
+<span id="cb31-25"><a href="第六章rxode2语法.html#cb31-25" aria-hidden="true" tabindex="-1"></a>    QBO <span class="ot">=</span> <span class="fl">5.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-26"><a href="第六章rxode2语法.html#cb31-26" aria-hidden="true" tabindex="-1"></a>    QKI <span class="ot">=</span> <span class="fl">19.0</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb31-27"><a href="第六章rxode2语法.html#cb31-27" aria-hidden="true" tabindex="-1"></a>    QRB <span class="ot">=</span> CO <span class="sc">-</span> (QHT <span class="sc">+</span> QBR <span class="sc">+</span> QMU <span class="sc">+</span> QAD <span class="sc">+</span> QSK <span class="sc">+</span> QLI <span class="sc">+</span> QBO <span class="sc">+</span> QKI);</span>
+<span id="cb31-28"><a href="第六章rxode2语法.html#cb31-28" aria-hidden="true" tabindex="-1"></a>    QLU <span class="ot">=</span> QHT <span class="sc">+</span> QBR <span class="sc">+</span> QMU <span class="sc">+</span> QAD <span class="sc">+</span> QSK <span class="sc">+</span> QLI <span class="sc">+</span> QBO <span class="sc">+</span> QKI <span class="sc">+</span> QRB;</span>
+<span id="cb31-29"><a href="第六章rxode2语法.html#cb31-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-30"><a href="第六章rxode2语法.html#cb31-30" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Organs&#39; volumes = organs&#39; weights / organs&#39; density</span></span>
+<span id="cb31-31"><a href="第六章rxode2语法.html#cb31-31" aria-hidden="true" tabindex="-1"></a>    VLU <span class="ot">=</span> (<span class="fl">0.76</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.051</span>;</span>
+<span id="cb31-32"><a href="第六章rxode2语法.html#cb31-32" aria-hidden="true" tabindex="-1"></a>    VHT <span class="ot">=</span> (<span class="fl">0.47</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.030</span>;</span>
+<span id="cb31-33"><a href="第六章rxode2语法.html#cb31-33" aria-hidden="true" tabindex="-1"></a>    VBR <span class="ot">=</span> (<span class="fl">2.00</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.036</span>;</span>
+<span id="cb31-34"><a href="第六章rxode2语法.html#cb31-34" aria-hidden="true" tabindex="-1"></a>    VMU <span class="ot">=</span> (<span class="fl">40.00</span><span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.041</span>;</span>
+<span id="cb31-35"><a href="第六章rxode2语法.html#cb31-35" aria-hidden="true" tabindex="-1"></a>    VAD <span class="ot">=</span> (<span class="fl">21.42</span><span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">0.916</span>;</span>
+<span id="cb31-36"><a href="第六章rxode2语法.html#cb31-36" aria-hidden="true" tabindex="-1"></a>    VSK <span class="ot">=</span> (<span class="fl">3.71</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.116</span>;</span>
+<span id="cb31-37"><a href="第六章rxode2语法.html#cb31-37" aria-hidden="true" tabindex="-1"></a>    VSP <span class="ot">=</span> (<span class="fl">0.26</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.054</span>;</span>
+<span id="cb31-38"><a href="第六章rxode2语法.html#cb31-38" aria-hidden="true" tabindex="-1"></a>    VPA <span class="ot">=</span> (<span class="fl">0.14</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.045</span>;</span>
+<span id="cb31-39"><a href="第六章rxode2语法.html#cb31-39" aria-hidden="true" tabindex="-1"></a>    VLI <span class="ot">=</span> (<span class="fl">2.57</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.040</span>;</span>
+<span id="cb31-40"><a href="第六章rxode2语法.html#cb31-40" aria-hidden="true" tabindex="-1"></a>    VST <span class="ot">=</span> (<span class="fl">0.21</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.050</span>;</span>
+<span id="cb31-41"><a href="第六章rxode2语法.html#cb31-41" aria-hidden="true" tabindex="-1"></a>    VGU <span class="ot">=</span> (<span class="fl">1.44</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.043</span>;</span>
+<span id="cb31-42"><a href="第六章rxode2语法.html#cb31-42" aria-hidden="true" tabindex="-1"></a>    VBO <span class="ot">=</span> (<span class="fl">14.29</span><span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.990</span>;</span>
+<span id="cb31-43"><a href="第六章rxode2语法.html#cb31-43" aria-hidden="true" tabindex="-1"></a>    VKI <span class="ot">=</span> (<span class="fl">0.44</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.050</span>;</span>
+<span id="cb31-44"><a href="第六章rxode2语法.html#cb31-44" aria-hidden="true" tabindex="-1"></a>    VAB <span class="ot">=</span> (<span class="fl">2.81</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.040</span>;</span>
+<span id="cb31-45"><a href="第六章rxode2语法.html#cb31-45" aria-hidden="true" tabindex="-1"></a>    VVB <span class="ot">=</span> (<span class="fl">5.62</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.040</span>;</span>
+<span id="cb31-46"><a href="第六章rxode2语法.html#cb31-46" aria-hidden="true" tabindex="-1"></a>    VRB <span class="ot">=</span> (<span class="fl">3.86</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.040</span>;</span>
+<span id="cb31-47"><a href="第六章rxode2语法.html#cb31-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-48"><a href="第六章rxode2语法.html#cb31-48" aria-hidden="true" tabindex="-1"></a>    <span class="do">## Fixed parameters</span></span>
+<span id="cb31-49"><a href="第六章rxode2语法.html#cb31-49" aria-hidden="true" tabindex="-1"></a>    BP <span class="ot">=</span> <span class="fl">0.61</span>;      <span class="co"># Blood:plasma partition coefficient</span></span>
+<span id="cb31-50"><a href="第六章rxode2语法.html#cb31-50" aria-hidden="true" tabindex="-1"></a>    fup <span class="ot">=</span> <span class="fl">0.028</span>;    <span class="co"># Fraction unbound in plasma</span></span>
+<span id="cb31-51"><a href="第六章rxode2语法.html#cb31-51" aria-hidden="true" tabindex="-1"></a>    fub <span class="ot">=</span> fup<span class="sc">/</span>BP;   <span class="co"># Fraction unbound in blood</span></span>
+<span id="cb31-52"><a href="第六章rxode2语法.html#cb31-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-53"><a href="第六章rxode2语法.html#cb31-53" aria-hidden="true" tabindex="-1"></a>    KbLU <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">0.8334</span>);</span>
+<span id="cb31-54"><a href="第六章rxode2语法.html#cb31-54" aria-hidden="true" tabindex="-1"></a>    KbHT <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">1.1205</span>);</span>
+<span id="cb31-55"><a href="第六章rxode2语法.html#cb31-55" aria-hidden="true" tabindex="-1"></a>    KbSK <span class="ot">=</span> <span class="fu">exp</span>(<span class="sc">-</span>.<span class="dv">5238</span>);</span>
+<span id="cb31-56"><a href="第六章rxode2语法.html#cb31-56" aria-hidden="true" tabindex="-1"></a>    KbSP <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb31-57"><a href="第六章rxode2语法.html#cb31-57" aria-hidden="true" tabindex="-1"></a>    KbPA <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb31-58"><a href="第六章rxode2语法.html#cb31-58" aria-hidden="true" tabindex="-1"></a>    KbLI <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">1.7604</span>);</span>
+<span id="cb31-59"><a href="第六章rxode2语法.html#cb31-59" aria-hidden="true" tabindex="-1"></a>    KbST <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb31-60"><a href="第六章rxode2语法.html#cb31-60" aria-hidden="true" tabindex="-1"></a>    KbGU <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">1.2026</span>);</span>
+<span id="cb31-61"><a href="第六章rxode2语法.html#cb31-61" aria-hidden="true" tabindex="-1"></a>    KbKI <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">1.3171</span>);</span>
+<span id="cb31-62"><a href="第六章rxode2语法.html#cb31-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-63"><a href="第六章rxode2语法.html#cb31-63" aria-hidden="true" tabindex="-1"></a>    <span class="do">##-----------------------------------------</span></span>
+<span id="cb31-64"><a href="第六章rxode2语法.html#cb31-64" aria-hidden="true" tabindex="-1"></a>    S15 <span class="ot">=</span> VVB<span class="sc">*</span>BP<span class="sc">/</span><span class="dv">1000</span>;</span>
+<span id="cb31-65"><a href="第六章rxode2语法.html#cb31-65" aria-hidden="true" tabindex="-1"></a>    C15 <span class="ot">=</span> Venous_Blood<span class="sc">/</span>S15</span>
+<span id="cb31-66"><a href="第六章rxode2语法.html#cb31-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-67"><a href="第六章rxode2语法.html#cb31-67" aria-hidden="true" tabindex="-1"></a>    <span class="do">##-----------------------------------------</span></span>
+<span id="cb31-68"><a href="第六章rxode2语法.html#cb31-68" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Lungs) <span class="ot">=</span> QLU<span class="sc">*</span>(Venous_Blood<span class="sc">/</span>VVB <span class="sc">-</span> Lungs<span class="sc">/</span>KbLU<span class="sc">/</span>VLU);</span>
+<span id="cb31-69"><a href="第六章rxode2语法.html#cb31-69" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Heart) <span class="ot">=</span> QHT<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Heart<span class="sc">/</span>KbHT<span class="sc">/</span>VHT);</span>
+<span id="cb31-70"><a href="第六章rxode2语法.html#cb31-70" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Brain) <span class="ot">=</span> QBR<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Brain<span class="sc">/</span>KbBR<span class="sc">/</span>VBR);</span>
+<span id="cb31-71"><a href="第六章rxode2语法.html#cb31-71" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Muscles) <span class="ot">=</span> QMU<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Muscles<span class="sc">/</span>KbMU<span class="sc">/</span>VMU);</span>
+<span id="cb31-72"><a href="第六章rxode2语法.html#cb31-72" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Adipose) <span class="ot">=</span> QAD<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Adipose<span class="sc">/</span>KbAD<span class="sc">/</span>VAD);</span>
+<span id="cb31-73"><a href="第六章rxode2语法.html#cb31-73" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Skin) <span class="ot">=</span> QSK<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Skin<span class="sc">/</span>KbSK<span class="sc">/</span>VSK);</span>
+<span id="cb31-74"><a href="第六章rxode2语法.html#cb31-74" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Spleen) <span class="ot">=</span> QSP<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Spleen<span class="sc">/</span>KbSP<span class="sc">/</span>VSP);</span>
+<span id="cb31-75"><a href="第六章rxode2语法.html#cb31-75" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Pancreas) <span class="ot">=</span> QPA<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Pancreas<span class="sc">/</span>KbPA<span class="sc">/</span>VPA);</span>
+<span id="cb31-76"><a href="第六章rxode2语法.html#cb31-76" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Liver) <span class="ot">=</span> QHA<span class="sc">*</span>Arterial_Blood<span class="sc">/</span>VAB <span class="sc">+</span> QSP<span class="sc">*</span>Spleen<span class="sc">/</span>KbSP<span class="sc">/</span>VSP <span class="sc">+</span></span>
+<span id="cb31-77"><a href="第六章rxode2语法.html#cb31-77" aria-hidden="true" tabindex="-1"></a>      QPA<span class="sc">*</span>Pancreas<span class="sc">/</span>KbPA<span class="sc">/</span>VPA <span class="sc">+</span> QST<span class="sc">*</span>Stomach<span class="sc">/</span>KbST<span class="sc">/</span>VST <span class="sc">+</span></span>
+<span id="cb31-78"><a href="第六章rxode2语法.html#cb31-78" aria-hidden="true" tabindex="-1"></a>      QGU<span class="sc">*</span>Gut<span class="sc">/</span>KbGU<span class="sc">/</span>VGU <span class="sc">-</span> CLint<span class="sc">*</span>fub<span class="sc">*</span>Liver<span class="sc">/</span>KbLI<span class="sc">/</span>VLI <span class="sc">-</span> QLI<span class="sc">*</span>Liver<span class="sc">/</span>KbLI<span class="sc">/</span>VLI;</span>
+<span id="cb31-79"><a href="第六章rxode2语法.html#cb31-79" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Stomach) <span class="ot">=</span> QST<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Stomach<span class="sc">/</span>KbST<span class="sc">/</span>VST);</span>
+<span id="cb31-80"><a href="第六章rxode2语法.html#cb31-80" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Gut) <span class="ot">=</span> QGU<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Gut<span class="sc">/</span>KbGU<span class="sc">/</span>VGU);</span>
+<span id="cb31-81"><a href="第六章rxode2语法.html#cb31-81" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Bones) <span class="ot">=</span> QBO<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Bones<span class="sc">/</span>KbBO<span class="sc">/</span>VBO);</span>
+<span id="cb31-82"><a href="第六章rxode2语法.html#cb31-82" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Kidneys) <span class="ot">=</span> QKI<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Kidneys<span class="sc">/</span>KbKI<span class="sc">/</span>VKI);</span>
+<span id="cb31-83"><a href="第六章rxode2语法.html#cb31-83" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Arterial_Blood) <span class="ot">=</span> QLU<span class="sc">*</span>(Lungs<span class="sc">/</span>KbLU<span class="sc">/</span>VLU <span class="sc">-</span> Arterial_Blood<span class="sc">/</span>VAB);</span>
+<span id="cb31-84"><a href="第六章rxode2语法.html#cb31-84" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Venous_Blood) <span class="ot">=</span> QHT<span class="sc">*</span>Heart<span class="sc">/</span>KbHT<span class="sc">/</span>VHT <span class="sc">+</span> QBR<span class="sc">*</span>Brain<span class="sc">/</span>KbBR<span class="sc">/</span>VBR <span class="sc">+</span></span>
+<span id="cb31-85"><a href="第六章rxode2语法.html#cb31-85" aria-hidden="true" tabindex="-1"></a>      QMU<span class="sc">*</span>Muscles<span class="sc">/</span>KbMU<span class="sc">/</span>VMU <span class="sc">+</span> QAD<span class="sc">*</span>Adipose<span class="sc">/</span>KbAD<span class="sc">/</span>VAD <span class="sc">+</span> QSK<span class="sc">*</span>Skin<span class="sc">/</span>KbSK<span class="sc">/</span>VSK <span class="sc">+</span></span>
+<span id="cb31-86"><a href="第六章rxode2语法.html#cb31-86" aria-hidden="true" tabindex="-1"></a>      QLI<span class="sc">*</span>Liver<span class="sc">/</span>KbLI<span class="sc">/</span>VLI <span class="sc">+</span> QBO<span class="sc">*</span>Bones<span class="sc">/</span>KbBO<span class="sc">/</span>VBO <span class="sc">+</span> QKI<span class="sc">*</span>Kidneys<span class="sc">/</span>KbKI<span class="sc">/</span>VKI <span class="sc">+</span></span>
+<span id="cb31-87"><a href="第六章rxode2语法.html#cb31-87" aria-hidden="true" tabindex="-1"></a>      QRB<span class="sc">*</span>Rest_of_Body<span class="sc">/</span>KbRB<span class="sc">/</span>VRB <span class="sc">-</span> QLU<span class="sc">*</span>Venous_Blood<span class="sc">/</span>VVB;</span>
+<span id="cb31-88"><a href="第六章rxode2语法.html#cb31-88" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(Rest_of_Body) <span class="ot">=</span> QRB<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Rest_of_Body<span class="sc">/</span>KbRB<span class="sc">/</span>VRB);</span>
+<span id="cb31-89"><a href="第六章rxode2语法.html#cb31-89" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>如果您查看摘要，您可以看到rxode2赋值房室号的位置</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="第六章rxode2语法.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pbpk)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="第六章rxode2语法.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; rxode2 2.0.11 model named rx_291007fc063b6ec76a6a1e59198481c3 model (✔ ready). </span></span>
+<span id="cb33-2"><a href="第六章rxode2语法.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; DLL: /home/matt/.cache/R/rxode2/rx_291007fc063b6ec76a6a1e59198481c3__.rxd/rx_291007fc063b6ec76a6a1e59198481c3_.so</span></span>
+<span id="cb33-3"><a href="第六章rxode2语法.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb33-4"><a href="第六章rxode2语法.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb33-5"><a href="第六章rxode2语法.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Calculated Variables:</span></span>
+<span id="cb33-6"><a href="第六章rxode2语法.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;KbBR&quot;  &quot;KbMU&quot;  &quot;KbAD&quot;  &quot;CLint&quot; &quot;KbBO&quot;  &quot;KbRB&quot;  &quot;CO&quot;    &quot;QHT&quot;   &quot;QBR&quot;  </span></span>
+<span id="cb33-7"><a href="第六章rxode2语法.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [10] &quot;QMU&quot;   &quot;QAD&quot;   &quot;QSK&quot;   &quot;QSP&quot;   &quot;QPA&quot;   &quot;QLI&quot;   &quot;QST&quot;   &quot;QGU&quot;   &quot;QHA&quot;  </span></span>
+<span id="cb33-8"><a href="第六章rxode2语法.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [19] &quot;QBO&quot;   &quot;QKI&quot;   &quot;QRB&quot;   &quot;QLU&quot;   &quot;VLU&quot;   &quot;VHT&quot;   &quot;VBR&quot;   &quot;VMU&quot;   &quot;VAD&quot;  </span></span>
+<span id="cb33-9"><a href="第六章rxode2语法.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [28] &quot;VSK&quot;   &quot;VSP&quot;   &quot;VPA&quot;   &quot;VLI&quot;   &quot;VST&quot;   &quot;VGU&quot;   &quot;VBO&quot;   &quot;VKI&quot;   &quot;VAB&quot;  </span></span>
+<span id="cb33-10"><a href="第六章rxode2语法.html#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [37] &quot;VVB&quot;   &quot;VRB&quot;   &quot;fub&quot;   &quot;KbLU&quot;  &quot;KbHT&quot;  &quot;KbSK&quot;  &quot;KbSP&quot;  &quot;KbPA&quot;  &quot;KbLI&quot; </span></span>
+<span id="cb33-11"><a href="第六章rxode2语法.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [46] &quot;KbST&quot;  &quot;KbGU&quot;  &quot;KbKI&quot;  &quot;S15&quot;   &quot;C15&quot;  </span></span>
+<span id="cb33-12"><a href="第六章rxode2语法.html#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── rxode2 Model Syntax ──</span></span>
+<span id="cb33-13"><a href="第六章rxode2语法.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; rxode2({</span></span>
+<span id="cb33-14"><a href="第六章rxode2语法.html#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbBR = exp(lKbBR)</span></span>
+<span id="cb33-15"><a href="第六章rxode2语法.html#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbMU = exp(lKbMU)</span></span>
+<span id="cb33-16"><a href="第六章rxode2语法.html#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbAD = exp(lKbAD)</span></span>
+<span id="cb33-17"><a href="第六章rxode2语法.html#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     CLint = exp(lCLint + eta.LClint)</span></span>
+<span id="cb33-18"><a href="第六章rxode2语法.html#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbBO = exp(lKbBO)</span></span>
+<span id="cb33-19"><a href="第六章rxode2语法.html#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbRB = exp(lKbRB)</span></span>
+<span id="cb33-20"><a href="第六章rxode2语法.html#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     CO = (187 * WT^0.81) * 60/1000</span></span>
+<span id="cb33-21"><a href="第六章rxode2语法.html#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QHT = 4 * CO/100</span></span>
+<span id="cb33-22"><a href="第六章rxode2语法.html#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QBR = 12 * CO/100</span></span>
+<span id="cb33-23"><a href="第六章rxode2语法.html#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QMU = 17 * CO/100</span></span>
+<span id="cb33-24"><a href="第六章rxode2语法.html#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QAD = 5 * CO/100</span></span>
+<span id="cb33-25"><a href="第六章rxode2语法.html#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QSK = 5 * CO/100</span></span>
+<span id="cb33-26"><a href="第六章rxode2语法.html#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QSP = 3 * CO/100</span></span>
+<span id="cb33-27"><a href="第六章rxode2语法.html#cb33-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QPA = 1 * CO/100</span></span>
+<span id="cb33-28"><a href="第六章rxode2语法.html#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QLI = 25.5 * CO/100</span></span>
+<span id="cb33-29"><a href="第六章rxode2语法.html#cb33-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QST = 1 * CO/100</span></span>
+<span id="cb33-30"><a href="第六章rxode2语法.html#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QGU = 14 * CO/100</span></span>
+<span id="cb33-31"><a href="第六章rxode2语法.html#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QHA = QLI - (QSP + QPA + QST + QGU)</span></span>
+<span id="cb33-32"><a href="第六章rxode2语法.html#cb33-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QBO = 5 * CO/100</span></span>
+<span id="cb33-33"><a href="第六章rxode2语法.html#cb33-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QKI = 19 * CO/100</span></span>
+<span id="cb33-34"><a href="第六章rxode2语法.html#cb33-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QRB = CO - (QHT + QBR + QMU + QAD + QSK + QLI + QBO + QKI)</span></span>
+<span id="cb33-35"><a href="第六章rxode2语法.html#cb33-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     QLU = QHT + QBR + QMU + QAD + QSK + QLI + QBO + QKI + QRB</span></span>
+<span id="cb33-36"><a href="第六章rxode2语法.html#cb33-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VLU = (0.76 * WT/100)/1.051</span></span>
+<span id="cb33-37"><a href="第六章rxode2语法.html#cb33-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VHT = (0.47 * WT/100)/1.03</span></span>
+<span id="cb33-38"><a href="第六章rxode2语法.html#cb33-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VBR = (2 * WT/100)/1.036</span></span>
+<span id="cb33-39"><a href="第六章rxode2语法.html#cb33-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VMU = (40 * WT/100)/1.041</span></span>
+<span id="cb33-40"><a href="第六章rxode2语法.html#cb33-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VAD = (21.42 * WT/100)/0.916</span></span>
+<span id="cb33-41"><a href="第六章rxode2语法.html#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VSK = (3.71 * WT/100)/1.116</span></span>
+<span id="cb33-42"><a href="第六章rxode2语法.html#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VSP = (0.26 * WT/100)/1.054</span></span>
+<span id="cb33-43"><a href="第六章rxode2语法.html#cb33-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VPA = (0.14 * WT/100)/1.045</span></span>
+<span id="cb33-44"><a href="第六章rxode2语法.html#cb33-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VLI = (2.57 * WT/100)/1.04</span></span>
+<span id="cb33-45"><a href="第六章rxode2语法.html#cb33-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VST = (0.21 * WT/100)/1.05</span></span>
+<span id="cb33-46"><a href="第六章rxode2语法.html#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VGU = (1.44 * WT/100)/1.043</span></span>
+<span id="cb33-47"><a href="第六章rxode2语法.html#cb33-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VBO = (14.29 * WT/100)/1.99</span></span>
+<span id="cb33-48"><a href="第六章rxode2语法.html#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VKI = (0.44 * WT/100)/1.05</span></span>
+<span id="cb33-49"><a href="第六章rxode2语法.html#cb33-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VAB = (2.81 * WT/100)/1.04</span></span>
+<span id="cb33-50"><a href="第六章rxode2语法.html#cb33-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VVB = (5.62 * WT/100)/1.04</span></span>
+<span id="cb33-51"><a href="第六章rxode2语法.html#cb33-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     VRB = (3.86 * WT/100)/1.04</span></span>
+<span id="cb33-52"><a href="第六章rxode2语法.html#cb33-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     BP = 0.61</span></span>
+<span id="cb33-53"><a href="第六章rxode2语法.html#cb33-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     fup = 0.028</span></span>
+<span id="cb33-54"><a href="第六章rxode2语法.html#cb33-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     fub = fup/BP</span></span>
+<span id="cb33-55"><a href="第六章rxode2语法.html#cb33-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbLU = exp(0.8334)</span></span>
+<span id="cb33-56"><a href="第六章rxode2语法.html#cb33-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbHT = exp(1.1205)</span></span>
+<span id="cb33-57"><a href="第六章rxode2语法.html#cb33-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbSK = exp(-0.5238)</span></span>
+<span id="cb33-58"><a href="第六章rxode2语法.html#cb33-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbSP = exp(0.3224)</span></span>
+<span id="cb33-59"><a href="第六章rxode2语法.html#cb33-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbPA = exp(0.3224)</span></span>
+<span id="cb33-60"><a href="第六章rxode2语法.html#cb33-60" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbLI = exp(1.7604)</span></span>
+<span id="cb33-61"><a href="第六章rxode2语法.html#cb33-61" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbST = exp(0.3224)</span></span>
+<span id="cb33-62"><a href="第六章rxode2语法.html#cb33-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbGU = exp(1.2026)</span></span>
+<span id="cb33-63"><a href="第六章rxode2语法.html#cb33-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     KbKI = exp(1.3171)</span></span>
+<span id="cb33-64"><a href="第六章rxode2语法.html#cb33-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     S15 = VVB * BP/1000</span></span>
+<span id="cb33-65"><a href="第六章rxode2语法.html#cb33-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     C15 = Venous_Blood/S15</span></span>
+<span id="cb33-66"><a href="第六章rxode2语法.html#cb33-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Lungs) = QLU * (Venous_Blood/VVB - Lungs/KbLU/VLU)</span></span>
+<span id="cb33-67"><a href="第六章rxode2语法.html#cb33-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Heart) = QHT * (Arterial_Blood/VAB - Heart/KbHT/VHT)</span></span>
+<span id="cb33-68"><a href="第六章rxode2语法.html#cb33-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Brain) = QBR * (Arterial_Blood/VAB - Brain/KbBR/VBR)</span></span>
+<span id="cb33-69"><a href="第六章rxode2语法.html#cb33-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Muscles) = QMU * (Arterial_Blood/VAB - Muscles/KbMU/VMU)</span></span>
+<span id="cb33-70"><a href="第六章rxode2语法.html#cb33-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Adipose) = QAD * (Arterial_Blood/VAB - Adipose/KbAD/VAD)</span></span>
+<span id="cb33-71"><a href="第六章rxode2语法.html#cb33-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Skin) = QSK * (Arterial_Blood/VAB - Skin/KbSK/VSK)</span></span>
+<span id="cb33-72"><a href="第六章rxode2语法.html#cb33-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Spleen) = QSP * (Arterial_Blood/VAB - Spleen/KbSP/VSP)</span></span>
+<span id="cb33-73"><a href="第六章rxode2语法.html#cb33-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Pancreas) = QPA * (Arterial_Blood/VAB - Pancreas/KbPA/VPA)</span></span>
+<span id="cb33-74"><a href="第六章rxode2语法.html#cb33-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Liver) = QHA * Arterial_Blood/VAB + QSP * Spleen/KbSP/VSP + </span></span>
+<span id="cb33-75"><a href="第六章rxode2语法.html#cb33-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         QPA * Pancreas/KbPA/VPA + QST * Stomach/KbST/VST + QGU * </span></span>
+<span id="cb33-76"><a href="第六章rxode2语法.html#cb33-76" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         Gut/KbGU/VGU - CLint * fub * Liver/KbLI/VLI - QLI * Liver/KbLI/VLI</span></span>
+<span id="cb33-77"><a href="第六章rxode2语法.html#cb33-77" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Stomach) = QST * (Arterial_Blood/VAB - Stomach/KbST/VST)</span></span>
+<span id="cb33-78"><a href="第六章rxode2语法.html#cb33-78" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Gut) = QGU * (Arterial_Blood/VAB - Gut/KbGU/VGU)</span></span>
+<span id="cb33-79"><a href="第六章rxode2语法.html#cb33-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Bones) = QBO * (Arterial_Blood/VAB - Bones/KbBO/VBO)</span></span>
+<span id="cb33-80"><a href="第六章rxode2语法.html#cb33-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Kidneys) = QKI * (Arterial_Blood/VAB - Kidneys/KbKI/VKI)</span></span>
+<span id="cb33-81"><a href="第六章rxode2语法.html#cb33-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Arterial_Blood) = QLU * (Lungs/KbLU/VLU - Arterial_Blood/VAB)</span></span>
+<span id="cb33-82"><a href="第六章rxode2语法.html#cb33-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Venous_Blood) = QHT * Heart/KbHT/VHT + QBR * Brain/KbBR/VBR + </span></span>
+<span id="cb33-83"><a href="第六章rxode2语法.html#cb33-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         QMU * Muscles/KbMU/VMU + QAD * Adipose/KbAD/VAD + QSK * </span></span>
+<span id="cb33-84"><a href="第六章rxode2语法.html#cb33-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         Skin/KbSK/VSK + QLI * Liver/KbLI/VLI + QBO * Bones/KbBO/VBO + </span></span>
+<span id="cb33-85"><a href="第六章rxode2语法.html#cb33-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         QKI * Kidneys/KbKI/VKI + QRB * Rest_of_Body/KbRB/VRB - </span></span>
+<span id="cb33-86"><a href="第六章rxode2语法.html#cb33-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;         QLU * Venous_Blood/VVB</span></span>
+<span id="cb33-87"><a href="第六章rxode2语法.html#cb33-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     d/dt(Rest_of_Body) = QRB * (Arterial_Blood/VAB - Rest_of_Body/KbRB/VRB)</span></span>
+<span id="cb33-88"><a href="第六章rxode2语法.html#cb33-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; })</span></span></code></pre></div>
+<p>在此案例中，<code>Venous_Blood</code>被分配到房室<code>15</code>。 弄清楚这一点可能会很不方便，并且还会导致模拟或估计数据集中的房室重新编号。虽然通过名称指定房室很容易而且可能更清晰，但其他工具只支持房室编号。因此，有一种方法可以很容易地为房室编号，从而减少多个工具之间的数据修改。</p>
+</div>
+<div id="使用cmt预声明更改房室" class="section level3 hasAnchor">
+<h3>6.4.2 使用<code>cmt()</code>预声明更改房室<a href="第六章rxode2语法.html#使用cmt预声明更改房室" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>要按您希望的顺序将房室添加到rxode2模型中，您只需要使用cmt预先声明这些房室。例如，将Venous_Blood和Skin分别指定为第一个和第二个房室是很简单的:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="第六章rxode2语法.html#cb34-1" aria-hidden="true" tabindex="-1"></a>pbpk2 <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb34-2"><a href="第六章rxode2语法.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Now this is the first compartment, ie cmt=1</span></span>
+<span id="cb34-3"><a href="第六章rxode2语法.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cmt</span>(Venous_Blood)</span>
+<span id="cb34-4"><a href="第六章rxode2语法.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Skin may be a compartment you wish to dose to as well,</span></span>
+<span id="cb34-5"><a href="第六章rxode2语法.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="do">##  so it is now cmt=2</span></span>
+<span id="cb34-6"><a href="第六章rxode2语法.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cmt</span>(Skin) </span>
+<span id="cb34-7"><a href="第六章rxode2语法.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  KbBR <span class="ot">=</span> <span class="fu">exp</span>(lKbBR)</span>
+<span id="cb34-8"><a href="第六章rxode2语法.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  KbMU <span class="ot">=</span> <span class="fu">exp</span>(lKbMU)</span>
+<span id="cb34-9"><a href="第六章rxode2语法.html#cb34-9" aria-hidden="true" tabindex="-1"></a>  KbAD <span class="ot">=</span> <span class="fu">exp</span>(lKbAD)</span>
+<span id="cb34-10"><a href="第六章rxode2语法.html#cb34-10" aria-hidden="true" tabindex="-1"></a>  CLint<span class="ot">=</span> <span class="fu">exp</span>(lCLint <span class="sc">+</span> eta.LClint)</span>
+<span id="cb34-11"><a href="第六章rxode2语法.html#cb34-11" aria-hidden="true" tabindex="-1"></a>  KbBO <span class="ot">=</span> <span class="fu">exp</span>(lKbBO)</span>
+<span id="cb34-12"><a href="第六章rxode2语法.html#cb34-12" aria-hidden="true" tabindex="-1"></a>  KbRB <span class="ot">=</span> <span class="fu">exp</span>(lKbRB)</span>
+<span id="cb34-13"><a href="第六章rxode2语法.html#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="第六章rxode2语法.html#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Regional blood flows</span></span>
+<span id="cb34-15"><a href="第六章rxode2语法.html#cb34-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cardiac output (L/h) from White et al (1968)m</span></span>
+<span id="cb34-16"><a href="第六章rxode2语法.html#cb34-16" aria-hidden="true" tabindex="-1"></a>  CO  <span class="ot">=</span> (<span class="fl">187.00</span><span class="sc">*</span>WT<span class="sc">^</span><span class="fl">0.81</span>)<span class="sc">*</span><span class="dv">60</span><span class="sc">/</span><span class="dv">1000</span>; </span>
+<span id="cb34-17"><a href="第六章rxode2语法.html#cb34-17" aria-hidden="true" tabindex="-1"></a>  QHT <span class="ot">=</span> <span class="fl">4.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-18"><a href="第六章rxode2语法.html#cb34-18" aria-hidden="true" tabindex="-1"></a>  QBR <span class="ot">=</span> <span class="fl">12.0</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-19"><a href="第六章rxode2语法.html#cb34-19" aria-hidden="true" tabindex="-1"></a>  QMU <span class="ot">=</span> <span class="fl">17.0</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-20"><a href="第六章rxode2语法.html#cb34-20" aria-hidden="true" tabindex="-1"></a>  QAD <span class="ot">=</span> <span class="fl">5.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-21"><a href="第六章rxode2语法.html#cb34-21" aria-hidden="true" tabindex="-1"></a>  QSK <span class="ot">=</span> <span class="fl">5.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-22"><a href="第六章rxode2语法.html#cb34-22" aria-hidden="true" tabindex="-1"></a>  QSP <span class="ot">=</span> <span class="fl">3.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-23"><a href="第六章rxode2语法.html#cb34-23" aria-hidden="true" tabindex="-1"></a>  QPA <span class="ot">=</span> <span class="fl">1.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-24"><a href="第六章rxode2语法.html#cb34-24" aria-hidden="true" tabindex="-1"></a>  QLI <span class="ot">=</span> <span class="fl">25.5</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-25"><a href="第六章rxode2语法.html#cb34-25" aria-hidden="true" tabindex="-1"></a>  QST <span class="ot">=</span> <span class="fl">1.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-26"><a href="第六章rxode2语法.html#cb34-26" aria-hidden="true" tabindex="-1"></a>  QGU <span class="ot">=</span> <span class="fl">14.0</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-27"><a href="第六章rxode2语法.html#cb34-27" aria-hidden="true" tabindex="-1"></a>  QHA <span class="ot">=</span> QLI <span class="sc">-</span> (QSP <span class="sc">+</span> QPA <span class="sc">+</span> QST <span class="sc">+</span> QGU); <span class="co"># Hepatic artery blood flow</span></span>
+<span id="cb34-28"><a href="第六章rxode2语法.html#cb34-28" aria-hidden="true" tabindex="-1"></a>  QBO <span class="ot">=</span> <span class="fl">5.0</span> <span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-29"><a href="第六章rxode2语法.html#cb34-29" aria-hidden="true" tabindex="-1"></a>  QKI <span class="ot">=</span> <span class="fl">19.0</span><span class="sc">*</span>CO<span class="sc">/</span><span class="dv">100</span>;</span>
+<span id="cb34-30"><a href="第六章rxode2语法.html#cb34-30" aria-hidden="true" tabindex="-1"></a>  QRB <span class="ot">=</span> CO <span class="sc">-</span> (QHT <span class="sc">+</span> QBR <span class="sc">+</span> QMU <span class="sc">+</span> QAD <span class="sc">+</span> QSK <span class="sc">+</span> QLI <span class="sc">+</span> QBO <span class="sc">+</span> QKI);</span>
+<span id="cb34-31"><a href="第六章rxode2语法.html#cb34-31" aria-hidden="true" tabindex="-1"></a>  QLU <span class="ot">=</span> QHT <span class="sc">+</span> QBR <span class="sc">+</span> QMU <span class="sc">+</span> QAD <span class="sc">+</span> QSK <span class="sc">+</span> QLI <span class="sc">+</span> QBO <span class="sc">+</span> QKI <span class="sc">+</span> QRB;</span>
+<span id="cb34-32"><a href="第六章rxode2语法.html#cb34-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-33"><a href="第六章rxode2语法.html#cb34-33" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Organs&#39; volumes = organs&#39; weights / organs&#39; density</span></span>
+<span id="cb34-34"><a href="第六章rxode2语法.html#cb34-34" aria-hidden="true" tabindex="-1"></a>  VLU <span class="ot">=</span> (<span class="fl">0.76</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.051</span>;</span>
+<span id="cb34-35"><a href="第六章rxode2语法.html#cb34-35" aria-hidden="true" tabindex="-1"></a>  VHT <span class="ot">=</span> (<span class="fl">0.47</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.030</span>;</span>
+<span id="cb34-36"><a href="第六章rxode2语法.html#cb34-36" aria-hidden="true" tabindex="-1"></a>  VBR <span class="ot">=</span> (<span class="fl">2.00</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.036</span>;</span>
+<span id="cb34-37"><a href="第六章rxode2语法.html#cb34-37" aria-hidden="true" tabindex="-1"></a>  VMU <span class="ot">=</span> (<span class="fl">40.00</span><span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.041</span>;</span>
+<span id="cb34-38"><a href="第六章rxode2语法.html#cb34-38" aria-hidden="true" tabindex="-1"></a>  VAD <span class="ot">=</span> (<span class="fl">21.42</span><span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">0.916</span>;</span>
+<span id="cb34-39"><a href="第六章rxode2语法.html#cb34-39" aria-hidden="true" tabindex="-1"></a>  VSK <span class="ot">=</span> (<span class="fl">3.71</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.116</span>;</span>
+<span id="cb34-40"><a href="第六章rxode2语法.html#cb34-40" aria-hidden="true" tabindex="-1"></a>  VSP <span class="ot">=</span> (<span class="fl">0.26</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.054</span>;</span>
+<span id="cb34-41"><a href="第六章rxode2语法.html#cb34-41" aria-hidden="true" tabindex="-1"></a>  VPA <span class="ot">=</span> (<span class="fl">0.14</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.045</span>;</span>
+<span id="cb34-42"><a href="第六章rxode2语法.html#cb34-42" aria-hidden="true" tabindex="-1"></a>  VLI <span class="ot">=</span> (<span class="fl">2.57</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.040</span>;</span>
+<span id="cb34-43"><a href="第六章rxode2语法.html#cb34-43" aria-hidden="true" tabindex="-1"></a>  VST <span class="ot">=</span> (<span class="fl">0.21</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.050</span>;</span>
+<span id="cb34-44"><a href="第六章rxode2语法.html#cb34-44" aria-hidden="true" tabindex="-1"></a>  VGU <span class="ot">=</span> (<span class="fl">1.44</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.043</span>;</span>
+<span id="cb34-45"><a href="第六章rxode2语法.html#cb34-45" aria-hidden="true" tabindex="-1"></a>  VBO <span class="ot">=</span> (<span class="fl">14.29</span><span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.990</span>;</span>
+<span id="cb34-46"><a href="第六章rxode2语法.html#cb34-46" aria-hidden="true" tabindex="-1"></a>  VKI <span class="ot">=</span> (<span class="fl">0.44</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.050</span>;</span>
+<span id="cb34-47"><a href="第六章rxode2语法.html#cb34-47" aria-hidden="true" tabindex="-1"></a>  VAB <span class="ot">=</span> (<span class="fl">2.81</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.040</span>;</span>
+<span id="cb34-48"><a href="第六章rxode2语法.html#cb34-48" aria-hidden="true" tabindex="-1"></a>  VVB <span class="ot">=</span> (<span class="fl">5.62</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.040</span>;</span>
+<span id="cb34-49"><a href="第六章rxode2语法.html#cb34-49" aria-hidden="true" tabindex="-1"></a>  VRB <span class="ot">=</span> (<span class="fl">3.86</span> <span class="sc">*</span>WT<span class="sc">/</span><span class="dv">100</span>)<span class="sc">/</span><span class="fl">1.040</span>;</span>
+<span id="cb34-50"><a href="第六章rxode2语法.html#cb34-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-51"><a href="第六章rxode2语法.html#cb34-51" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Fixed parameters</span></span>
+<span id="cb34-52"><a href="第六章rxode2语法.html#cb34-52" aria-hidden="true" tabindex="-1"></a>  BP <span class="ot">=</span> <span class="fl">0.61</span>;      <span class="co"># Blood:plasma partition coefficient</span></span>
+<span id="cb34-53"><a href="第六章rxode2语法.html#cb34-53" aria-hidden="true" tabindex="-1"></a>  fup <span class="ot">=</span> <span class="fl">0.028</span>;    <span class="co"># Fraction unbound in plasma</span></span>
+<span id="cb34-54"><a href="第六章rxode2语法.html#cb34-54" aria-hidden="true" tabindex="-1"></a>  fub <span class="ot">=</span> fup<span class="sc">/</span>BP;   <span class="co"># Fraction unbound in blood</span></span>
+<span id="cb34-55"><a href="第六章rxode2语法.html#cb34-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-56"><a href="第六章rxode2语法.html#cb34-56" aria-hidden="true" tabindex="-1"></a>  KbLU <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">0.8334</span>);</span>
+<span id="cb34-57"><a href="第六章rxode2语法.html#cb34-57" aria-hidden="true" tabindex="-1"></a>  KbHT <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">1.1205</span>);</span>
+<span id="cb34-58"><a href="第六章rxode2语法.html#cb34-58" aria-hidden="true" tabindex="-1"></a>  KbSK <span class="ot">=</span> <span class="fu">exp</span>(<span class="sc">-</span>.<span class="dv">5238</span>);</span>
+<span id="cb34-59"><a href="第六章rxode2语法.html#cb34-59" aria-hidden="true" tabindex="-1"></a>  KbSP <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb34-60"><a href="第六章rxode2语法.html#cb34-60" aria-hidden="true" tabindex="-1"></a>  KbPA <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb34-61"><a href="第六章rxode2语法.html#cb34-61" aria-hidden="true" tabindex="-1"></a>  KbLI <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">1.7604</span>);</span>
+<span id="cb34-62"><a href="第六章rxode2语法.html#cb34-62" aria-hidden="true" tabindex="-1"></a>  KbST <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">0.3224</span>);</span>
+<span id="cb34-63"><a href="第六章rxode2语法.html#cb34-63" aria-hidden="true" tabindex="-1"></a>  KbGU <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">1.2026</span>);</span>
+<span id="cb34-64"><a href="第六章rxode2语法.html#cb34-64" aria-hidden="true" tabindex="-1"></a>  KbKI <span class="ot">=</span> <span class="fu">exp</span>(<span class="fl">1.3171</span>);</span>
+<span id="cb34-65"><a href="第六章rxode2语法.html#cb34-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-66"><a href="第六章rxode2语法.html#cb34-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-67"><a href="第六章rxode2语法.html#cb34-67" aria-hidden="true" tabindex="-1"></a>  <span class="do">##-----------------------------------------</span></span>
+<span id="cb34-68"><a href="第六章rxode2语法.html#cb34-68" aria-hidden="true" tabindex="-1"></a>  S15 <span class="ot">=</span> VVB<span class="sc">*</span>BP<span class="sc">/</span><span class="dv">1000</span>;</span>
+<span id="cb34-69"><a href="第六章rxode2语法.html#cb34-69" aria-hidden="true" tabindex="-1"></a>  C15 <span class="ot">=</span> Venous_Blood<span class="sc">/</span>S15</span>
+<span id="cb34-70"><a href="第六章rxode2语法.html#cb34-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-71"><a href="第六章rxode2语法.html#cb34-71" aria-hidden="true" tabindex="-1"></a>  <span class="do">##-----------------------------------------</span></span>
+<span id="cb34-72"><a href="第六章rxode2语法.html#cb34-72" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Lungs) <span class="ot">=</span> QLU<span class="sc">*</span>(Venous_Blood<span class="sc">/</span>VVB <span class="sc">-</span> Lungs<span class="sc">/</span>KbLU<span class="sc">/</span>VLU);</span>
+<span id="cb34-73"><a href="第六章rxode2语法.html#cb34-73" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Heart) <span class="ot">=</span> QHT<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Heart<span class="sc">/</span>KbHT<span class="sc">/</span>VHT);</span>
+<span id="cb34-74"><a href="第六章rxode2语法.html#cb34-74" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Brain) <span class="ot">=</span> QBR<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Brain<span class="sc">/</span>KbBR<span class="sc">/</span>VBR);</span>
+<span id="cb34-75"><a href="第六章rxode2语法.html#cb34-75" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Muscles) <span class="ot">=</span> QMU<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Muscles<span class="sc">/</span>KbMU<span class="sc">/</span>VMU);</span>
+<span id="cb34-76"><a href="第六章rxode2语法.html#cb34-76" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Adipose) <span class="ot">=</span> QAD<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Adipose<span class="sc">/</span>KbAD<span class="sc">/</span>VAD);</span>
+<span id="cb34-77"><a href="第六章rxode2语法.html#cb34-77" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Skin) <span class="ot">=</span> QSK<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Skin<span class="sc">/</span>KbSK<span class="sc">/</span>VSK);</span>
+<span id="cb34-78"><a href="第六章rxode2语法.html#cb34-78" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Spleen) <span class="ot">=</span> QSP<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Spleen<span class="sc">/</span>KbSP<span class="sc">/</span>VSP);</span>
+<span id="cb34-79"><a href="第六章rxode2语法.html#cb34-79" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Pancreas) <span class="ot">=</span> QPA<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Pancreas<span class="sc">/</span>KbPA<span class="sc">/</span>VPA);</span>
+<span id="cb34-80"><a href="第六章rxode2语法.html#cb34-80" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Liver) <span class="ot">=</span> QHA<span class="sc">*</span>Arterial_Blood<span class="sc">/</span>VAB <span class="sc">+</span> QSP<span class="sc">*</span>Spleen<span class="sc">/</span>KbSP<span class="sc">/</span>VSP <span class="sc">+</span></span>
+<span id="cb34-81"><a href="第六章rxode2语法.html#cb34-81" aria-hidden="true" tabindex="-1"></a>    QPA<span class="sc">*</span>Pancreas<span class="sc">/</span>KbPA<span class="sc">/</span>VPA <span class="sc">+</span> QST<span class="sc">*</span>Stomach<span class="sc">/</span>KbST<span class="sc">/</span>VST <span class="sc">+</span> QGU<span class="sc">*</span>Gut<span class="sc">/</span>KbGU<span class="sc">/</span>VGU <span class="sc">-</span></span>
+<span id="cb34-82"><a href="第六章rxode2语法.html#cb34-82" aria-hidden="true" tabindex="-1"></a>    CLint<span class="sc">*</span>fub<span class="sc">*</span>Liver<span class="sc">/</span>KbLI<span class="sc">/</span>VLI <span class="sc">-</span> QLI<span class="sc">*</span>Liver<span class="sc">/</span>KbLI<span class="sc">/</span>VLI;</span>
+<span id="cb34-83"><a href="第六章rxode2语法.html#cb34-83" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Stomach) <span class="ot">=</span> QST<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Stomach<span class="sc">/</span>KbST<span class="sc">/</span>VST);</span>
+<span id="cb34-84"><a href="第六章rxode2语法.html#cb34-84" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Gut) <span class="ot">=</span> QGU<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Gut<span class="sc">/</span>KbGU<span class="sc">/</span>VGU);</span>
+<span id="cb34-85"><a href="第六章rxode2语法.html#cb34-85" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Bones) <span class="ot">=</span> QBO<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Bones<span class="sc">/</span>KbBO<span class="sc">/</span>VBO);</span>
+<span id="cb34-86"><a href="第六章rxode2语法.html#cb34-86" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Kidneys) <span class="ot">=</span> QKI<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Kidneys<span class="sc">/</span>KbKI<span class="sc">/</span>VKI);</span>
+<span id="cb34-87"><a href="第六章rxode2语法.html#cb34-87" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Arterial_Blood) <span class="ot">=</span> QLU<span class="sc">*</span>(Lungs<span class="sc">/</span>KbLU<span class="sc">/</span>VLU <span class="sc">-</span> Arterial_Blood<span class="sc">/</span>VAB);</span>
+<span id="cb34-88"><a href="第六章rxode2语法.html#cb34-88" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Venous_Blood) <span class="ot">=</span> QHT<span class="sc">*</span>Heart<span class="sc">/</span>KbHT<span class="sc">/</span>VHT <span class="sc">+</span> QBR<span class="sc">*</span>Brain<span class="sc">/</span>KbBR<span class="sc">/</span>VBR <span class="sc">+</span></span>
+<span id="cb34-89"><a href="第六章rxode2语法.html#cb34-89" aria-hidden="true" tabindex="-1"></a>    QMU<span class="sc">*</span>Muscles<span class="sc">/</span>KbMU<span class="sc">/</span>VMU <span class="sc">+</span> QAD<span class="sc">*</span>Adipose<span class="sc">/</span>KbAD<span class="sc">/</span>VAD <span class="sc">+</span> QSK<span class="sc">*</span>Skin<span class="sc">/</span>KbSK<span class="sc">/</span>VSK <span class="sc">+</span></span>
+<span id="cb34-90"><a href="第六章rxode2语法.html#cb34-90" aria-hidden="true" tabindex="-1"></a>    QLI<span class="sc">*</span>Liver<span class="sc">/</span>KbLI<span class="sc">/</span>VLI <span class="sc">+</span> QBO<span class="sc">*</span>Bones<span class="sc">/</span>KbBO<span class="sc">/</span>VBO <span class="sc">+</span> QKI<span class="sc">*</span>Kidneys<span class="sc">/</span>KbKI<span class="sc">/</span>VKI <span class="sc">+</span></span>
+<span id="cb34-91"><a href="第六章rxode2语法.html#cb34-91" aria-hidden="true" tabindex="-1"></a>    QRB<span class="sc">*</span>Rest_of_Body<span class="sc">/</span>KbRB<span class="sc">/</span>VRB <span class="sc">-</span> QLU<span class="sc">*</span>Venous_Blood<span class="sc">/</span>VVB;</span>
+<span id="cb34-92"><a href="第六章rxode2语法.html#cb34-92" aria-hidden="true" tabindex="-1"></a>  d<span class="sc">/</span><span class="fu">dt</span>(Rest_of_Body) <span class="ot">=</span> QRB<span class="sc">*</span>(Arterial_Blood<span class="sc">/</span>VAB <span class="sc">-</span> Rest_of_Body<span class="sc">/</span>KbRB<span class="sc">/</span>VRB);</span>
+<span id="cb34-93"><a href="第六章rxode2语法.html#cb34-93" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>您可以在简单的打印输出中看到此更改</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="第六章rxode2语法.html#cb35-1" aria-hidden="true" tabindex="-1"></a>pbpk2</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="第六章rxode2语法.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; rxode2 2.0.11 model named rx_8538903f734422ef88399de66a046870 model (✔ ready). </span></span>
+<span id="cb36-2"><a href="第六章rxode2语法.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x$state: Venous_Blood, Skin, Lungs, Heart, Brain, Muscles, Adipose, Spleen, Pancreas, Liver, Stomach, Gut, Bones, Kidneys, Arterial_Blood, Rest_of_Body</span></span>
+<span id="cb36-3"><a href="第六章rxode2语法.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x$params: lKbBR, lKbMU, lKbAD, lCLint, eta.LClint, lKbBO, lKbRB, WT, BP, fup</span></span>
+<span id="cb36-4"><a href="第六章rxode2语法.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; x$lhs: KbBR, KbMU, KbAD, CLint, KbBO, KbRB, CO, QHT, QBR, QMU, QAD, QSK, QSP, QPA, QLI, QST, QGU, QHA, QBO, QKI, QRB, QLU, VLU, VHT, VBR, VMU, VAD, VSK, VSP, VPA, VLI, VST, VGU, VBO, VKI, VAB, VVB, VRB, fub, KbLU, KbHT, KbSK, KbSP, KbPA, KbLI, KbST, KbGU, KbKI, S15, C15</span></span></code></pre></div>
+<p>前两个房室是<code>Venous_Blood</code>后面<code>Skin</code>。</p>
+</div>
+<div id="用cmt将房室附加到模型" class="section level3 hasAnchor">
+<h3>6.4.3用<code>cmt()</code>将房室附加到模型<a href="第六章rxode2语法.html#用cmt将房室附加到模型" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>您还可以将“房室”附加到模型中。由于ODE求解内部结构，在定义所有微分方程之前，您不能将假的房室添加到模型中。</p>
+<p>例如，这是合法的：</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="第六章rxode2语法.html#cb37-1" aria-hidden="true" tabindex="-1"></a>ode<span class="fl">.1</span>c.ka <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb37-2"><a href="第六章rxode2语法.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    C2 <span class="ot">=</span> center<span class="sc">/</span>V;</span>
+<span id="cb37-3"><a href="第六章rxode2语法.html#cb37-3" aria-hidden="true" tabindex="-1"></a>    d <span class="sc">/</span> <span class="fu">dt</span>(depot) <span class="ot">=</span> <span class="sc">-</span>KA <span class="sc">*</span> depot</span>
+<span id="cb37-4"><a href="第六章rxode2语法.html#cb37-4" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(center) <span class="ot">=</span> KA <span class="sc">*</span> depot <span class="sc">-</span> CL<span class="sc">*</span>C2</span>
+<span id="cb37-5"><a href="第六章rxode2语法.html#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cmt</span>(eff);</span>
+<span id="cb37-6"><a href="第六章rxode2语法.html#cb37-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb37-7"><a href="第六章rxode2语法.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ode<span class="fl">.1</span>c.ka)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="第六章rxode2语法.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; rxode2 2.0.11 model named rx_4caaa6b18411f9babd3e3aafb7840fd4 model (✔ ready). </span></span>
+<span id="cb38-2"><a href="第六章rxode2语法.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $state: depot, center</span></span>
+<span id="cb38-3"><a href="第六章rxode2语法.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $stateExtra: eff</span></span>
+<span id="cb38-4"><a href="第六章rxode2语法.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $params: V, KA, CL</span></span>
+<span id="cb38-5"><a href="第六章rxode2语法.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $lhs: C2</span></span></code></pre></div>
+<p>但是在所有微分方程之前定义的房室是不支持的；所以下面的模型：</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="第六章rxode2语法.html#cb39-1" aria-hidden="true" tabindex="-1"></a>ode<span class="fl">.1</span>c.ka <span class="ot">&lt;-</span> <span class="fu">rxode2</span>({</span>
+<span id="cb39-2"><a href="第六章rxode2语法.html#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cmt</span>(eff);</span>
+<span id="cb39-3"><a href="第六章rxode2语法.html#cb39-3" aria-hidden="true" tabindex="-1"></a>    C2 <span class="ot">=</span> center<span class="sc">/</span>V;</span>
+<span id="cb39-4"><a href="第六章rxode2语法.html#cb39-4" aria-hidden="true" tabindex="-1"></a>    d <span class="sc">/</span> <span class="fu">dt</span>(depot) <span class="ot">=</span> <span class="sc">-</span>KA <span class="sc">*</span> depot</span>
+<span id="cb39-5"><a href="第六章rxode2语法.html#cb39-5" aria-hidden="true" tabindex="-1"></a>    d<span class="sc">/</span><span class="fu">dt</span>(center) <span class="ot">=</span> KA <span class="sc">*</span> depot <span class="sc">-</span> CL<span class="sc">*</span>C2</span>
+<span id="cb39-6"><a href="第六章rxode2语法.html#cb39-6" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<p>会出错：</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="第六章rxode2语法.html#cb40-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">rxModelVars_</span>(obj) <span class="sc">:</span> </span>
+<span id="cb40-2"><a href="第六章rxode2语法.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  Evaluation error<span class="sc">:</span> Compartment <span class="st">&#39;eff&#39;</span> needs differential equations defined.</span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="第五章入门.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="第七章rxode2事件.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": null
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true,
+"toc_depth": 3
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

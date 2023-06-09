@@ -1,0 +1,22 @@
+delete_merged_file: true
+number_sections: false
+rmd_files: [
+    "第1章导言.md",
+    "第2章作者和致谢.md",
+    "第3章相关R包.md",
+    "第4章安装.md",
+    "第5章开始.md",
+    "第6章rxode2语法.md",
+    "第7章rxode2事件.md",
+    "第8章轻松创建rxode2事件.md",
+    "第9章求解和求解器选项.md",
+    "第10章rxode2的输出.md",
+    "第11章模拟.md",
+    "第12章示例.md",
+    "第13章高级和其他主题.md",
+    ]
+output_dir: "docs"
+language:
+  ui:
+    chapter_name: NULL
+    fig: NULL
