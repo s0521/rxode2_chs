@@ -464,12 +464,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>为了说明事件类型，我们将使用rxode2中原始的教程中的模型用于举例。</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="第七章rxode2事件.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rxode2)</span>
 <span id="cb41-2"><a href="第七章rxode2事件.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="do">### Model from rxode2 tutorial</span></span>
-<span id="cb41-3"><a href="第七章rxode2事件.html#cb41-3" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">&lt;</span> <span class="sc">-</span> <span class="fu">rxode</span>({</span>
-<span id="cb41-4"><a href="第七章rxode2事件.html#cb41-4" aria-hidden="true" tabindex="-1"></a>KA <span class="ot">=</span><span class="fl">2.94e-01</span>;</span>
-<span id="cb41-5"><a href="第七章rxode2事件.html#cb41-5" aria-hidden="true" tabindex="-1"></a>CL <span class="ot">=</span><span class="fl">1.86e+01</span>;</span>
-<span id="cb41-6"><a href="第七章rxode2事件.html#cb41-6" aria-hidden="true" tabindex="-1"></a>V2 <span class="ot">=</span><span class="fl">4.02e+01</span>;</span>
-<span id="cb41-7"><a href="第七章rxode2事件.html#cb41-7" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span><span class="fl">1.05e+01</span>;</span>
-<span id="cb41-8"><a href="第七章rxode2事件.html#cb41-8" aria-hidden="true" tabindex="-1"></a>V3 <span class="ot">=</span><span class="fl">2.97e+02</span>;</span>
+<span id="cb41-3"><a href="第七章rxode2事件.html#cb41-3" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">rxode</span>({</span>
+<span id="cb41-4"><a href="第七章rxode2事件.html#cb41-4" aria-hidden="true" tabindex="-1"></a>KA <span class="ot">=</span><span class="fl">2.94E-01</span>;</span>
+<span id="cb41-5"><a href="第七章rxode2事件.html#cb41-5" aria-hidden="true" tabindex="-1"></a>CL <span class="ot">=</span><span class="fl">1.86E+01</span>;</span>
+<span id="cb41-6"><a href="第七章rxode2事件.html#cb41-6" aria-hidden="true" tabindex="-1"></a>V2 <span class="ot">=</span><span class="fl">4.02E+01</span>;</span>
+<span id="cb41-7"><a href="第七章rxode2事件.html#cb41-7" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span><span class="fl">1.05E+01</span>;</span>
+<span id="cb41-8"><a href="第七章rxode2事件.html#cb41-8" aria-hidden="true" tabindex="-1"></a>V3 <span class="ot">=</span><span class="fl">2.97E+02</span>;</span>
 <span id="cb41-9"><a href="第七章rxode2事件.html#cb41-9" aria-hidden="true" tabindex="-1"></a>kin<span class="ot">=</span><span class="dv">1</span>;</span>
 <span id="cb41-10"><a href="第七章rxode2事件.html#cb41-10" aria-hidden="true" tabindex="-1"></a>Kout <span class="ot">=</span><span class="dv">1</span>;</span>
 <span id="cb41-11"><a href="第七章rxode2事件.html#cb41-11" aria-hidden="true" tabindex="-1"></a>EC50 <span class="ot">=</span><span class="dv">200</span>;</span>
