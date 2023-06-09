@@ -55,11 +55,11 @@
 library(rxode2)
 ### Model from rxode2 tutorial
 m1 < - rxode({
-KA =2.94 e-01;
-CL =1.86 e + 01;
-V2 =4.02 e + 01;
-Q =1.05 e + 01;
-V3 =2.97 e + 02;
+KA =2.94e-01;
+CL =1.86e+01;
+V2 =4.02e+01;
+Q =1.05e+01;
+V3 =2.97e+02;
 kin=1;
 Kout =1;
 EC50 =200;
