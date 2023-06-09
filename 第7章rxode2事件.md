@@ -60,7 +60,7 @@ CL =1.86E+01;
 V2 =4.02E+01;
 Q =1.05E+01;
 V3 =2.97E+02;
-kin=1;
+Kin=1;
 Kout =1;
 EC50 =200;
     ### Added modeled bioavaiblity, duration and rate
